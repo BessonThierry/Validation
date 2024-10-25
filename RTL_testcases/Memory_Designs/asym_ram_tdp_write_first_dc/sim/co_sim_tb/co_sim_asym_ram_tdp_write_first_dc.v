@@ -9,16 +9,16 @@ module co_sim_asym_ram_tdp_write_first_dc;
     parameter SIZEA = 256;
     parameter ADDRWIDTHA = 8;
 
-    input clkA;
-    input clkB;
-    input weA, weB;
-    input enaA, enaB;
-    input [ADDRWIDTHA-1:0] addrA;
-    input [ADDRWIDTHB-1:0] addrB;
-    input [WIDTHA-1:0] diA;
-    input [WIDTHB-1:0] diB;
-    output [WIDTHA-1:0] doA, doA_netlist;
-    output [WIDTHB-1:0] doB, doB_netlist;
+    reg clkA;
+    reg clkB;
+    reg weA, weB;
+    reg enaA, enaB;
+    reg [ADDRWIDTHA-1:0] addrA;
+    reg [ADDRWIDTHB-1:0] addrB;
+    reg [WIDTHA-1:0] diA;
+    reg [WIDTHB-1:0] diB;
+    wire [WIDTHA-1:0] doA, doA_netlist;
+    wire [WIDTHB-1:0] doB, doB_netlist;
 
     integer mismatch=0;
     reg [6:0]cycle, i;
@@ -40,59 +40,52 @@ module co_sim_asym_ram_tdp_write_first_dc;
         clkB = 1'b0;
         forever #5 clkB = ~clkB;
     end
+
     initial begin
-        for(integer i = 0; i<1024; i=i+1) begin 
-            golden.RAM[i] ='b0;
-        end  
-    end
-    initial begin
-    {enaA, enaB, weA, weB, addrA, addrB, diA,, diB, cycle, i} = 0;
+
+        for (integer i = 0; i < 1024; i++)  begin
+            golden.RAM[i] = 'b0;
+        end
+
+        {diA, addrA, addrB, diB, enaA, enaB, weA, weB } <= 'd0;
  
 
-    repeat (1) @ (negedge clkA);
+    repeat (1) @ (negedge clkB);
     enaA = 1'b1;
-    enaB = 1'b0;
+    enaB = 1'b1;
+    weB = 1'b1;
+    weA =1'b1;
     //write 
     for (integer i=0; i<1024; i=i+1)begin
-        repeat (1) @ (negedge clkA)
-        addrA <= $urandom_range(0,511);  addrB <= $urandom_range(512,1023); weA <=1'b1; diA<= $random;
+        repeat (4) @ (negedge clkB)
+        addrA <= $urandom_range(0,511);  addrB <= $urandom_range(512,1023); weA <=1'b1; diA<= $random; diB<= $random;
         cycle = cycle +1;
         
         compare(cycle);
 
     end
 
-    repeat (1) @ (negedge clkA);
+    repeat (1) @ (negedge clkB);
     enaB = 1'b1;
-    enaA = 1'b0;
-    weA =0;
+    enaA = 1'b1;
+    weA =1;
     //reading 
     for (integer i=0; i<1024; i=i+1)begin
-        repeat (1) @ (negedge clkB)
-        addrA <= $urandom_range(0,511);  addrB <= $urandom_range(512,1023); weB <= 1; diB<= $random;
+        repeat (4) @ (negedge clkB)
+        addrA <= $urandom_range(0,511);  addrB <= $urandom_range(512,1023); weB <= 1; diA<= $random; diB<= $random;
         cycle = cycle +1;
         
         compare(cycle);
 
     end
 
-       for (integer i=0; i<1024; i=i+1)begin
-        repeat (1) @ (negedge clkB)
-        enaB = $random;
-        enaA = $random;
-        addrA <= $urandom_range(0,511);  addrB <= $urandom_range(512,1023); weA=$random; weB <= $random; diA<= $random; diB<= $random;
-        cycle = cycle +1;
-        
-        compare(cycle);
-
-    end
     if(mismatch == 0)
         $display("\n**** All Comparison Matched ***\nSimulation Passed");
     else
         $display("%0d comparison(s) mismatched\nERROR: SIM: Simulation Failed", mismatch);
     
 
-    repeat (10) @(negedge clk); $finish;
+    repeat (10) @(negedge clkB); $finish;
     end
 
     task compare(input integer cycle);
