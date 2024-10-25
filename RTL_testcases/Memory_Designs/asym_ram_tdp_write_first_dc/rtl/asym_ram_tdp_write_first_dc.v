@@ -49,8 +49,11 @@ localparam RATIO = maxWIDTH / minWIDTH;
 localparam log2RATIO = log2(RATIO);
 
 reg [minWIDTH-1:0] RAM [0:maxSIZE-1];
-reg [WIDTHA-1:0] readA;
+reg [WIDTHA-1:0] readA = 'd0;
 reg [WIDTHB-1:0] readB;
+
+// RAM Inference for blocking assignments can be achieved 
+// in this case as it meets the blocking->nonblocking conversion criteria    
 always @(posedge clkB)
 begin
     if (enaB) 
@@ -61,6 +64,8 @@ begin
     end
 end
 
+// This block prevents current mapping in our architecture
+   /*
 always @(posedge clkA)
 begin : portA
 integer i;
@@ -76,6 +81,7 @@ reg [log2RATIO-1:0] lsbaddr ;
             end
     end
 end
+*/
 
 assign doA = readA;
 assign doB = readB;
