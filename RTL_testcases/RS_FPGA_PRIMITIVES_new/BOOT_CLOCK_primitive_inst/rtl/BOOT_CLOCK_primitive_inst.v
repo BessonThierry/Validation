@@ -1,7 +1,7 @@
 module BOOT_CLOCK_primitive_inst (
   input wire clk1,       // Source clock domain clock
   input wire async_signal, // Asynchronous signal to be synchronized
-  output reg sync_signal, // Synchronized signal
+  output reg sync_signal = 0, // Synchronized signal
   output reg O_BOOT_CLOCK // Clock output
 );
 
