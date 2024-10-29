@@ -48,12 +48,12 @@ module Briey (
   wire       [4:0]    axi_uartCtrl_io_apb_PADDR;
   wire                axi_vgaCtrl_io_axi_ar_ready;
   wire       [7:0]    axi_vgaCtrl_io_apb_PADDR;
-  reg                 axi_core_cpu_dBus_cmd_ready;
+  reg                 axi_core_cpu_dBus_cmd_ready = 0;
   wire                axi_core_cpu_dBus_rsp_payload_last;
   wire                axi_core_cpu_dBus_rsp_payload_error;
   wire       [7:0]    axi_core_cpu_debug_bus_cmd_payload_address;
   wire                axi_core_cpu_iBus_rsp_payload_error;
-  reg                 dbus_axi_decoder_io_input_r_ready;
+  reg                 dbus_axi_decoder_io_input_r_ready = 0;
   wire       [11:0]   axi_ram_io_axi_arbiter_io_readInputs_0_ar_payload_addr;
   wire       [11:0]   axi_ram_io_axi_arbiter_io_sharedInputs_0_arw_payload_addr;
   wire                axi_ram_io_axi_arbiter_io_output_arw_ready;
@@ -376,13 +376,13 @@ module Briey (
   wire                apb3Router_1_io_outputs_4_PWRITE;
   wire       [31:0]   apb3Router_1_io_outputs_4_PWDATA;
   wire       [2:0]    _zz_dbus_axi_arw_payload_len;
-  reg                 resetCtrl_systemResetUnbuffered;
-  reg        [5:0]    resetCtrl_systemResetCounter;
+  reg                 resetCtrl_systemResetUnbuffered = 0;
+  reg        [5:0]    resetCtrl_systemResetCounter = 0;
   wire       [5:0]    _zz_when_Briey_l211;
   wire                when_Briey_l211;
   wire                when_Briey_l215;
-  reg                 resetCtrl_systemReset;
-  reg                 resetCtrl_axiReset;
+  reg                 resetCtrl_systemReset = 0;
+  reg                 resetCtrl_axiReset = 0;
   wire                resetCtrl_vgaReset;
   wire                dbus_axi_arw_valid;
   wire                dbus_axi_arw_ready;
@@ -406,7 +406,7 @@ module Briey (
   wire       [1:0]    dbus_axi_r_payload_resp;
   wire                dbus_axi_r_payload_last;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_valid;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_ready;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_ready = 0;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_wr;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_uncached;
   wire       [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_address;
@@ -414,14 +414,14 @@ module Briey (
   wire       [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_mask;
   wire       [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_size;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_payload_last;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_rValid;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_wr;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_uncached;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_rData_address;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_rData_data;
-  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_rData_mask;
-  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_rData_size;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_last;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_rValid = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_wr = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_uncached = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_rData_address = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_rData_data = 0;
+  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_rData_mask = 0;
+  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_rData_size = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_rData_last = 0;
   wire                when_Stream_l369;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_valid;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_ready;
@@ -432,14 +432,14 @@ module Briey (
   wire       [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_payload_mask;
   wire       [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_payload_size;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_payload_last;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rValid;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_wr;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_uncached;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_address;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_data;
-  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_mask;
-  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_size;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_last;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rValid = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_wr = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_uncached = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_address = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_data = 0;
+  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_mask = 0;
+  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_size = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_rData_last = 0;
   wire                when_Stream_l369_1;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_valid;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready;
@@ -450,44 +450,44 @@ module Briey (
   wire       [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_payload_mask;
   wire       [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_payload_size;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_payload_last;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rValidN;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_wr;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_uncached;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_address;
-  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_data;
-  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_mask;
-  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_size;
-  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_last;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rValidN = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_wr = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_uncached = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_address = 0;
+  reg        [31:0]   toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_data = 0;
+  reg        [3:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_mask = 0;
+  reg        [2:0]    toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_size = 0;
+  reg                 toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_rData_last = 0;
   wire                toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_fire;
   wire                when_Utils_l659;
   wire                dbus_axi_b_fire;
-  reg                 _zz_when_Utils_l687;
-  reg                 _zz_when_Utils_l687_1;
-  reg        [2:0]    _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready;
-  reg        [2:0]    _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready_1;
+  reg                 _zz_when_Utils_l687 = 0;
+  reg                 _zz_when_Utils_l687_1 = 0;
+  reg        [2:0]    _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready = 0;
+  reg        [2:0]    _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready_1 = 0;
   wire                when_Utils_l687;
   wire                when_Utils_l689;
   wire                _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready_2;
   wire                _zz_dbus_axi_arw_valid;
-  reg                 _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready_3;
+  reg                 _zz_toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_ready_3 = 0;
   wire                _zz_dbus_axi_arw_payload_write;
   wire                _zz_dbus_axi_w_payload_last;
   wire                _zz_dbus_axi_arw_valid_1;
-  reg                 _zz_when_Stream_l998;
+  reg                 _zz_when_Stream_l998 = 0;
   wire                _zz_dbus_axi_w_valid;
-  reg                 _zz_when_Stream_l998_1;
-  reg                 _zz_when_Stream_l998_2;
-  reg                 _zz_when_Stream_l998_3;
+  reg                 _zz_when_Stream_l998_1 = 0;
+  reg                 _zz_when_Stream_l998_2 = 0;
+  reg                 _zz_when_Stream_l998_3 = 0;
   wire                when_Stream_l998;
   wire                when_Stream_l998_1;
-  wire                _zz_1;
-  reg                 _zz_2;
+  wire                _zz_1 = 0;
+  reg                 _zz_2 = 0;
   reg                 _zz_dbus_axi_arw_valid_2;
-  wire                when_Stream_l439;
-  reg                 _zz_dbus_axi_w_valid_1;
+  wire                when_Stream_l439 = 0;
+  reg                 _zz_dbus_axi_w_valid_1 = 0;
   reg                 toplevel_axi_core_cpu_debug_resetOut_regNext;
   wire                toplevel_axi_core_cpu_debug_bus_cmd_fire;
-  reg                 toplevel_axi_core_cpu_debug_bus_cmd_fire_regNext;
+  reg                 toplevel_axi_core_cpu_debug_bus_cmd_fire_regNext = 0;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_valid;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_ready;
   wire       [31:0]   toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_payload_addr;
@@ -495,7 +495,7 @@ module Briey (
   wire       [1:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_payload_burst;
   wire       [3:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_payload_cache;
   wire       [2:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_payload_prot;
-  reg                 toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_rValid;
+  reg                 toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_rValid = 0;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_0_ar_validPipe_fire;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_valid;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_ready;
@@ -504,7 +504,7 @@ module Briey (
   wire       [1:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_payload_burst;
   wire       [3:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_payload_cache;
   wire       [2:0]    toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_payload_prot;
-  reg                 toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_rValid;
+  reg                 toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_rValid = 0;
   wire                toplevel_axi4ReadOnlyDecoder_2_io_outputs_1_ar_validPipe_fire;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_valid;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_ready;
@@ -514,7 +514,7 @@ module Briey (
   wire       [3:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_payload_cache;
   wire       [2:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_payload_prot;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_payload_write;
-  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_rValid;
+  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_rValid = 0;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_0_arw_validPipe_fire;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_valid;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_ready;
@@ -524,7 +524,7 @@ module Briey (
   wire       [3:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_payload_cache;
   wire       [2:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_payload_prot;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_payload_write;
-  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_rValid;
+  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_rValid = 0;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_1_arw_validPipe_fire;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_valid;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_ready;
@@ -534,17 +534,17 @@ module Briey (
   wire       [3:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_payload_cache;
   wire       [2:0]    toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_payload_prot;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_payload_write;
-  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_rValid;
+  reg                 toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_rValid = 0;
   wire                toplevel_dbus_axi_decoder_io_sharedOutputs_2_arw_validPipe_fire;
   wire                toplevel_dbus_axi_decoder_io_input_r_m2sPipe_valid;
   wire                toplevel_dbus_axi_decoder_io_input_r_m2sPipe_ready;
   wire       [31:0]   toplevel_dbus_axi_decoder_io_input_r_m2sPipe_payload_data;
   wire       [1:0]    toplevel_dbus_axi_decoder_io_input_r_m2sPipe_payload_resp;
   wire                toplevel_dbus_axi_decoder_io_input_r_m2sPipe_payload_last;
-  reg                 toplevel_dbus_axi_decoder_io_input_r_rValid;
-  reg        [31:0]   toplevel_dbus_axi_decoder_io_input_r_rData_data;
-  reg        [1:0]    toplevel_dbus_axi_decoder_io_input_r_rData_resp;
-  reg                 toplevel_dbus_axi_decoder_io_input_r_rData_last;
+  reg                 toplevel_dbus_axi_decoder_io_input_r_rValid = 0;
+  reg        [31:0]   toplevel_dbus_axi_decoder_io_input_r_rData_data = 0;
+  reg        [1:0]    toplevel_dbus_axi_decoder_io_input_r_rData_resp = 0;
+  reg                 toplevel_dbus_axi_decoder_io_input_r_rData_last = 0;
   wire                when_Stream_l369_2;
   wire                toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_valid;
   wire                toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_ready;
@@ -553,7 +553,7 @@ module Briey (
   wire       [2:0]    toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_payload_size;
   wire       [3:0]    toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_payload_cache;
   wire       [2:0]    toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_payload_prot;
-  reg                 toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_rValid;
+  reg                 toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_rValid = 0;
   wire                toplevel_axi_vgaCtrl_io_axi_decoder_io_outputs_0_ar_validPipe_fire;
   wire                toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_valid;
   wire                toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_ready;
@@ -562,13 +562,13 @@ module Briey (
   wire       [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_payload_size;
   wire       [3:0]    toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_payload_cache;
   wire       [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_payload_prot;
-  reg                 toplevel_axi_vgaCtrl_io_axi_ar_rValid;
+  reg                 toplevel_axi_vgaCtrl_io_axi_ar_rValid = 0;
   wire                toplevel_axi_vgaCtrl_io_axi_ar_halfPipe_fire;
-  reg        [31:0]   toplevel_axi_vgaCtrl_io_axi_ar_rData_addr;
-  reg        [7:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_len;
-  reg        [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_size;
-  reg        [3:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_cache;
-  reg        [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_prot;
+  reg        [31:0]   toplevel_axi_vgaCtrl_io_axi_ar_rData_addr = 0;
+  reg        [7:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_len = 0;
+  reg        [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_size = 0;
+  reg        [3:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_cache = 0;
+  reg        [2:0]    toplevel_axi_vgaCtrl_io_axi_ar_rData_prot = 0;
   wire       [2:0]    _zz_io_readInputs_0_ar_payload_id;
   wire       [2:0]    _zz_io_sharedInputs_0_arw_payload_id;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_arw_halfPipe_valid;
@@ -579,32 +579,32 @@ module Briey (
   wire       [2:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_halfPipe_payload_size;
   wire       [1:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_halfPipe_payload_burst;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_arw_halfPipe_payload_write;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_arw_rValid;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_arw_rValid = 0;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_arw_halfPipe_fire;
-  reg        [11:0]   toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_addr;
-  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_id;
-  reg        [7:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_len;
-  reg        [2:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_size;
-  reg        [1:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_burst;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_write;
+  reg        [11:0]   toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_addr = 0;
+  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_id = 0;
+  reg        [7:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_len = 0;
+  reg        [2:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_size = 0;
+  reg        [1:0]    toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_burst = 0;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_arw_rData_write = 0;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_valid;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_ready;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_ready = 0;
   wire       [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_payload_data;
   wire       [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_payload_strb;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_payload_last;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_rValidN;
-  reg        [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_data;
-  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_strb;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_last;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_rValidN = 0;
+  reg        [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_data = 0;
+  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_strb = 0;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_rData_last = 0;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_valid;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_ready;
   wire       [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_data;
   wire       [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_strb;
   wire                toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_last;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rValid;
-  reg        [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_data;
-  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_strb;
-  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_last;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rValid = 0;
+  reg        [31:0]   toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_data = 0;
+  reg        [3:0]    toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_strb = 0;
+  reg                 toplevel_axi_ram_io_axi_arbiter_io_output_w_s2mPipe_rData_last = 0;
   wire                when_Stream_l369_3;
   wire       [1:0]    _zz_io_readInputs_0_ar_payload_id_1;
   wire       [1:0]    _zz_io_readInputs_1_ar_payload_id;
@@ -617,32 +617,32 @@ module Briey (
   wire       [2:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_halfPipe_payload_size;
   wire       [1:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_halfPipe_payload_burst;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_halfPipe_payload_write;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rValid;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rValid = 0;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_halfPipe_fire;
-  reg        [25:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_addr;
-  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_id;
-  reg        [7:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_len;
-  reg        [2:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_size;
-  reg        [1:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_burst;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_write;
+  reg        [25:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_addr = 0;
+  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_id = 0;
+  reg        [7:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_len = 0;
+  reg        [2:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_size = 0;
+  reg        [1:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_burst = 0;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_arw_rData_write = 0;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_valid;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_ready;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_ready = 0;
   wire       [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_payload_data;
   wire       [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_payload_strb;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_payload_last;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rValidN;
-  reg        [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_data;
-  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_strb;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_last;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rValidN = 0;
+  reg        [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_data = 0;
+  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_strb = 0;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_rData_last = 0;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_valid;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_ready;
   wire       [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_data;
   wire       [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_strb;
   wire                toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_m2sPipe_payload_last;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rValid;
-  reg        [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_data;
-  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_strb;
-  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_last;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rValid = 0;
+  reg        [31:0]   toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_data = 0;
+  reg        [3:0]    toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_strb = 0;
+  reg                 toplevel_axi_sdramCtrl_io_axi_arbiter_io_output_w_s2mPipe_rData_last = 0;
   wire                when_Stream_l369_4;
   wire       [3:0]    _zz_io_sharedInputs_0_arw_payload_id_2;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_valid;
@@ -653,24 +653,24 @@ module Briey (
   wire       [2:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_payload_size;
   wire       [1:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_payload_burst;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_payload_write;
-  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rValid;
+  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rValid = 0;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_fire;
-  reg        [19:0]   toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_addr;
-  reg        [3:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_id;
-  reg        [7:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_len;
-  reg        [2:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_size;
-  reg        [1:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_burst;
-  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_write;
+  reg        [19:0]   toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_addr = 0;
+  reg        [3:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_id = 0;
+  reg        [7:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_len = 0;
+  reg        [2:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_size = 0;
+  reg        [1:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_burst = 0;
+  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_arw_rData_write = 0;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_valid;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_ready;
   wire       [31:0]   toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_payload_data;
   wire       [3:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_payload_strb;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_payload_last;
-  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rValid;
+  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rValid = 0;
   wire                toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_fire;
-  reg        [31:0]   toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_data;
-  reg        [3:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_strb;
-  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_last;
+  reg        [31:0]   toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_data = 0;
+  reg        [3:0]    toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_strb = 0;
+  reg                 toplevel_axi_apbBridge_io_axi_arbiter_io_output_w_rData_last = 0;
 
   assign _zz_dbus_axi_arw_payload_len = ((toplevel_axi_core_cpu_dBus_cmd_m2sPipe_m2sPipe_s2mPipe_payload_size == 3'b101) ? 3'b111 : 3'b000);
   BufferCC io_asyncReset_buffercc (
@@ -2026,14 +2026,14 @@ module Apb3Router (
   input               resetCtrl_axiReset
 );
 
-  reg                 _zz_io_input_PREADY;
-  reg        [31:0]   _zz_io_input_PRDATA;
-  reg                 _zz_io_input_PSLVERROR;
+  reg                 _zz_io_input_PREADY = 0;
+  reg        [31:0]   _zz_io_input_PRDATA = 0;
+  reg                 _zz_io_input_PSLVERROR = 0;
   wire                _zz_selIndex;
   wire                _zz_selIndex_1;
   wire                _zz_selIndex_2;
   wire                _zz_selIndex_3;
-  reg        [2:0]    selIndex;
+  reg        [2:0]    selIndex = 0;
 
   always @(*) begin
     case(selIndex)
@@ -2108,13 +2108,13 @@ module Apb3Decoder (
   input      [19:0]   io_input_PADDR,
   input      [0:0]    io_input_PSEL,
   input               io_input_PENABLE,
-  output reg          io_input_PREADY,
+  output reg          io_input_PREADY = 0,
   input               io_input_PWRITE,
   input      [31:0]   io_input_PWDATA,
   output     [31:0]   io_input_PRDATA,
-  output reg          io_input_PSLVERROR,
+  output reg          io_input_PSLVERROR = 0,
   output     [19:0]   io_output_PADDR,
-  output reg [4:0]    io_output_PSEL,
+  output reg [4:0]    io_output_PSEL = 0,
   output              io_output_PENABLE,
   input               io_output_PREADY,
   output              io_output_PWRITE,
@@ -2207,7 +2207,7 @@ module Axi4SharedArbiter_2 (
   input               resetCtrl_axiReset
 );
 
-  reg                 cmdArbiter_io_output_ready;
+  reg                 cmdArbiter_io_output_ready = 0;
   wire                cmdRouteFork_thrown_translated_fifo_io_pop_ready;
   wire                cmdArbiter_io_inputs_0_ready;
   wire                cmdArbiter_io_output_valid;
@@ -2239,21 +2239,21 @@ module Axi4SharedArbiter_2 (
   wire       [1:0]    cmdOutputFork_payload_burst;
   wire                cmdOutputFork_payload_write;
   wire                cmdRouteFork_valid;
-  reg                 cmdRouteFork_ready;
+  reg                 cmdRouteFork_ready = 0;
   wire       [19:0]   cmdRouteFork_payload_addr;
   wire       [3:0]    cmdRouteFork_payload_id;
   wire       [7:0]    cmdRouteFork_payload_len;
   wire       [2:0]    cmdRouteFork_payload_size;
   wire       [1:0]    cmdRouteFork_payload_burst;
   wire                cmdRouteFork_payload_write;
-  reg                 axi_apbBridge_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0;
-  reg                 axi_apbBridge_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1;
+  reg                 axi_apbBridge_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0 = 0;
+  reg                 axi_apbBridge_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1 = 0;
   wire                when_Stream_l998;
   wire                when_Stream_l998_1;
   wire                cmdOutputFork_fire;
   wire                cmdRouteFork_fire;
   wire                when_Stream_l439;
-  reg                 cmdRouteFork_thrown_valid;
+  reg                 cmdRouteFork_thrown_valid = 0;
   wire                cmdRouteFork_thrown_ready;
   wire       [19:0]   cmdRouteFork_thrown_payload_addr;
   wire       [3:0]    cmdRouteFork_thrown_payload_id;
@@ -2495,7 +2495,7 @@ module Axi4SharedArbiter_1 (
   input               resetCtrl_axiReset
 );
 
-  reg                 cmdArbiter_io_output_ready;
+  reg                 cmdArbiter_io_output_ready = 0;
   wire                cmdRouteFork_thrown_translated_fifo_io_pop_ready;
   wire                cmdArbiter_io_inputs_0_ready;
   wire                cmdArbiter_io_inputs_1_ready;
@@ -2515,7 +2515,7 @@ module Axi4SharedArbiter_1 (
   wire       [2:0]    cmdRouteFork_thrown_translated_fifo_io_availability;
   wire       [3:0]    _zz_io_output_arw_payload_id_3;
   wire       [1:0]    _zz_io_output_arw_payload_id_4;
-  reg                 _zz_io_output_r_ready;
+  reg                 _zz_io_output_r_ready = 0;
   wire                inputsCmd_0_valid;
   wire                inputsCmd_0_ready;
   wire       [25:0]   inputsCmd_0_payload_addr;
@@ -2549,15 +2549,15 @@ module Axi4SharedArbiter_1 (
   wire       [1:0]    cmdOutputFork_payload_burst;
   wire                cmdOutputFork_payload_write;
   wire                cmdRouteFork_valid;
-  reg                 cmdRouteFork_ready;
+  reg                 cmdRouteFork_ready = 0;
   wire       [25:0]   cmdRouteFork_payload_addr;
   wire       [1:0]    cmdRouteFork_payload_id;
   wire       [7:0]    cmdRouteFork_payload_len;
   wire       [2:0]    cmdRouteFork_payload_size;
   wire       [1:0]    cmdRouteFork_payload_burst;
   wire                cmdRouteFork_payload_write;
-  reg                 axi_sdramCtrl_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0;
-  reg                 axi_sdramCtrl_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1;
+  reg                 axi_sdramCtrl_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0 = 0;
+  reg                 axi_sdramCtrl_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1 = 0;
   wire                when_Stream_l998;
   wire                when_Stream_l998_1;
   wire                cmdOutputFork_fire;
@@ -2566,7 +2566,7 @@ module Axi4SharedArbiter_1 (
   wire                _zz_io_output_arw_payload_id_1;
   wire                _zz_io_output_arw_payload_id_2;
   wire                when_Stream_l439;
-  reg                 cmdRouteFork_thrown_valid;
+  reg                 cmdRouteFork_thrown_valid = 0;
   wire                cmdRouteFork_thrown_ready;
   wire       [25:0]   cmdRouteFork_thrown_payload_addr;
   wire       [1:0]    cmdRouteFork_thrown_payload_id;
@@ -2859,7 +2859,7 @@ module Axi4SharedArbiter (
   input               resetCtrl_axiReset
 );
 
-  reg                 cmdArbiter_io_output_ready;
+  reg                 cmdArbiter_io_output_ready = 0;
   wire                cmdRouteFork_thrown_translated_fifo_io_pop_ready;
   wire                cmdArbiter_io_inputs_0_ready;
   wire                cmdArbiter_io_inputs_1_ready;
@@ -2879,7 +2879,7 @@ module Axi4SharedArbiter (
   wire       [1:0]    _zz__zz_io_output_arw_payload_id;
   wire       [3:0]    _zz_io_output_arw_payload_id_1;
   wire       [2:0]    _zz_io_output_arw_payload_id_2;
-  reg                 _zz_io_output_r_ready;
+  reg                 _zz_io_output_r_ready = 0;
   wire                inputsCmd_0_valid;
   wire                inputsCmd_0_ready;
   wire       [11:0]   inputsCmd_0_payload_addr;
@@ -2905,22 +2905,22 @@ module Axi4SharedArbiter (
   wire       [1:0]    cmdOutputFork_payload_burst;
   wire                cmdOutputFork_payload_write;
   wire                cmdRouteFork_valid;
-  reg                 cmdRouteFork_ready;
+  reg                 cmdRouteFork_ready = 0;
   wire       [11:0]   cmdRouteFork_payload_addr;
   wire       [2:0]    cmdRouteFork_payload_id;
   wire       [7:0]    cmdRouteFork_payload_len;
   wire       [2:0]    cmdRouteFork_payload_size;
   wire       [1:0]    cmdRouteFork_payload_burst;
   wire                cmdRouteFork_payload_write;
-  reg                 axi_ram_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0;
-  reg                 axi_ram_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1;
+  reg                 axi_ram_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_0 = 0;
+  reg                 axi_ram_io_axi_arbiter_cmdArbiter_io_output_fork2_logic_linkEnable_1 = 0;
   wire                when_Stream_l998;
   wire                when_Stream_l998_1;
   wire                cmdOutputFork_fire;
   wire                cmdRouteFork_fire;
   wire                _zz_io_output_arw_payload_id;
   wire                when_Stream_l439;
-  reg                 cmdRouteFork_thrown_valid;
+  reg                 cmdRouteFork_thrown_valid = 0;
   wire                cmdRouteFork_thrown_ready;
   wire       [11:0]   cmdRouteFork_thrown_payload_addr;
   wire       [2:0]    cmdRouteFork_thrown_payload_id;
@@ -3131,10 +3131,10 @@ module Axi4ReadOnlyDecoder_1 (
   input      [2:0]    io_input_ar_payload_size,
   input      [3:0]    io_input_ar_payload_cache,
   input      [2:0]    io_input_ar_payload_prot,
-  output reg          io_input_r_valid,
+  output reg          io_input_r_valid = 0,
   input               io_input_r_ready,
   output     [31:0]   io_input_r_payload_data,
-  output reg          io_input_r_payload_last,
+  output reg          io_input_r_payload_last = 0,
   output              io_outputs_0_ar_valid,
   input               io_outputs_0_ar_ready,
   output     [31:0]   io_outputs_0_ar_payload_addr,
@@ -3158,19 +3158,19 @@ module Axi4ReadOnlyDecoder_1 (
   wire                io_input_ar_fire;
   wire                io_input_r_fire;
   wire                when_Utils_l662;
-  reg                 pendingCmdCounter_incrementIt;
-  reg                 pendingCmdCounter_decrementIt;
+  reg                 pendingCmdCounter_incrementIt = 0;
+  reg                 pendingCmdCounter_decrementIt = 0;
   wire       [2:0]    pendingCmdCounter_valueNext;
-  reg        [2:0]    pendingCmdCounter_value;
+  reg        [2:0]    pendingCmdCounter_value = 0;
   wire                pendingCmdCounter_willOverflowIfInc;
   wire                pendingCmdCounter_willOverflow;
-  reg        [2:0]    pendingCmdCounter_finalIncrement;
+  reg        [2:0]    pendingCmdCounter_finalIncrement = 0;
   wire                when_Utils_l687;
   wire                when_Utils_l689;
   wire       [0:0]    decodedCmdSels;
   wire                decodedCmdError;
-  reg        [0:0]    pendingSels;
-  reg                 pendingError;
+  reg        [0:0]    pendingSels = 0;
+  reg                 pendingError = 0;
   wire                allowCmd;
 
   Axi4ReadOnlyErrorSlave errorSlave (
@@ -3284,12 +3284,12 @@ module Axi4SharedDecoder (
   input               io_input_w_payload_last,
   output              io_input_b_valid,
   input               io_input_b_ready,
-  output reg [1:0]    io_input_b_payload_resp,
+  output reg [1:0]    io_input_b_payload_resp = 0,
   output              io_input_r_valid,
   input               io_input_r_ready,
   output     [31:0]   io_input_r_payload_data,
-  output reg [1:0]    io_input_r_payload_resp,
-  output reg          io_input_r_payload_last,
+  output reg [1:0]    io_input_r_payload_resp = 0,
+  output reg          io_input_r_payload_last = 0,
   output              io_sharedOutputs_0_arw_valid,
   input               io_sharedOutputs_0_arw_ready,
   output     [31:0]   io_sharedOutputs_0_arw_payload_addr,
@@ -3367,13 +3367,13 @@ module Axi4SharedDecoder (
   wire       [31:0]   errorSlave_io_axi_r_payload_data;
   wire       [1:0]    errorSlave_io_axi_r_payload_resp;
   wire                errorSlave_io_axi_r_payload_last;
-  reg        [1:0]    _zz_io_input_b_payload_resp;
-  reg        [31:0]   _zz_io_input_r_payload_data;
-  reg        [1:0]    _zz_io_input_r_payload_resp;
-  reg                 _zz_io_input_r_payload_last;
-  reg        [2:0]    _zz_pendingCmdCounter;
-  reg        [2:0]    _zz_pendingCmdCounter_1;
-  reg        [2:0]    _zz_pendingCmdCounter_2;
+  reg        [1:0]    _zz_io_input_b_payload_resp = 0;
+  reg        [31:0]   _zz_io_input_r_payload_data = 0;
+  reg        [1:0]    _zz_io_input_r_payload_resp = 0;
+  reg                 _zz_io_input_r_payload_last = 0;
+  reg        [2:0]    _zz_pendingCmdCounter = 0;
+  reg        [2:0]    _zz_pendingCmdCounter_1 = 0;
+  reg        [2:0]    _zz_pendingCmdCounter_2 = 0;
   wire                cmdAllowedStart;
   wire                io_input_arw_fire;
   wire                io_input_b_fire;
@@ -3384,22 +3384,22 @@ module Axi4SharedDecoder (
   wire                when_Utils_l659;
   wire                io_input_w_fire;
   wire                when_Utils_l662;
-  reg                 pendingDataCounter_incrementIt;
-  reg                 pendingDataCounter_decrementIt;
+  reg                 pendingDataCounter_incrementIt = 0;
+  reg                 pendingDataCounter_decrementIt = 0;
   wire       [2:0]    pendingDataCounter_valueNext;
-  reg        [2:0]    pendingDataCounter_value;
+  reg        [2:0]    pendingDataCounter_value = 0;
   wire                pendingDataCounter_willOverflowIfInc;
   wire                pendingDataCounter_willOverflow;
-  reg        [2:0]    pendingDataCounter_finalIncrement;
+  reg        [2:0]    pendingDataCounter_finalIncrement = 0;
   wire                when_Utils_l687;
   wire                when_Utils_l689;
   wire       [2:0]    decodedCmdSels;
   wire                decodedCmdError;
-  reg        [2:0]    pendingSels;
-  reg                 pendingError;
+  reg        [2:0]    pendingSels = 0;
+  reg                 pendingError = 0;
   wire                allowCmd;
   wire                allowData;
-  reg                 _zz_cmdAllowedStart;
+  reg                 _zz_cmdAllowedStart = 0;
   wire       [2:0]    _zz_io_sharedOutputs_0_arw_valid;
   wire       [2:0]    _zz_io_sharedOutputs_0_w_valid;
   wire       [2:0]    _zz_writeRspIndex;
@@ -3642,10 +3642,10 @@ module Axi4ReadOnlyDecoder (
   input      [1:0]    io_input_ar_payload_burst,
   input      [3:0]    io_input_ar_payload_cache,
   input      [2:0]    io_input_ar_payload_prot,
-  output reg          io_input_r_valid,
+  output reg          io_input_r_valid = 0,
   input               io_input_r_ready,
   output     [31:0]   io_input_r_payload_data,
-  output reg [1:0]    io_input_r_payload_resp,
+  output reg [1:0]    io_input_r_payload_resp = 0,
   output reg          io_input_r_payload_last,
   output              io_outputs_0_ar_valid,
   input               io_outputs_0_ar_ready,
@@ -3684,19 +3684,19 @@ module Axi4ReadOnlyDecoder (
   wire                io_input_ar_fire;
   wire                io_input_r_fire;
   wire                when_Utils_l662;
-  reg                 pendingCmdCounter_incrementIt;
-  reg                 pendingCmdCounter_decrementIt;
+  reg                 pendingCmdCounter_incrementIt = 0;
+  reg                 pendingCmdCounter_decrementIt = 0;
   wire       [2:0]    pendingCmdCounter_valueNext;
-  reg        [2:0]    pendingCmdCounter_value;
+  reg        [2:0]    pendingCmdCounter_value = 0;
   wire                pendingCmdCounter_willOverflowIfInc;
   wire                pendingCmdCounter_willOverflow;
-  reg        [2:0]    pendingCmdCounter_finalIncrement;
+  reg        [2:0]    pendingCmdCounter_finalIncrement = 0;
   wire                when_Utils_l687;
   wire                when_Utils_l689;
   wire       [1:0]    decodedCmdSels;
   wire                decodedCmdError;
-  reg        [1:0]    pendingSels;
-  reg                 pendingError;
+  reg        [1:0]    pendingSels = 0;
+  reg                 pendingError = 0;
   wire                allowCmd;
   wire                _zz_io_input_r_payload_data;
   wire                _zz_readRspIndex;
@@ -3836,12 +3836,12 @@ module SystemDebugger (
   input               resetCtrl_systemReset
 );
 
-  reg        [66:0]   dispatcher_dataShifter;
-  reg                 dispatcher_dataLoaded;
-  reg        [7:0]    dispatcher_headerShifter;
+  reg        [66:0]   dispatcher_dataShifter = 0;
+  reg                 dispatcher_dataLoaded = 0;
+  reg        [7:0]    dispatcher_headerShifter = 0;
   wire       [7:0]    dispatcher_header;
-  reg                 dispatcher_headerLoaded;
-  reg        [2:0]    dispatcher_counter;
+  reg                 dispatcher_headerLoaded = 0;
+  reg        [2:0]    dispatcher_counter = 0;
   wire                when_Fragment_l356;
   wire                when_Fragment_l359;
   wire       [66:0]   _zz_io_mem_cmd_payload_address;
@@ -3947,12 +3947,12 @@ module JtagBridge (
   wire                system_cmd_toStream_ready;
   wire                system_cmd_toStream_payload_last;
   wire       [0:0]    system_cmd_toStream_payload_fragment;
-  (* async_reg = "true" *) reg                 system_rsp_valid;
-  (* async_reg = "true" *) reg                 system_rsp_payload_error;
-  (* async_reg = "true" *) reg        [31:0]   system_rsp_payload_data;
+  (* async_reg = "true" *) reg                 system_rsp_valid = 0;
+  (* async_reg = "true" *) reg                 system_rsp_payload_error = 0;
+  (* async_reg = "true" *) reg        [31:0]   system_rsp_payload_data = 0;
   wire                io_remote_rsp_fire;
   wire       [3:0]    jtag_tap_fsm_stateNext;
-  reg        [3:0]    jtag_tap_fsm_state;
+  reg        [3:0]    jtag_tap_fsm_state = 0;
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext;
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext_1;
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext_2;
@@ -3969,15 +3969,15 @@ module JtagBridge (
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext_13;
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext_14;
   wire       [3:0]    _zz_jtag_tap_fsm_stateNext_15;
-  reg        [3:0]    _zz_jtag_tap_fsm_stateNext_16;
-  reg        [3:0]    jtag_tap_instruction;
-  reg        [3:0]    jtag_tap_instructionShift;
-  reg                 jtag_tap_bypass;
-  reg                 jtag_tap_tdoUnbufferd;
-  reg                 jtag_tap_tdoDr;
+  reg        [3:0]    _zz_jtag_tap_fsm_stateNext_16 = 0;
+  reg        [3:0]    jtag_tap_instruction = 0;
+  reg        [3:0]    jtag_tap_instructionShift = 0;
+  reg                 jtag_tap_bypass = 0;
+  reg                 jtag_tap_tdoUnbufferd = 0;
+  reg                 jtag_tap_tdoDr = 0;
   wire                jtag_tap_tdoIr;
   wire                jtag_tap_isBypass;
-  reg                 jtag_tap_tdoUnbufferd_regNext;
+  reg                 jtag_tap_tdoUnbufferd_regNext = 0;
   wire                jtag_idcodeArea_ctrl_tdi;
   wire                jtag_idcodeArea_ctrl_enable;
   wire                jtag_idcodeArea_ctrl_capture;
@@ -3985,7 +3985,7 @@ module JtagBridge (
   wire                jtag_idcodeArea_ctrl_update;
   wire                jtag_idcodeArea_ctrl_reset;
   wire                jtag_idcodeArea_ctrl_tdo;
-  reg        [31:0]   jtag_idcodeArea_shifter;
+  reg        [31:0]   jtag_idcodeArea_shifter = 0;
   wire                when_JtagTap_l120;
   wire                jtag_writeArea_ctrl_tdi;
   wire                jtag_writeArea_ctrl_enable;
@@ -3997,8 +3997,8 @@ module JtagBridge (
   wire                jtag_writeArea_source_valid;
   wire                jtag_writeArea_source_payload_last;
   wire       [0:0]    jtag_writeArea_source_payload_fragment;
-  reg                 jtag_writeArea_valid;
-  reg                 jtag_writeArea_data;
+  reg                 jtag_writeArea_valid = 0;
+  reg                 jtag_writeArea_data = 0;
   wire                jtag_readArea_ctrl_tdi;
   wire                jtag_readArea_ctrl_enable;
   wire                jtag_readArea_ctrl_capture;
@@ -4006,7 +4006,7 @@ module JtagBridge (
   wire                jtag_readArea_ctrl_update;
   wire                jtag_readArea_ctrl_reset;
   wire                jtag_readArea_ctrl_tdo;
-  reg        [33:0]   jtag_readArea_full_shifter;
+  reg        [33:0]   jtag_readArea_full_shifter = 0;
   `ifndef SYNTHESIS
   reg [79:0] jtag_tap_fsm_stateNext_string;
   reg [79:0] jtag_tap_fsm_state_string;
@@ -4659,8 +4659,8 @@ module BufferCC_2 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk) begin
@@ -4689,15 +4689,15 @@ module VexRiscv (
   input               externalInterrupt,
   input               softwareInterrupt,
   input               debug_bus_cmd_valid,
-  output reg          debug_bus_cmd_ready,
+  output reg          debug_bus_cmd_ready = 0,
   input               debug_bus_cmd_payload_wr,
   input      [7:0]    debug_bus_cmd_payload_address,
   input      [31:0]   debug_bus_cmd_payload_data,
-  output reg [31:0]   debug_bus_rsp_data,
+  output reg [31:0]   debug_bus_rsp_data = 0,
   output              debug_resetOut,
   output              iBus_cmd_valid,
   input               iBus_cmd_ready,
-  output reg [31:0]   iBus_cmd_payload_address,
+  output reg [31:0]   iBus_cmd_payload_address = 0,
   output     [2:0]    iBus_cmd_payload_size,
   input               iBus_rsp_valid,
   input      [31:0]   iBus_rsp_payload_data,
@@ -4739,13 +4739,13 @@ module VexRiscv (
   wire                IBusCachedPlugin_cache_io_cpu_decode_isValid;
   wire                IBusCachedPlugin_cache_io_cpu_decode_isStuck;
   wire                IBusCachedPlugin_cache_io_cpu_decode_isUser;
-  reg                 IBusCachedPlugin_cache_io_cpu_fill_valid;
+  reg                 IBusCachedPlugin_cache_io_cpu_fill_valid = 0;
   wire                dataCache_1_io_cpu_execute_isValid;
   wire       [31:0]   dataCache_1_io_cpu_execute_address;
   wire                dataCache_1_io_cpu_memory_isValid;
   wire       [31:0]   dataCache_1_io_cpu_memory_address;
-  reg                 dataCache_1_io_cpu_memory_mmuRsp_isIoAccess;
-  reg                 dataCache_1_io_cpu_writeBack_isValid;
+  reg                 dataCache_1_io_cpu_memory_mmuRsp_isIoAccess = 0;
+  reg                 dataCache_1_io_cpu_writeBack_isValid = 0;
   wire                dataCache_1_io_cpu_writeBack_isUser;
   wire       [31:0]   dataCache_1_io_cpu_writeBack_storeData;
   wire       [31:0]   dataCache_1_io_cpu_writeBack_address;
@@ -4761,8 +4761,8 @@ module VexRiscv (
   wire                dataCache_1_io_cpu_flush_valid;
   wire                dataCache_1_io_cpu_flush_payload_singleLine;
   wire       [6:0]    dataCache_1_io_cpu_flush_payload_lineId;
-  reg        [31:0]   _zz_RegFilePlugin_regFile_port0;
-  reg        [31:0]   _zz_RegFilePlugin_regFile_port1;
+  reg        [31:0]   _zz_RegFilePlugin_regFile_port0 = 0;
+  reg        [31:0]   _zz_RegFilePlugin_regFile_port1 = 0;
   wire                IBusCachedPlugin_cache_io_cpu_prefetch_haltIt;
   wire       [31:0]   IBusCachedPlugin_cache_io_cpu_fetch_data;
   wire       [31:0]   IBusCachedPlugin_cache_io_cpu_fetch_physicalAddress;
@@ -4826,7 +4826,7 @@ module VexRiscv (
   wire                _zz_decode_LEGAL_INSTRUCTION_15;
   wire                _zz_decode_LEGAL_INSTRUCTION_16;
   wire       [3:0]    _zz__zz_IBusCachedPlugin_jump_pcLoad_payload_1;
-  reg        [31:0]   _zz_IBusCachedPlugin_jump_pcLoad_payload_5;
+  reg        [31:0]   _zz_IBusCachedPlugin_jump_pcLoad_payload_5 = 0;
   wire       [1:0]    _zz_IBusCachedPlugin_jump_pcLoad_payload_6;
   wire       [31:0]   _zz_IBusCachedPlugin_fetchPc_pc;
   wire       [2:0]    _zz_IBusCachedPlugin_fetchPc_pc_1;
@@ -4845,9 +4845,9 @@ module VexRiscv (
   wire       [26:0]   _zz_io_cpu_flush_payload_lineId_1;
   wire       [2:0]    _zz_DBusCachedPlugin_exceptionBus_payload_code;
   wire       [2:0]    _zz_DBusCachedPlugin_exceptionBus_payload_code_1;
-  reg        [7:0]    _zz_writeBack_DBusCachedPlugin_rspShifted;
+  reg        [7:0]    _zz_writeBack_DBusCachedPlugin_rspShifted = 0;
   wire       [1:0]    _zz_writeBack_DBusCachedPlugin_rspShifted_1;
-  reg        [7:0]    _zz_writeBack_DBusCachedPlugin_rspShifted_2;
+  reg        [7:0]    _zz_writeBack_DBusCachedPlugin_rspShifted_2 = 0;
   wire       [0:0]    _zz_writeBack_DBusCachedPlugin_rspShifted_3;
   wire       [31:0]   _zz__zz_decode_IS_CSR;
   wire                _zz__zz_decode_IS_CSR_1;
@@ -5109,14 +5109,14 @@ module VexRiscv (
   wire       [1:0]    _zz_execute_BRANCH_CTRL;
   wire                decode_RS2_USE;
   wire                decode_RS1_USE;
-  reg        [31:0]   _zz_decode_RS2;
+  reg        [31:0]   _zz_decode_RS2 = 0;
   wire                execute_REGFILE_WRITE_VALID;
   wire                execute_BYPASSABLE_EXECUTE_STAGE;
   wire                memory_REGFILE_WRITE_VALID;
   wire                memory_BYPASSABLE_MEMORY_STAGE;
   wire                writeBack_REGFILE_WRITE_VALID;
-  reg        [31:0]   decode_RS2;
-  reg        [31:0]   decode_RS1;
+  reg        [31:0]   decode_RS2 = 0;
+  reg        [31:0]   decode_RS1 = 0;
   wire                execute_IS_RS1_SIGNED;
   wire                execute_IS_DIV;
   wire                execute_IS_RS2_SIGNED;
@@ -5129,7 +5129,7 @@ module VexRiscv (
   wire       [33:0]   memory_MUL_LH;
   wire       [31:0]   memory_MUL_LL;
   wire       [31:0]   memory_SHIFT_RIGHT;
-  reg        [31:0]   _zz_decode_RS2_1;
+  reg        [31:0]   _zz_decode_RS2_1 = 0;
   wire       [1:0]    memory_SHIFT_CTRL;
   wire       [1:0]    _zz_memory_SHIFT_CTRL;
   wire       [1:0]    execute_SHIFT_CTRL;
@@ -5154,9 +5154,9 @@ module VexRiscv (
   wire       [1:0]    _zz_execute_ALU_BITWISE_CTRL;
   wire       [31:0]   _zz_lastStageRegFileWrite_payload_address;
   wire                _zz_lastStageRegFileWrite_valid;
-  reg                 _zz_1;
+  reg                 _zz_1 = 0;
   wire       [31:0]   decode_INSTRUCTION_ANTICIPATED;
-  reg                 decode_REGFILE_WRITE_VALID;
+  reg                 decode_REGFILE_WRITE_VALID = 0;
   wire                decode_LEGAL_INSTRUCTION;
   wire       [0:0]    _zz_decode_ENV_CTRL_1;
   wire       [1:0]    _zz_decode_BRANCH_CTRL;
@@ -5165,7 +5165,7 @@ module VexRiscv (
   wire       [1:0]    _zz_decode_SRC2_CTRL_1;
   wire       [1:0]    _zz_decode_ALU_CTRL_1;
   wire       [1:0]    _zz_decode_SRC1_CTRL_1;
-  reg        [31:0]   _zz_decode_RS2_2;
+  reg        [31:0]   _zz_decode_RS2_2 = 0;
   wire                writeBack_MEMORY_WR;
   wire       [31:0]   writeBack_MEMORY_STORE_DATA_RF;
   wire       [31:0]   writeBack_REGFILE_WRITE_DATA;
@@ -5182,57 +5182,57 @@ module VexRiscv (
   wire       [31:0]   execute_INSTRUCTION;
   wire                decode_MEMORY_ENABLE;
   wire                decode_FLUSH_ALL;
-  reg                 IBusCachedPlugin_rsp_issueDetected_4;
-  reg                 IBusCachedPlugin_rsp_issueDetected_3;
-  reg                 IBusCachedPlugin_rsp_issueDetected_2;
-  reg                 IBusCachedPlugin_rsp_issueDetected_1;
+  reg                 IBusCachedPlugin_rsp_issueDetected_4 = 0;
+  reg                 IBusCachedPlugin_rsp_issueDetected_3 = 0;
+  reg                 IBusCachedPlugin_rsp_issueDetected_2 = 0;
+  reg                 IBusCachedPlugin_rsp_issueDetected_1 = 0;
   wire       [1:0]    decode_BRANCH_CTRL;
   wire       [1:0]    _zz_decode_BRANCH_CTRL_1;
   wire       [31:0]   decode_INSTRUCTION;
-  reg        [31:0]   _zz_memory_to_writeBack_FORMAL_PC_NEXT;
-  reg        [31:0]   _zz_decode_to_execute_FORMAL_PC_NEXT;
+  reg        [31:0]   _zz_memory_to_writeBack_FORMAL_PC_NEXT = 0;
+  reg        [31:0]   _zz_decode_to_execute_FORMAL_PC_NEXT = 0;
   wire       [31:0]   decode_PC;
   wire       [31:0]   writeBack_PC;
   wire       [31:0]   writeBack_INSTRUCTION;
-  reg                 decode_arbitration_haltItself;
-  reg                 decode_arbitration_haltByOther;
-  reg                 decode_arbitration_removeIt;
+  reg                 decode_arbitration_haltItself = 0;
+  reg                 decode_arbitration_haltByOther = 0;
+  reg                 decode_arbitration_removeIt = 0;
   wire                decode_arbitration_flushIt;
-  reg                 decode_arbitration_flushNext;
-  reg                 decode_arbitration_isValid;
+  reg                 decode_arbitration_flushNext = 0;
+  reg                 decode_arbitration_isValid = 0;
   wire                decode_arbitration_isStuck;
   wire                decode_arbitration_isStuckByOthers;
   wire                decode_arbitration_isFlushed;
   wire                decode_arbitration_isMoving;
   wire                decode_arbitration_isFiring;
-  reg                 execute_arbitration_haltItself;
-  reg                 execute_arbitration_haltByOther;
-  reg                 execute_arbitration_removeIt;
-  reg                 execute_arbitration_flushIt;
-  reg                 execute_arbitration_flushNext;
-  reg                 execute_arbitration_isValid;
+  reg                 execute_arbitration_haltItself = 0;
+  reg                 execute_arbitration_haltByOther = 0;
+  reg                 execute_arbitration_removeIt = 0;
+  reg                 execute_arbitration_flushIt = 0;
+  reg                 execute_arbitration_flushNext = 0;
+  reg                 execute_arbitration_isValid = 0;
   wire                execute_arbitration_isStuck;
   wire                execute_arbitration_isStuckByOthers;
   wire                execute_arbitration_isFlushed;
   wire                execute_arbitration_isMoving;
   wire                execute_arbitration_isFiring;
-  reg                 memory_arbitration_haltItself;
+  reg                 memory_arbitration_haltItself = 0;
   wire                memory_arbitration_haltByOther;
-  reg                 memory_arbitration_removeIt;
+  reg                 memory_arbitration_removeIt = 0;
   wire                memory_arbitration_flushIt;
-  reg                 memory_arbitration_flushNext;
-  reg                 memory_arbitration_isValid;
+  reg                 memory_arbitration_flushNext = 0;
+  reg                 memory_arbitration_isValid = 0;
   wire                memory_arbitration_isStuck;
   wire                memory_arbitration_isStuckByOthers;
   wire                memory_arbitration_isFlushed;
   wire                memory_arbitration_isMoving;
   wire                memory_arbitration_isFiring;
-  reg                 writeBack_arbitration_haltItself;
+  reg                 writeBack_arbitration_haltItself = 0;
   wire                writeBack_arbitration_haltByOther;
-  reg                 writeBack_arbitration_removeIt;
-  reg                 writeBack_arbitration_flushIt;
-  reg                 writeBack_arbitration_flushNext;
-  reg                 writeBack_arbitration_isValid;
+  reg                 writeBack_arbitration_removeIt = 0;
+  reg                 writeBack_arbitration_flushIt = 0;
+  reg                 writeBack_arbitration_flushNext = 0;
+  reg                 writeBack_arbitration_isValid = 0;
   wire                writeBack_arbitration_isStuck;
   wire                writeBack_arbitration_isStuckByOthers;
   wire                writeBack_arbitration_isFlushed;
@@ -5242,19 +5242,19 @@ module VexRiscv (
   wire       [31:0]   lastStagePc /* verilator public */ ;
   wire                lastStageIsValid /* verilator public */ ;
   wire                lastStageIsFiring /* verilator public */ ;
-  reg                 IBusCachedPlugin_fetcherHalt;
+  reg                 IBusCachedPlugin_fetcherHalt = 0;
   wire                IBusCachedPlugin_forceNoDecodeCond;
-  reg                 IBusCachedPlugin_incomingInstruction;
+  reg                 IBusCachedPlugin_incomingInstruction = 0;
   wire                IBusCachedPlugin_predictionJumpInterface_valid;
   (* keep , syn_keep *) wire       [31:0]   IBusCachedPlugin_predictionJumpInterface_payload /* synthesis syn_keep = 1 */ ;
-  reg                 IBusCachedPlugin_decodePrediction_cmd_hadBranch;
+  reg                 IBusCachedPlugin_decodePrediction_cmd_hadBranch = 0;
   wire                IBusCachedPlugin_decodePrediction_rsp_wasWrong;
   wire                IBusCachedPlugin_pcValids_0;
   wire                IBusCachedPlugin_pcValids_1;
   wire                IBusCachedPlugin_pcValids_2;
   wire                IBusCachedPlugin_pcValids_3;
-  reg                 IBusCachedPlugin_decodeExceptionPort_valid;
-  reg        [3:0]    IBusCachedPlugin_decodeExceptionPort_payload_code;
+  reg                 IBusCachedPlugin_decodeExceptionPort_valid = 0;
+  reg        [3:0]    IBusCachedPlugin_decodeExceptionPort_payload_code = 0;
   wire       [31:0]   IBusCachedPlugin_decodeExceptionPort_payload_badAddr;
   wire                IBusCachedPlugin_mmuBus_cmd_0_isValid;
   wire                IBusCachedPlugin_mmuBus_cmd_0_isStuck;
@@ -5286,12 +5286,12 @@ module VexRiscv (
   wire                DBusCachedPlugin_mmuBus_rsp_bypassTranslation;
   wire                DBusCachedPlugin_mmuBus_end;
   wire                DBusCachedPlugin_mmuBus_busy;
-  reg                 DBusCachedPlugin_redoBranch_valid;
+  reg                 DBusCachedPlugin_redoBranch_valid = 0;
   wire       [31:0]   DBusCachedPlugin_redoBranch_payload;
-  reg                 DBusCachedPlugin_exceptionBus_valid;
-  reg        [3:0]    DBusCachedPlugin_exceptionBus_payload_code;
+  reg                 DBusCachedPlugin_exceptionBus_valid = 0;
+  reg        [3:0]    DBusCachedPlugin_exceptionBus_payload_code = 0;
   wire       [31:0]   DBusCachedPlugin_exceptionBus_payload_badAddr;
-  reg                 _zz_when_DBusCachedPlugin_l463;
+  reg                 _zz_when_DBusCachedPlugin_l463 = 0;
   wire                decodeExceptionPort_valid;
   wire       [3:0]    decodeExceptionPort_payload_code;
   wire       [31:0]   decodeExceptionPort_payload_badAddr;
@@ -5300,30 +5300,30 @@ module VexRiscv (
   wire                BranchPlugin_branchExceptionPort_valid;
   wire       [3:0]    BranchPlugin_branchExceptionPort_payload_code;
   wire       [31:0]   BranchPlugin_branchExceptionPort_payload_badAddr;
-  reg                 BranchPlugin_inDebugNoFetchFlag;
+  reg                 BranchPlugin_inDebugNoFetchFlag = 0;
   wire       [31:0]   CsrPlugin_csrMapping_readDataSignal;
   wire       [31:0]   CsrPlugin_csrMapping_readDataInit;
   wire       [31:0]   CsrPlugin_csrMapping_writeDataSignal;
-  reg                 CsrPlugin_csrMapping_allowCsrSignal;
+  reg                 CsrPlugin_csrMapping_allowCsrSignal = 0;
   wire                CsrPlugin_csrMapping_hazardFree;
   wire                CsrPlugin_csrMapping_doForceFailCsr;
   wire                CsrPlugin_inWfi /* verilator public */ ;
-  reg                 CsrPlugin_thirdPartyWake;
-  reg                 CsrPlugin_jumpInterface_valid;
-  reg        [31:0]   CsrPlugin_jumpInterface_payload;
+  reg                 CsrPlugin_thirdPartyWake = 0;
+  reg                 CsrPlugin_jumpInterface_valid = 0;
+  reg        [31:0]   CsrPlugin_jumpInterface_payload = 0;
   wire                CsrPlugin_exceptionPendings_0;
   wire                CsrPlugin_exceptionPendings_1;
   wire                CsrPlugin_exceptionPendings_2;
   wire                CsrPlugin_exceptionPendings_3;
   wire                contextSwitching;
-  reg        [1:0]    CsrPlugin_privilege;
-  reg                 CsrPlugin_forceMachineWire;
-  reg                 CsrPlugin_allowInterrupts;
-  reg                 CsrPlugin_allowException;
-  reg                 CsrPlugin_allowEbreakException;
+  reg        [1:0]    CsrPlugin_privilege = 0;
+  reg                 CsrPlugin_forceMachineWire = 0;
+  reg                 CsrPlugin_allowInterrupts = 0;
+  reg                 CsrPlugin_allowException = 0;
+  reg                 CsrPlugin_allowEbreakException = 0;
   wire                CsrPlugin_xretAwayFromMachine;
-  reg                 DebugPlugin_injectionPort_valid;
-  reg                 DebugPlugin_injectionPort_ready;
+  reg                 DebugPlugin_injectionPort_valid = 0;
+  reg                 DebugPlugin_injectionPort_ready = 0;
   wire       [31:0]   DebugPlugin_injectionPort_payload;
   wire                IBusCachedPlugin_externalFlush;
   wire                IBusCachedPlugin_jump_pcLoad_valid;
@@ -5336,56 +5336,56 @@ module VexRiscv (
   wire                IBusCachedPlugin_fetchPc_output_valid;
   wire                IBusCachedPlugin_fetchPc_output_ready;
   wire       [31:0]   IBusCachedPlugin_fetchPc_output_payload;
-  reg        [31:0]   IBusCachedPlugin_fetchPc_pcReg /* verilator public */ ;
-  reg                 IBusCachedPlugin_fetchPc_correction;
-  reg                 IBusCachedPlugin_fetchPc_correctionReg;
+  reg        [31:0]   IBusCachedPlugin_fetchPc_pcReg = 0 /* verilator public */ ;
+  reg                 IBusCachedPlugin_fetchPc_correction = 0;
+  reg                 IBusCachedPlugin_fetchPc_correctionReg = 0;
   wire                IBusCachedPlugin_fetchPc_output_fire;
   wire                IBusCachedPlugin_fetchPc_corrected;
-  reg                 IBusCachedPlugin_fetchPc_pcRegPropagate;
-  reg                 IBusCachedPlugin_fetchPc_booted;
-  reg                 IBusCachedPlugin_fetchPc_inc;
+  reg                 IBusCachedPlugin_fetchPc_pcRegPropagate = 0;
+  reg                 IBusCachedPlugin_fetchPc_booted = 0;
+  reg                 IBusCachedPlugin_fetchPc_inc = 0;
   wire                when_Fetcher_l133;
   wire                when_Fetcher_l133_1;
-  reg        [31:0]   IBusCachedPlugin_fetchPc_pc;
+  reg        [31:0]   IBusCachedPlugin_fetchPc_pc = 0;
   wire                IBusCachedPlugin_fetchPc_redo_valid;
   wire       [31:0]   IBusCachedPlugin_fetchPc_redo_payload;
-  reg                 IBusCachedPlugin_fetchPc_flushed;
+  reg                 IBusCachedPlugin_fetchPc_flushed = 0;
   wire                when_Fetcher_l160;
-  reg                 IBusCachedPlugin_iBusRsp_redoFetch;
+  reg                 IBusCachedPlugin_iBusRsp_redoFetch = 0;
   wire                IBusCachedPlugin_iBusRsp_stages_0_input_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_0_input_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_0_input_payload;
   wire                IBusCachedPlugin_iBusRsp_stages_0_output_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_0_output_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_0_output_payload;
-  reg                 IBusCachedPlugin_iBusRsp_stages_0_halt;
+  reg                 IBusCachedPlugin_iBusRsp_stages_0_halt = 0;
   wire                IBusCachedPlugin_iBusRsp_stages_1_input_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_1_input_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_1_input_payload;
   wire                IBusCachedPlugin_iBusRsp_stages_1_output_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_1_output_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_1_output_payload;
-  reg                 IBusCachedPlugin_iBusRsp_stages_1_halt;
+  reg                 IBusCachedPlugin_iBusRsp_stages_1_halt = 0;
   wire                IBusCachedPlugin_iBusRsp_stages_2_input_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_2_input_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_2_input_payload;
   wire                IBusCachedPlugin_iBusRsp_stages_2_output_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_2_output_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_2_output_payload;
-  reg                 IBusCachedPlugin_iBusRsp_stages_2_halt;
+  reg                 IBusCachedPlugin_iBusRsp_stages_2_halt = 0;
   wire                _zz_IBusCachedPlugin_iBusRsp_stages_0_input_ready;
   wire                _zz_IBusCachedPlugin_iBusRsp_stages_1_input_ready;
   wire                _zz_IBusCachedPlugin_iBusRsp_stages_2_input_ready;
   wire                IBusCachedPlugin_iBusRsp_flush;
   wire                _zz_IBusCachedPlugin_iBusRsp_stages_0_output_ready;
   wire                _zz_IBusCachedPlugin_iBusRsp_stages_1_input_valid;
-  reg                 _zz_IBusCachedPlugin_iBusRsp_stages_1_input_valid_1;
+  reg                 _zz_IBusCachedPlugin_iBusRsp_stages_1_input_valid_1 = 0;
   wire                IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_valid;
   wire                IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_payload;
-  reg                 _zz_IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_valid;
-  reg        [31:0]   _zz_IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_payload;
-  reg                 IBusCachedPlugin_iBusRsp_readyForError;
+  reg                 _zz_IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_valid = 0;
+  reg        [31:0]   _zz_IBusCachedPlugin_iBusRsp_stages_1_output_m2sPipe_payload = 0;
+  reg                 IBusCachedPlugin_iBusRsp_readyForError = 0;
   wire                IBusCachedPlugin_iBusRsp_output_valid;
   wire                IBusCachedPlugin_iBusRsp_output_ready;
   wire       [31:0]   IBusCachedPlugin_iBusRsp_output_payload_pc;
@@ -5394,43 +5394,43 @@ module VexRiscv (
   wire                IBusCachedPlugin_iBusRsp_output_payload_isRvc;
   wire                when_Fetcher_l242;
   wire                when_Fetcher_l322;
-  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_0;
+  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_0 = 0;
   wire                when_Fetcher_l331;
-  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_1;
+  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_1 = 0;
   wire                when_Fetcher_l331_1;
-  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_2;
+  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_2 = 0;
   wire                when_Fetcher_l331_2;
-  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_3;
+  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_3 = 0;
   wire                when_Fetcher_l331_3;
-  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_4;
+  reg                 IBusCachedPlugin_injector_nextPcCalc_valids_4 = 0;
   wire                when_Fetcher_l331_4;
   wire                _zz_IBusCachedPlugin_decodePrediction_cmd_hadBranch;
-  reg        [18:0]   _zz_IBusCachedPlugin_decodePrediction_cmd_hadBranch_1;
+  reg        [18:0]   _zz_IBusCachedPlugin_decodePrediction_cmd_hadBranch_1 = 0;
   wire                _zz_2;
-  reg        [10:0]   _zz_3;
+  reg        [10:0]   _zz_3 = 0;
   wire                _zz_4;
-  reg        [18:0]   _zz_5;
-  reg                 _zz_6;
+  reg        [18:0]   _zz_5 = 0;
+  reg                 _zz_6 = 0;
   wire                _zz_IBusCachedPlugin_predictionJumpInterface_payload;
-  reg        [10:0]   _zz_IBusCachedPlugin_predictionJumpInterface_payload_1;
+  reg        [10:0]   _zz_IBusCachedPlugin_predictionJumpInterface_payload_1 = 0;
   wire                _zz_IBusCachedPlugin_predictionJumpInterface_payload_2;
-  reg        [18:0]   _zz_IBusCachedPlugin_predictionJumpInterface_payload_3;
-  reg        [31:0]   IBusCachedPlugin_rspCounter;
+  reg        [18:0]   _zz_IBusCachedPlugin_predictionJumpInterface_payload_3 = 0;
+  reg        [31:0]   IBusCachedPlugin_rspCounter = 0;
   wire                IBusCachedPlugin_s0_tightlyCoupledHit;
-  reg                 IBusCachedPlugin_s1_tightlyCoupledHit;
-  reg                 IBusCachedPlugin_s2_tightlyCoupledHit;
+  reg                 IBusCachedPlugin_s1_tightlyCoupledHit = 0;
+  reg                 IBusCachedPlugin_s2_tightlyCoupledHit = 0;
   wire                IBusCachedPlugin_rsp_iBusRspOutputHalt;
   wire                IBusCachedPlugin_rsp_issueDetected;
-  reg                 IBusCachedPlugin_rsp_redoFetch;
+  reg                 IBusCachedPlugin_rsp_redoFetch = 0;
   wire                when_IBusCachedPlugin_l245;
   wire                when_IBusCachedPlugin_l250;
   wire                when_IBusCachedPlugin_l256;
   wire                when_IBusCachedPlugin_l262;
   wire                when_IBusCachedPlugin_l273;
-  reg        [31:0]   DBusCachedPlugin_rspCounter;
+  reg        [31:0]   DBusCachedPlugin_rspCounter = 0;
   wire                when_DBusCachedPlugin_l343;
   wire       [1:0]    execute_DBusCachedPlugin_size;
-  reg        [31:0]   _zz_execute_MEMORY_STORE_DATA_RF;
+  reg        [31:0]   _zz_execute_MEMORY_STORE_DATA_RF = 0;
   wire                axi_core_cpu_dataCache_1_io_cpu_flush_isStall;
   wire                when_DBusCachedPlugin_l385;
   wire                when_DBusCachedPlugin_l401;
@@ -5442,14 +5442,14 @@ module VexRiscv (
   wire       [7:0]    writeBack_DBusCachedPlugin_rspSplits_1;
   wire       [7:0]    writeBack_DBusCachedPlugin_rspSplits_2;
   wire       [7:0]    writeBack_DBusCachedPlugin_rspSplits_3;
-  reg        [31:0]   writeBack_DBusCachedPlugin_rspShifted;
+  reg        [31:0]   writeBack_DBusCachedPlugin_rspShifted = 0;
   wire       [31:0]   writeBack_DBusCachedPlugin_rspRf;
   wire       [1:0]    switch_Misc_l227;
   wire                _zz_writeBack_DBusCachedPlugin_rspFormated;
-  reg        [31:0]   _zz_writeBack_DBusCachedPlugin_rspFormated_1;
+  reg        [31:0]   _zz_writeBack_DBusCachedPlugin_rspFormated_1 = 0;
   wire                _zz_writeBack_DBusCachedPlugin_rspFormated_2;
-  reg        [31:0]   _zz_writeBack_DBusCachedPlugin_rspFormated_3;
-  reg        [31:0]   writeBack_DBusCachedPlugin_rspFormated;
+  reg        [31:0]   _zz_writeBack_DBusCachedPlugin_rspFormated_3 = 0;
+  reg        [31:0]   writeBack_DBusCachedPlugin_rspFormated = 0;
   wire                when_DBusCachedPlugin_l571;
   wire       [31:0]   _zz_decode_IS_CSR;
   wire                _zz_decode_IS_CSR_1;
@@ -5469,26 +5469,26 @@ module VexRiscv (
   wire       [4:0]    decode_RegFilePlugin_regFileReadAddress2;
   wire       [31:0]   decode_RegFilePlugin_rs1Data;
   wire       [31:0]   decode_RegFilePlugin_rs2Data;
-  reg                 lastStageRegFileWrite_valid /* verilator public */ ;
-  reg        [4:0]    lastStageRegFileWrite_payload_address /* verilator public */ ;
-  reg        [31:0]   lastStageRegFileWrite_payload_data /* verilator public */ ;
-  reg                 _zz_10;
-  reg        [31:0]   execute_IntAluPlugin_bitwise;
-  reg        [31:0]   _zz_execute_REGFILE_WRITE_DATA;
-  reg        [31:0]   _zz_execute_SRC1;
+  reg                 lastStageRegFileWrite_valid = 0 /* verilator public */ ;
+  reg        [4:0]    lastStageRegFileWrite_payload_address = 0 /* verilator public */ ;
+  reg        [31:0]   lastStageRegFileWrite_payload_data = 0 /* verilator public */ ;
+  reg                 _zz_10 = 0;
+  reg        [31:0]   execute_IntAluPlugin_bitwise = 0;
+  reg        [31:0]   _zz_execute_REGFILE_WRITE_DATA = 0;
+  reg        [31:0]   _zz_execute_SRC1 = 0;
   wire                _zz_execute_SRC2;
-  reg        [19:0]   _zz_execute_SRC2_1;
+  reg        [19:0]   _zz_execute_SRC2_1 = 0;
   wire                _zz_execute_SRC2_2;
-  reg        [19:0]   _zz_execute_SRC2_3;
-  reg        [31:0]   _zz_execute_SRC2_4;
-  reg        [31:0]   execute_SrcPlugin_addSub;
+  reg        [19:0]   _zz_execute_SRC2_3 = 0;
+  reg        [31:0]   _zz_execute_SRC2_4 = 0;
+  reg        [31:0]   execute_SrcPlugin_addSub = 0;
   wire                execute_SrcPlugin_less;
   wire       [4:0]    execute_FullBarrelShifterPlugin_amplitude;
-  reg        [31:0]   _zz_execute_FullBarrelShifterPlugin_reversed;
+  reg        [31:0]   _zz_execute_FullBarrelShifterPlugin_reversed = 0;
   wire       [31:0]   execute_FullBarrelShifterPlugin_reversed;
-  reg        [31:0]   _zz_decode_RS2_3;
-  reg                 execute_MulPlugin_aSigned;
-  reg                 execute_MulPlugin_bSigned;
+  reg        [31:0]   _zz_decode_RS2_3 = 0;
+  reg                 execute_MulPlugin_aSigned = 0;
+  reg                 execute_MulPlugin_bSigned = 0;
   wire       [31:0]   execute_MulPlugin_a;
   wire       [31:0]   execute_MulPlugin_b;
   wire       [1:0]    switch_MulPlugin_l87;
@@ -5501,21 +5501,21 @@ module VexRiscv (
   wire       [65:0]   writeBack_MulPlugin_result;
   wire                when_MulPlugin_l147;
   wire       [1:0]    switch_MulPlugin_l148;
-  reg        [32:0]   memory_DivPlugin_rs1;
-  reg        [31:0]   memory_DivPlugin_rs2;
-  reg        [64:0]   memory_DivPlugin_accumulator;
+  reg        [32:0]   memory_DivPlugin_rs1 = 0;
+  reg        [31:0]   memory_DivPlugin_rs2 = 0;
+  reg        [64:0]   memory_DivPlugin_accumulator = 0;
   wire                memory_DivPlugin_frontendOk;
-  reg                 memory_DivPlugin_div_needRevert;
-  reg                 memory_DivPlugin_div_counter_willIncrement;
-  reg                 memory_DivPlugin_div_counter_willClear;
-  reg        [5:0]    memory_DivPlugin_div_counter_valueNext;
-  reg        [5:0]    memory_DivPlugin_div_counter_value;
+  reg                 memory_DivPlugin_div_needRevert = 0;
+  reg                 memory_DivPlugin_div_counter_willIncrement = 0;
+  reg                 memory_DivPlugin_div_counter_willClear = 0;
+  reg        [5:0]    memory_DivPlugin_div_counter_valueNext = 0;
+  reg        [5:0]    memory_DivPlugin_div_counter_value = 0;
   wire                memory_DivPlugin_div_counter_willOverflowIfInc;
   wire                memory_DivPlugin_div_counter_willOverflow;
-  reg                 memory_DivPlugin_div_done;
+  reg                 memory_DivPlugin_div_done = 0;
   wire                when_MulDivIterativePlugin_l126;
   wire                when_MulDivIterativePlugin_l126_1;
-  reg        [31:0]   memory_DivPlugin_div_result;
+  reg        [31:0]   memory_DivPlugin_div_result = 0;
   wire                when_MulDivIterativePlugin_l128;
   wire                when_MulDivIterativePlugin_l129;
   wire                when_MulDivIterativePlugin_l132;
@@ -5529,15 +5529,15 @@ module VexRiscv (
   wire                when_MulDivIterativePlugin_l162;
   wire                _zz_memory_DivPlugin_rs2;
   wire                _zz_memory_DivPlugin_rs1;
-  reg        [32:0]   _zz_memory_DivPlugin_rs1_1;
-  reg                 HazardSimplePlugin_src0Hazard;
-  reg                 HazardSimplePlugin_src1Hazard;
+  reg        [32:0]   _zz_memory_DivPlugin_rs1_1 = 0;
+  reg                 HazardSimplePlugin_src0Hazard = 0;
+  reg                 HazardSimplePlugin_src1Hazard = 0;
   wire                HazardSimplePlugin_writeBackWrites_valid;
   wire       [4:0]    HazardSimplePlugin_writeBackWrites_payload_address;
   wire       [31:0]   HazardSimplePlugin_writeBackWrites_payload_data;
-  reg                 HazardSimplePlugin_writeBackBuffer_valid;
-  reg        [4:0]    HazardSimplePlugin_writeBackBuffer_payload_address;
-  reg        [31:0]   HazardSimplePlugin_writeBackBuffer_payload_data;
+  reg                 HazardSimplePlugin_writeBackBuffer_valid = 0;
+  reg        [4:0]    HazardSimplePlugin_writeBackBuffer_payload_address = 0;
+  reg        [31:0]   HazardSimplePlugin_writeBackBuffer_payload_data = 0;
   wire                HazardSimplePlugin_addr0Match;
   wire                HazardSimplePlugin_addr1Match;
   wire                when_HazardSimplePlugin_l47;
@@ -5561,57 +5561,57 @@ module VexRiscv (
   wire                when_HazardSimplePlugin_l113;
   wire                execute_BranchPlugin_eq;
   wire       [2:0]    switch_Misc_l227_1;
-  reg                 _zz_execute_BRANCH_COND_RESULT;
-  reg                 _zz_execute_BRANCH_COND_RESULT_1;
+  reg                 _zz_execute_BRANCH_COND_RESULT = 0;
+  reg                 _zz_execute_BRANCH_COND_RESULT_1 = 0;
   wire                _zz_execute_BranchPlugin_missAlignedTarget;
-  reg        [19:0]   _zz_execute_BranchPlugin_missAlignedTarget_1;
+  reg        [19:0]   _zz_execute_BranchPlugin_missAlignedTarget_1 = 0;
   wire                _zz_execute_BranchPlugin_missAlignedTarget_2;
-  reg        [10:0]   _zz_execute_BranchPlugin_missAlignedTarget_3;
+  reg        [10:0]   _zz_execute_BranchPlugin_missAlignedTarget_3 = 0;
   wire                _zz_execute_BranchPlugin_missAlignedTarget_4;
-  reg        [18:0]   _zz_execute_BranchPlugin_missAlignedTarget_5;
-  reg                 _zz_execute_BranchPlugin_missAlignedTarget_6;
+  reg        [18:0]   _zz_execute_BranchPlugin_missAlignedTarget_5 = 0;
+  reg                 _zz_execute_BranchPlugin_missAlignedTarget_6 = 0;
   wire                execute_BranchPlugin_missAlignedTarget;
-  reg        [31:0]   execute_BranchPlugin_branch_src1;
-  reg        [31:0]   execute_BranchPlugin_branch_src2;
+  reg        [31:0]   execute_BranchPlugin_branch_src1 = 0;
+  reg        [31:0]   execute_BranchPlugin_branch_src2 = 0;
   wire                _zz_execute_BranchPlugin_branch_src2;
-  reg        [19:0]   _zz_execute_BranchPlugin_branch_src2_1;
+  reg        [19:0]   _zz_execute_BranchPlugin_branch_src2_1 = 0;
   wire                _zz_execute_BranchPlugin_branch_src2_2;
-  reg        [10:0]   _zz_execute_BranchPlugin_branch_src2_3;
+  reg        [10:0]   _zz_execute_BranchPlugin_branch_src2_3 = 0;
   wire                _zz_execute_BranchPlugin_branch_src2_4;
-  reg        [18:0]   _zz_execute_BranchPlugin_branch_src2_5;
+  reg        [18:0]   _zz_execute_BranchPlugin_branch_src2_5 = 0;
   wire       [31:0]   execute_BranchPlugin_branchAdder;
   wire       [1:0]    CsrPlugin_misa_base;
   wire       [25:0]   CsrPlugin_misa_extensions;
   wire       [1:0]    CsrPlugin_mtvec_mode;
   wire       [29:0]   CsrPlugin_mtvec_base;
-  reg        [31:0]   CsrPlugin_mepc;
-  reg                 CsrPlugin_mstatus_MIE;
-  reg                 CsrPlugin_mstatus_MPIE;
-  reg        [1:0]    CsrPlugin_mstatus_MPP;
-  reg                 CsrPlugin_mip_MEIP;
-  reg                 CsrPlugin_mip_MTIP;
-  reg                 CsrPlugin_mip_MSIP;
-  reg                 CsrPlugin_mie_MEIE;
-  reg                 CsrPlugin_mie_MTIE;
-  reg                 CsrPlugin_mie_MSIE;
-  reg                 CsrPlugin_mcause_interrupt;
-  reg        [3:0]    CsrPlugin_mcause_exceptionCode;
-  reg        [31:0]   CsrPlugin_mtval;
-  reg        [63:0]   CsrPlugin_mcycle;
-  reg        [63:0]   CsrPlugin_minstret;
+  reg        [31:0]   CsrPlugin_mepc = 0;
+  reg                 CsrPlugin_mstatus_MIE = 0;
+  reg                 CsrPlugin_mstatus_MPIE = 0;
+  reg        [1:0]    CsrPlugin_mstatus_MPP = 0;
+  reg                 CsrPlugin_mip_MEIP = 0;
+  reg                 CsrPlugin_mip_MTIP = 0;
+  reg                 CsrPlugin_mip_MSIP = 0;
+  reg                 CsrPlugin_mie_MEIE = 0;
+  reg                 CsrPlugin_mie_MTIE = 0;
+  reg                 CsrPlugin_mie_MSIE = 0;
+  reg                 CsrPlugin_mcause_interrupt = 0;
+  reg        [3:0]    CsrPlugin_mcause_exceptionCode = 0;
+  reg        [31:0]   CsrPlugin_mtval = 0;
+  reg        [63:0]   CsrPlugin_mcycle = 0;
+  reg        [63:0]   CsrPlugin_minstret = 0;
   wire                _zz_when_CsrPlugin_l1302;
   wire                _zz_when_CsrPlugin_l1302_1;
   wire                _zz_when_CsrPlugin_l1302_2;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_decode;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_execute;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_memory;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_decode;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_execute;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory;
-  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack;
-  reg        [3:0]    CsrPlugin_exceptionPortCtrl_exceptionContext_code;
-  reg        [31:0]   CsrPlugin_exceptionPortCtrl_exceptionContext_badAddr;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_decode = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_execute = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_memory = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_decode = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_execute = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory = 0;
+  reg                 CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack = 0;
+  reg        [3:0]    CsrPlugin_exceptionPortCtrl_exceptionContext_code = 0;
+  reg        [31:0]   CsrPlugin_exceptionPortCtrl_exceptionContext_badAddr = 0;
   wire       [1:0]    CsrPlugin_exceptionPortCtrl_exceptionTargetPrivilegeUncapped;
   wire       [1:0]    CsrPlugin_exceptionPortCtrl_exceptionTargetPrivilege;
   wire       [1:0]    _zz_CsrPlugin_exceptionPortCtrl_exceptionContext_code;
@@ -5621,68 +5621,68 @@ module VexRiscv (
   wire                when_CsrPlugin_l1259_2;
   wire                when_CsrPlugin_l1259_3;
   wire                when_CsrPlugin_l1272;
-  reg                 CsrPlugin_interrupt_valid;
-  reg        [3:0]    CsrPlugin_interrupt_code /* verilator public */ ;
-  reg        [1:0]    CsrPlugin_interrupt_targetPrivilege;
+  reg                 CsrPlugin_interrupt_valid = 0;
+  reg        [3:0]    CsrPlugin_interrupt_code = 0 /* verilator public */ ;
+  reg        [1:0]    CsrPlugin_interrupt_targetPrivilege = 0;
   wire                when_CsrPlugin_l1296;
   wire                when_CsrPlugin_l1302;
   wire                when_CsrPlugin_l1302_1;
   wire                when_CsrPlugin_l1302_2;
   wire                CsrPlugin_exception;
   wire                CsrPlugin_lastStageWasWfi;
-  reg                 CsrPlugin_pipelineLiberator_pcValids_0;
-  reg                 CsrPlugin_pipelineLiberator_pcValids_1;
-  reg                 CsrPlugin_pipelineLiberator_pcValids_2;
+  reg                 CsrPlugin_pipelineLiberator_pcValids_0 = 0;
+  reg                 CsrPlugin_pipelineLiberator_pcValids_1 = 0;
+  reg                 CsrPlugin_pipelineLiberator_pcValids_2 = 0;
   wire                CsrPlugin_pipelineLiberator_active;
   wire                when_CsrPlugin_l1335;
   wire                when_CsrPlugin_l1335_1;
   wire                when_CsrPlugin_l1335_2;
   wire                when_CsrPlugin_l1340;
-  reg                 CsrPlugin_pipelineLiberator_done;
+  reg                 CsrPlugin_pipelineLiberator_done = 0;
   wire                when_CsrPlugin_l1346;
   wire                CsrPlugin_interruptJump /* verilator public */ ;
-  reg                 CsrPlugin_hadException /* verilator public */ ;
-  reg        [1:0]    CsrPlugin_targetPrivilege;
-  reg        [3:0]    CsrPlugin_trapCause;
+  reg                 CsrPlugin_hadException = 0 /* verilator public */ ;
+  reg        [1:0]    CsrPlugin_targetPrivilege = 0;
+  reg        [3:0]    CsrPlugin_trapCause = 0;
   wire                CsrPlugin_trapCauseEbreakDebug;
-  reg        [1:0]    CsrPlugin_xtvec_mode;
-  reg        [29:0]   CsrPlugin_xtvec_base;
+  reg        [1:0]    CsrPlugin_xtvec_mode = 0;
+  reg        [29:0]   CsrPlugin_xtvec_base = 0;
   wire                CsrPlugin_trapEnterDebug;
   wire                when_CsrPlugin_l1390;
   wire                when_CsrPlugin_l1398;
   wire                when_CsrPlugin_l1456;
   wire       [1:0]    switch_CsrPlugin_l1460;
-  reg                 execute_CsrPlugin_wfiWake;
+  reg                 execute_CsrPlugin_wfiWake = 0;
   wire                when_CsrPlugin_l1527;
   wire                execute_CsrPlugin_blockedBySideEffects;
-  reg                 execute_CsrPlugin_illegalAccess;
-  reg                 execute_CsrPlugin_illegalInstruction;
+  reg                 execute_CsrPlugin_illegalAccess = 0;
+  reg                 execute_CsrPlugin_illegalInstruction = 0;
   wire                when_CsrPlugin_l1547;
   wire                when_CsrPlugin_l1548;
-  reg                 execute_CsrPlugin_writeInstruction;
-  reg                 execute_CsrPlugin_readInstruction;
+  reg                 execute_CsrPlugin_writeInstruction = 0;
+  reg                 execute_CsrPlugin_readInstruction = 0;
   wire                execute_CsrPlugin_writeEnable;
   wire                execute_CsrPlugin_readEnable;
   wire       [31:0]   execute_CsrPlugin_readToWriteData;
   wire                switch_Misc_l227_2;
-  reg        [31:0]   _zz_CsrPlugin_csrMapping_writeDataSignal;
+  reg        [31:0]   _zz_CsrPlugin_csrMapping_writeDataSignal = 0;
   wire                when_CsrPlugin_l1587;
   wire                when_CsrPlugin_l1591;
   wire       [11:0]   execute_CsrPlugin_csrAddress;
-  reg                 DebugPlugin_firstCycle;
-  reg                 DebugPlugin_secondCycle;
-  reg                 DebugPlugin_resetIt;
-  reg                 DebugPlugin_haltIt;
-  reg                 DebugPlugin_stepIt;
-  reg                 DebugPlugin_isPipBusy;
-  reg                 DebugPlugin_godmode;
+  reg                 DebugPlugin_firstCycle = 0;
+  reg                 DebugPlugin_secondCycle = 0;
+  reg                 DebugPlugin_resetIt = 0;
+  reg                 DebugPlugin_haltIt = 0;
+  reg                 DebugPlugin_stepIt = 0;
+  reg                 DebugPlugin_isPipBusy = 0;
+  reg                 DebugPlugin_godmode = 0;
   wire                when_DebugPlugin_l238;
-  reg                 DebugPlugin_haltedByBreak;
-  reg                 DebugPlugin_debugUsed /* verilator public */ ;
-  reg                 DebugPlugin_disableEbreak;
+  reg                 DebugPlugin_haltedByBreak = 0;
+  reg                 DebugPlugin_debugUsed = 0 /* verilator public */ ;
+  reg                 DebugPlugin_disableEbreak = 0;
   wire                DebugPlugin_allowEBreak;
-  reg        [31:0]   DebugPlugin_busReadDataReg;
-  reg                 _zz_when_DebugPlugin_l257;
+  reg        [31:0]   DebugPlugin_busReadDataReg = 0;
+  reg                 _zz_when_DebugPlugin_l257 = 0;
   wire                when_DebugPlugin_l257;
   wire       [5:0]    switch_DebugPlugin_l280;
   wire                when_DebugPlugin_l284;
@@ -5696,42 +5696,42 @@ module VexRiscv (
   wire                when_DebugPlugin_l308;
   wire                when_DebugPlugin_l311;
   wire                when_DebugPlugin_l324;
-  reg                 DebugPlugin_resetIt_regNext;
+  reg                 DebugPlugin_resetIt_regNext = 0;
   wire                when_DebugPlugin_l344;
   wire                when_Pipeline_l124;
-  reg        [31:0]   decode_to_execute_PC;
+  reg        [31:0]   decode_to_execute_PC = 0;
   wire                when_Pipeline_l124_1;
-  reg        [31:0]   execute_to_memory_PC;
+  reg        [31:0]   execute_to_memory_PC = 0;
   wire                when_Pipeline_l124_2;
-  reg        [31:0]   memory_to_writeBack_PC;
+  reg        [31:0]   memory_to_writeBack_PC = 0;
   wire                when_Pipeline_l124_3;
-  reg        [31:0]   decode_to_execute_INSTRUCTION;
+  reg        [31:0]   decode_to_execute_INSTRUCTION = 0;
   wire                when_Pipeline_l124_4;
-  reg        [31:0]   execute_to_memory_INSTRUCTION;
+  reg        [31:0]   execute_to_memory_INSTRUCTION = 0;
   wire                when_Pipeline_l124_5;
-  reg        [31:0]   memory_to_writeBack_INSTRUCTION;
+  reg        [31:0]   memory_to_writeBack_INSTRUCTION = 0;
   wire                when_Pipeline_l124_6;
-  reg        [31:0]   decode_to_execute_FORMAL_PC_NEXT;
+  reg        [31:0]   decode_to_execute_FORMAL_PC_NEXT = 0;
   wire                when_Pipeline_l124_7;
-  reg        [31:0]   execute_to_memory_FORMAL_PC_NEXT;
+  reg        [31:0]   execute_to_memory_FORMAL_PC_NEXT = 0;
   wire                when_Pipeline_l124_8;
-  reg        [31:0]   memory_to_writeBack_FORMAL_PC_NEXT;
+  reg        [31:0]   memory_to_writeBack_FORMAL_PC_NEXT = 0;
   wire                when_Pipeline_l124_9;
-  reg                 decode_to_execute_MEMORY_FORCE_CONSTISTENCY;
+  reg                 decode_to_execute_MEMORY_FORCE_CONSTISTENCY = 0;
   wire                when_Pipeline_l124_10;
-  reg        [1:0]    decode_to_execute_SRC1_CTRL;
+  reg        [1:0]    decode_to_execute_SRC1_CTRL = 0;
   wire                when_Pipeline_l124_11;
-  reg                 decode_to_execute_SRC_USE_SUB_LESS;
+  reg                 decode_to_execute_SRC_USE_SUB_LESS = 0;
   wire                when_Pipeline_l124_12;
-  reg                 decode_to_execute_MEMORY_ENABLE;
+  reg                 decode_to_execute_MEMORY_ENABLE = 0;
   wire                when_Pipeline_l124_13;
-  reg                 execute_to_memory_MEMORY_ENABLE;
+  reg                 execute_to_memory_MEMORY_ENABLE = 0;
   wire                when_Pipeline_l124_14;
-  reg                 memory_to_writeBack_MEMORY_ENABLE;
+  reg                 memory_to_writeBack_MEMORY_ENABLE = 0;
   wire                when_Pipeline_l124_15;
-  reg        [1:0]    decode_to_execute_ALU_CTRL;
+  reg        [1:0]    decode_to_execute_ALU_CTRL = 0;
   wire                when_Pipeline_l124_16;
-  reg        [1:0]    decode_to_execute_SRC2_CTRL;
+  reg        [1:0]    decode_to_execute_SRC2_CTRL = 0;
   wire                when_Pipeline_l124_17;
   reg                 decode_to_execute_REGFILE_WRITE_VALID;
   wire                when_Pipeline_l124_18;
@@ -9842,7 +9842,7 @@ module Axi4VgaCtrl (
 );
 
   wire                dma_io_start;
-  reg                 dma_io_frame_ready;
+  reg                 dma_io_frame_ready = 0;
   wire                vga_ctrl_io_softReset;
   wire                vga_ctrl_io_pixels_valid;
   wire                dma_io_busy;
@@ -9870,23 +9870,23 @@ module Axi4VgaCtrl (
   wire                apbCtrl_askRead;
   wire                apbCtrl_doWrite;
   wire                apbCtrl_doRead;
-  reg                 run;
-  reg        [17:0]   _zz_io_size;
-  reg        [26:0]   _zz_io_base;
+  reg                 run = 0;
+  reg        [17:0]   _zz_io_size = 0;
+  reg        [26:0]   _zz_io_base = 0;
   wire                vga_run;
-  reg                 vga_run_regNext;
-  reg                 when_Stream_l439;
-  reg                 _zz_when_VgaCtrl_l229;
-  reg                 _zz_when_VgaCtrl_l230;
+  reg                 vga_run_regNext = 0;
+  reg                 when_Stream_l439 = 0;
+  reg                 _zz_when_VgaCtrl_l229 = 0;
+  reg                 _zz_when_VgaCtrl_l230 = 0;
   wire                axi_vgaCtrl_dma_io_frame_fire;
-  reg                 axi_vgaCtrl_dma_io_frame_payload_first;
+  reg                 axi_vgaCtrl_dma_io_frame_payload_first = 0;
   wire                when_VgaCtrl_l218;
   wire                axi_vgaCtrl_dma_io_frame_translated_valid;
-  reg                 axi_vgaCtrl_dma_io_frame_translated_ready;
+  reg                 axi_vgaCtrl_dma_io_frame_translated_ready = 0;
   wire       [4:0]    axi_vgaCtrl_dma_io_frame_translated_payload_r;
   wire       [5:0]    axi_vgaCtrl_dma_io_frame_translated_payload_g;
   wire       [4:0]    axi_vgaCtrl_dma_io_frame_translated_payload_b;
-  reg                 axi_vgaCtrl_dma_io_frame_translated_thrown_valid;
+  reg                 axi_vgaCtrl_dma_io_frame_translated_thrown_valid = 0;
   wire                axi_vgaCtrl_dma_io_frame_translated_thrown_ready;
   wire       [4:0]    axi_vgaCtrl_dma_io_frame_translated_thrown_payload_r;
   wire       [5:0]    axi_vgaCtrl_dma_io_frame_translated_thrown_payload_g;
@@ -9896,16 +9896,16 @@ module Axi4VgaCtrl (
   wire                when_VgaCtrl_l229;
   wire                when_VgaCtrl_l230;
   wire                when_Axi4VgaCtrl_l69;
-  reg        [11:0]   _zz_io_timings_h_syncStart;
-  reg        [11:0]   _zz_io_timings_h_syncEnd;
-  reg        [11:0]   _zz_io_timings_h_colorStart;
-  reg        [11:0]   _zz_io_timings_h_colorEnd;
-  reg        [11:0]   _zz_io_timings_v_syncStart;
-  reg        [11:0]   _zz_io_timings_v_syncEnd;
-  reg        [11:0]   _zz_io_timings_v_colorStart;
-  reg        [11:0]   _zz_io_timings_v_colorEnd;
-  reg                 _zz_io_timings_h_polarity;
-  reg                 _zz_io_timings_v_polarity;
+  reg        [11:0]   _zz_io_timings_h_syncStart = 0;
+  reg        [11:0]   _zz_io_timings_h_syncEnd = 0;
+  reg        [11:0]   _zz_io_timings_h_colorStart = 0;
+  reg        [11:0]   _zz_io_timings_h_colorEnd = 0;
+  reg        [11:0]   _zz_io_timings_v_syncStart = 0;
+  reg        [11:0]   _zz_io_timings_v_syncEnd = 0;
+  reg        [11:0]   _zz_io_timings_v_colorStart = 0;
+  reg        [11:0]   _zz_io_timings_v_colorEnd = 0;
+  reg                 _zz_io_timings_h_polarity = 0;
+  reg                 _zz_io_timings_v_polarity = 0;
 
   VideoDma dma (
     .io_start                    (dma_io_start                        ), //i
@@ -10167,7 +10167,7 @@ module Apb3UartCtrl (
   output              io_apb_PREADY /* verilator public */ ,
   input               io_apb_PWRITE /* verilator public */ ,
   input      [31:0]   io_apb_PWDATA /* verilator public */ ,
-  output reg [31:0]   io_apb_PRDATA /* verilator public */ ,
+  output reg [31:0]   io_apb_PRDATA = 0 /* verilator public */ ,
   output              io_uart_txd,
   input               io_uart_rxd,
   output              io_interrupt,
@@ -10180,7 +10180,7 @@ module Apb3UartCtrl (
   localparam UartParityType_EVEN = 2'd1;
   localparam UartParityType_ODD = 2'd2;
 
-  reg                 axi_uartCtrl_uartCtrl_1_io_read_queueWithOccupancy_io_pop_ready;
+  reg                 axi_uartCtrl_uartCtrl_1_io_read_queueWithOccupancy_io_pop_ready = 0;
   wire                uartCtrl_1_io_write_ready;
   wire                uartCtrl_1_io_read_valid;
   wire       [7:0]    uartCtrl_1_io_read_payload;
@@ -10213,38 +10213,38 @@ module Apb3UartCtrl (
   wire                busCtrl_doRead;
   wire                bridge_busCtrlWrapped_readErrorFlag;
   wire                bridge_busCtrlWrapped_writeErrorFlag;
-  reg        [2:0]    bridge_uartConfigReg_frame_dataLength;
-  reg        [0:0]    bridge_uartConfigReg_frame_stop;
-  reg        [1:0]    bridge_uartConfigReg_frame_parity;
-  reg        [19:0]   bridge_uartConfigReg_clockDivider;
-  reg                 _zz_bridge_write_streamUnbuffered_valid;
+  reg        [2:0]    bridge_uartConfigReg_frame_dataLength = 0;
+  reg        [0:0]    bridge_uartConfigReg_frame_stop = 0;
+  reg        [1:0]    bridge_uartConfigReg_frame_parity = 0;
+  reg        [19:0]   bridge_uartConfigReg_clockDivider = 0;
+  reg                 _zz_bridge_write_streamUnbuffered_valid = 0;
   wire                bridge_write_streamUnbuffered_valid;
   wire                bridge_write_streamUnbuffered_ready;
   wire       [7:0]    bridge_write_streamUnbuffered_payload;
-  reg                 bridge_read_streamBreaked_valid;
-  reg                 bridge_read_streamBreaked_ready;
+  reg                 bridge_read_streamBreaked_valid = 0;
+  reg                 bridge_read_streamBreaked_ready = 0;
   wire       [7:0]    bridge_read_streamBreaked_payload;
-  reg                 bridge_interruptCtrl_writeIntEnable;
-  reg                 bridge_interruptCtrl_readIntEnable;
+  reg                 bridge_interruptCtrl_writeIntEnable = 0;
+  reg                 bridge_interruptCtrl_readIntEnable = 0;
   wire                bridge_interruptCtrl_readInt;
   wire                bridge_interruptCtrl_writeInt;
   wire                bridge_interruptCtrl_interrupt;
-  reg                 bridge_misc_readError;
-  reg                 when_BusSlaveFactory_l341;
+  reg                 bridge_misc_readError = 0;
+  reg                 when_BusSlaveFactory_l341 = 0;
   wire                when_BusSlaveFactory_l347;
-  reg                 bridge_misc_readOverflowError;
-  reg                 when_BusSlaveFactory_l341_1;
+  reg                 bridge_misc_readOverflowError = 0;
+  reg                 when_BusSlaveFactory_l341_1 = 0;
   wire                when_BusSlaveFactory_l347_1;
   wire                axi_uartCtrl_uartCtrl_1_io_read_isStall;
-  reg                 bridge_misc_breakDetected;
-  reg                 axi_uartCtrl_uartCtrl_1_io_readBreak_regNext;
+  reg                 bridge_misc_breakDetected = 0;
+  reg                 axi_uartCtrl_uartCtrl_1_io_readBreak_regNext = 0;
   wire                when_UartCtrl_l155;
-  reg                 when_BusSlaveFactory_l341_2;
+  reg                 when_BusSlaveFactory_l341_2 = 0;
   wire                when_BusSlaveFactory_l347_2;
-  reg                 bridge_misc_doBreak;
-  reg                 when_BusSlaveFactory_l377;
+  reg                 bridge_misc_doBreak = 0;
+  reg                 when_BusSlaveFactory_l377 = 0;
   wire                when_BusSlaveFactory_l379;
-  reg                 when_BusSlaveFactory_l341_3;
+  reg                 when_BusSlaveFactory_l341_3 = 0;
   wire                when_BusSlaveFactory_l347_3;
   wire       [1:0]    _zz_bridge_uartConfigReg_frame_parity;
   wire       [0:0]    _zz_bridge_uartConfigReg_frame_stop;
@@ -10590,7 +10590,7 @@ module PinsecTimerCtrl (
   output              io_apb_PREADY,
   input               io_apb_PWRITE,
   input      [31:0]   io_apb_PWDATA,
-  output reg [31:0]   io_apb_PRDATA,
+  output reg [31:0]   io_apb_PRDATA = 0,
   output              io_apb_PSLVERROR,
   input               io_external_clear,
   input               io_external_tick,
@@ -10607,8 +10607,8 @@ module PinsecTimerCtrl (
   wire                timerC_io_clear;
   wire                timerD_io_tick;
   wire                timerD_io_clear;
-  reg        [3:0]    interruptCtrl_1_io_inputs;
-  reg        [3:0]    interruptCtrl_1_io_clears;
+  reg        [3:0]    interruptCtrl_1_io_inputs = 0;
+  reg        [3:0]    interruptCtrl_1_io_clears = 0;
   wire                io_external_buffercc_io_dataOut_clear;
   wire                io_external_buffercc_io_dataOut_tick;
   wire                prescaler_1_io_overflow;
@@ -10629,33 +10629,33 @@ module PinsecTimerCtrl (
   wire                busCtrl_askRead;
   wire                busCtrl_doWrite;
   wire                busCtrl_doRead;
-  reg        [15:0]   _zz_io_limit;
-  reg                 _zz_io_clear;
-  reg        [1:0]    timerABridge_ticksEnable;
-  reg        [0:0]    timerABridge_clearsEnable;
-  reg                 timerABridge_busClearing;
-  reg        [31:0]   axi_timerCtrl_timerA_io_limit_driver;
-  reg                 when_Timer_l40;
-  reg                 when_Timer_l44;
-  reg        [2:0]    timerBBridge_ticksEnable;
-  reg        [1:0]    timerBBridge_clearsEnable;
-  reg                 timerBBridge_busClearing;
-  reg        [15:0]   axi_timerCtrl_timerB_io_limit_driver;
-  reg                 when_Timer_l40_1;
-  reg                 when_Timer_l44_1;
-  reg        [2:0]    timerCBridge_ticksEnable;
-  reg        [1:0]    timerCBridge_clearsEnable;
-  reg                 timerCBridge_busClearing;
-  reg        [15:0]   axi_timerCtrl_timerC_io_limit_driver;
-  reg                 when_Timer_l40_2;
-  reg                 when_Timer_l44_2;
-  reg        [2:0]    timerDBridge_ticksEnable;
-  reg        [1:0]    timerDBridge_clearsEnable;
-  reg                 timerDBridge_busClearing;
-  reg        [15:0]   axi_timerCtrl_timerD_io_limit_driver;
-  reg                 when_Timer_l40_3;
-  reg                 when_Timer_l44_3;
-  reg        [3:0]    axi_timerCtrl_interruptCtrl_1_io_masks_driver;
+  reg        [15:0]   _zz_io_limit = 0;
+  reg                 _zz_io_clear = 0;
+  reg        [1:0]    timerABridge_ticksEnable = 0;
+  reg        [0:0]    timerABridge_clearsEnable = 0;
+  reg                 timerABridge_busClearing = 0;
+  reg        [31:0]   axi_timerCtrl_timerA_io_limit_driver = 0;
+  reg                 when_Timer_l40 = 0;
+  reg                 when_Timer_l44 = 0;
+  reg        [2:0]    timerBBridge_ticksEnable = 0;
+  reg        [1:0]    timerBBridge_clearsEnable = 0;
+  reg                 timerBBridge_busClearing = 0;
+  reg        [15:0]   axi_timerCtrl_timerB_io_limit_driver = 0;
+  reg                 when_Timer_l40_1 = 0;
+  reg                 when_Timer_l44_1 = 0;
+  reg        [2:0]    timerCBridge_ticksEnable = 0;
+  reg        [1:0]    timerCBridge_clearsEnable = 0;
+  reg                 timerCBridge_busClearing = 0;
+  reg        [15:0]   axi_timerCtrl_timerC_io_limit_driver = 0;
+  reg                 when_Timer_l40_2 = 0;
+  reg                 when_Timer_l44_2 = 0;
+  reg        [2:0]    timerDBridge_ticksEnable = 0;
+  reg        [1:0]    timerDBridge_clearsEnable = 0;
+  reg                 timerDBridge_busClearing = 0;
+  reg        [15:0]   axi_timerCtrl_timerD_io_limit_driver = 0;
+  reg                 when_Timer_l40_3 = 0;
+  reg                 when_Timer_l44_3 = 0;
+  reg        [3:0]    axi_timerCtrl_interruptCtrl_1_io_masks_driver = 0;
 
   BufferCC_4 io_external_buffercc (
     .io_dataIn_clear    (io_external_clear                    ), //i
@@ -11061,7 +11061,7 @@ module Apb3Gpio (
   output              io_apb_PREADY,
   input               io_apb_PWRITE,
   input      [31:0]   io_apb_PWDATA,
-  output reg [31:0]   io_apb_PRDATA,
+  output reg [31:0]   io_apb_PRDATA = 0,
   output              io_apb_PSLVERROR,
   input      [31:0]   io_gpio_read,
   output     [31:0]   io_gpio_write,
@@ -11078,8 +11078,8 @@ module Apb3Gpio (
   wire                ctrl_askRead;
   wire                ctrl_doWrite;
   wire                ctrl_doRead;
-  reg        [31:0]   io_gpio_write_driver;
-  reg        [31:0]   io_gpio_writeEnable_driver;
+  reg        [31:0]   io_gpio_write_driver=0;
+  reg        [31:0]   io_gpio_writeEnable_driver = 0;
 
   BufferCC_6 io_gpio_read_buffercc (
     .io_dataIn          (io_gpio_read[31:0]                    ), //i
@@ -11148,7 +11148,7 @@ endmodule
 
 module Axi4SharedToApb3Bridge (
   input               io_axi_arw_valid,
-  output reg          io_axi_arw_ready,
+  output reg          io_axi_arw_ready = 0,
   input      [19:0]   io_axi_arw_payload_addr,
   input      [3:0]    io_axi_arw_payload_id,
   input      [7:0]    io_axi_arw_payload_len,
@@ -11156,23 +11156,23 @@ module Axi4SharedToApb3Bridge (
   input      [1:0]    io_axi_arw_payload_burst,
   input               io_axi_arw_payload_write,
   input               io_axi_w_valid,
-  output reg          io_axi_w_ready,
+  output reg          io_axi_w_ready = 0,
   input      [31:0]   io_axi_w_payload_data,
   input      [3:0]    io_axi_w_payload_strb,
   input               io_axi_w_payload_last,
-  output reg          io_axi_b_valid,
+  output reg          io_axi_b_valid = 0,
   input               io_axi_b_ready,
   output     [3:0]    io_axi_b_payload_id,
   output     [1:0]    io_axi_b_payload_resp,
-  output reg          io_axi_r_valid,
+  output reg          io_axi_r_valid = 0,
   input               io_axi_r_ready,
   output     [31:0]   io_axi_r_payload_data,
   output     [3:0]    io_axi_r_payload_id,
   output     [1:0]    io_axi_r_payload_resp,
   output              io_axi_r_payload_last,
   output     [19:0]   io_apb_PADDR,
-  output reg [0:0]    io_apb_PSEL,
-  output reg          io_apb_PENABLE,
+  output reg [0:0]    io_apb_PSEL = 0,
+  output reg          io_apb_PENABLE = 0,
   input               io_apb_PREADY,
   output              io_apb_PWRITE,
   output     [31:0]   io_apb_PWDATA,
@@ -11185,10 +11185,10 @@ module Axi4SharedToApb3Bridge (
   localparam Axi4ToApb3BridgePhase_ACCESS_1 = 2'd1;
   localparam Axi4ToApb3BridgePhase_RESPONSE = 2'd2;
 
-  reg        [1:0]    phase;
-  reg                 write;
-  reg        [31:0]   readedData;
-  reg        [3:0]    id;
+  reg        [1:0]    phase = 0;
+  reg                 write = 0;
+  reg        [31:0]   readedData = 0;
+  reg        [3:0]    id = 0;
   wire                when_Axi4SharedToApb3Bridge_l91;
   wire                when_Axi4SharedToApb3Bridge_l97;
   `ifndef SYNTHESIS
@@ -11374,7 +11374,7 @@ endmodule
 
 module Axi4SharedSdramCtrl (
   input               io_axi_arw_valid,
-  output reg          io_axi_arw_ready,
+  output reg          io_axi_arw_ready = 0,
   input      [25:0]   io_axi_arw_payload_addr,
   input      [3:0]    io_axi_arw_payload_id,
   input      [7:0]    io_axi_arw_payload_len,
@@ -11430,15 +11430,15 @@ module Axi4SharedSdramCtrl (
   wire                ctrl_io_sdram_WEn;
   wire       [15:0]   ctrl_io_sdram_DQ_write;
   wire       [15:0]   ctrl_io_sdram_DQ_writeEnable;
-  reg        [15:0]   _zz_io_bus_cmd_payload_data;
-  reg        [1:0]    _zz_io_bus_cmd_payload_mask;
+  reg        [15:0]   _zz_io_bus_cmd_payload_data = 0;
+  reg        [1:0]    _zz_io_bus_cmd_payload_mask = 0;
   wire       [1:0]    _zz_Axi4Incr_alignMask;
   wire       [11:0]   _zz_Axi4Incr_base;
   wire       [11:0]   _zz_Axi4Incr_base_1;
   wire       [11:0]   _zz_Axi4Incr_baseIncr;
   wire       [2:0]    _zz_Axi4Incr_wrapCase_1;
   wire       [2:0]    _zz_Axi4Incr_wrapCase_2;
-  reg        [11:0]   _zz_Axi4Incr_result;
+  reg        [11:0]   _zz_Axi4Incr_result = 0;
   wire       [10:0]   _zz_Axi4Incr_result_1;
   wire       [0:0]    _zz_Axi4Incr_result_2;
   wire       [9:0]    _zz_Axi4Incr_result_3;
@@ -11465,42 +11465,42 @@ module Axi4SharedSdramCtrl (
   wire       [3:0]    ctrlBusAdapted_rsp_payload_context_id;
   wire                ctrlBusAdapted_rsp_payload_context_last;
   wire                axi_sdramCtrl_ctrl_io_bus_cmd_fire;
-  reg                 _zz_io_bus_cmd_payload_address;
-  reg        [0:0]    _zz_io_bus_cmd_payload_address_1;
-  reg        [0:0]    _zz_io_bus_cmd_payload_address_2;
+  reg                 _zz_io_bus_cmd_payload_address = 0;
+  reg        [0:0]    _zz_io_bus_cmd_payload_address_1 = 0;
+  reg        [0:0]    _zz_io_bus_cmd_payload_address_2 = 0;
   wire                _zz_ctrlBusAdapted_cmd_ready;
   wire                axi_sdramCtrl_ctrl_io_bus_rsp_fire;
-  reg                 _zz_ctrlBusAdapted_rsp_valid;
-  reg        [0:0]    _zz_ctrlBusAdapted_rsp_valid_1;
-  reg        [0:0]    _zz_ctrlBusAdapted_rsp_valid_2;
+  reg                 _zz_ctrlBusAdapted_rsp_valid = 0;
+  reg        [0:0]    _zz_ctrlBusAdapted_rsp_valid_1 = 0;
+  reg        [0:0]    _zz_ctrlBusAdapted_rsp_valid_2 = 0;
   wire                _zz_ctrlBusAdapted_rsp_valid_3;
-  reg        [15:0]   axi_sdramCtrl_ctrl_io_bus_rsp_payload_data_regNextWhen;
-  reg                 unburstify_result_valid;
+  reg        [15:0]   axi_sdramCtrl_ctrl_io_bus_rsp_payload_data_regNextWhen = 0;
+  reg                 unburstify_result_valid = 0;
   wire                unburstify_result_ready;
-  reg                 unburstify_result_payload_last;
-  reg        [25:0]   unburstify_result_payload_fragment_addr;
-  reg        [3:0]    unburstify_result_payload_fragment_id;
-  reg        [2:0]    unburstify_result_payload_fragment_size;
-  reg        [1:0]    unburstify_result_payload_fragment_burst;
-  reg                 unburstify_result_payload_fragment_write;
+  reg                 unburstify_result_payload_last = 0;
+  reg        [25:0]   unburstify_result_payload_fragment_addr = 0;
+  reg        [3:0]    unburstify_result_payload_fragment_id = 0;
+  reg        [2:0]    unburstify_result_payload_fragment_size = 0;
+  reg        [1:0]    unburstify_result_payload_fragment_burst = 0;
+  reg                 unburstify_result_payload_fragment_write = 0;
   wire                unburstify_doResult;
-  reg                 unburstify_buffer_valid;
-  reg        [7:0]    unburstify_buffer_len;
-  reg        [7:0]    unburstify_buffer_beat;
-  reg        [25:0]   unburstify_buffer_transaction_addr;
-  reg        [3:0]    unburstify_buffer_transaction_id;
-  reg        [2:0]    unburstify_buffer_transaction_size;
-  reg        [1:0]    unburstify_buffer_transaction_burst;
-  reg                 unburstify_buffer_transaction_write;
+  reg                 unburstify_buffer_valid = 0;
+  reg        [7:0]    unburstify_buffer_len = 0;
+  reg        [7:0]    unburstify_buffer_beat = 0;
+  reg        [25:0]   unburstify_buffer_transaction_addr = 0;
+  reg        [3:0]    unburstify_buffer_transaction_id = 0;
+  reg        [2:0]    unburstify_buffer_transaction_size = 0;
+  reg        [1:0]    unburstify_buffer_transaction_burst = 0;
+  reg                 unburstify_buffer_transaction_write = 0;
   wire                unburstify_buffer_last;
   wire       [1:0]    Axi4Incr_validSize;
-  reg        [25:0]   Axi4Incr_result;
+  reg        [25:0]   Axi4Incr_result = 0;
   wire       [13:0]   Axi4Incr_highCat;
   wire       [2:0]    Axi4Incr_sizeValue;
   wire       [11:0]   Axi4Incr_alignMask;
   wire       [11:0]   Axi4Incr_base;
   wire       [11:0]   Axi4Incr_baseIncr;
-  reg        [1:0]    _zz_Axi4Incr_wrapCase;
+  reg        [1:0]    _zz_Axi4Incr_wrapCase = 0;
   wire       [2:0]    Axi4Incr_wrapCase;
   wire                when_Axi4Channel_l322;
   wire                _zz_unburstify_result_ready;
@@ -11513,7 +11513,7 @@ module Axi4SharedSdramCtrl (
   wire       [1:0]    bridge_axiCmd_payload_fragment_burst;
   wire                bridge_axiCmd_payload_fragment_write;
   wire                bridge_writeRsp_valid;
-  reg                 bridge_writeRsp_ready;
+  reg                 bridge_writeRsp_ready = 0;
   wire       [3:0]    bridge_writeRsp_payload_id;
   wire       [1:0]    bridge_writeRsp_payload_resp;
   wire                bridge_axiCmd_fire;
@@ -11521,9 +11521,9 @@ module Axi4SharedSdramCtrl (
   wire                bridge_writeRsp_m2sPipe_ready;
   wire       [3:0]    bridge_writeRsp_m2sPipe_payload_id;
   wire       [1:0]    bridge_writeRsp_m2sPipe_payload_resp;
-  reg                 bridge_writeRsp_rValid;
-  reg        [3:0]    bridge_writeRsp_rData_id;
-  reg        [1:0]    bridge_writeRsp_rData_resp;
+  reg                 bridge_writeRsp_rValid = 0;
+  reg        [3:0]    bridge_writeRsp_rData_id = 0;
+  reg        [1:0]    bridge_writeRsp_rData_resp = 0;
   wire                when_Stream_l369;
 
   assign _zz_Axi4Incr_alignMask = {(2'b01 < Axi4Incr_validSize),(2'b00 < Axi4Incr_validSize)};
@@ -11855,7 +11855,7 @@ endmodule
 
 module Axi4SharedOnChipRam (
   input               io_axi_arw_valid,
-  output reg          io_axi_arw_ready,
+  output reg          io_axi_arw_ready = 0,
   input      [11:0]   io_axi_arw_payload_addr,
   input      [3:0]    io_axi_arw_payload_id,
   input      [7:0]    io_axi_arw_payload_len,
@@ -11881,14 +11881,14 @@ module Axi4SharedOnChipRam (
   input               resetCtrl_axiReset
 );
 
-  reg        [31:0]   _zz_ram_port0;
+  reg        [31:0]   _zz_ram_port0 = 0;
   wire       [1:0]    _zz_Axi4Incr_alignMask;
   wire       [11:0]   _zz_Axi4Incr_base;
   wire       [11:0]   _zz_Axi4Incr_base_1;
   wire       [11:0]   _zz_Axi4Incr_baseIncr;
   wire       [2:0]    _zz_Axi4Incr_wrapCase_1;
   wire       [2:0]    _zz_Axi4Incr_wrapCase_2;
-  reg        [11:0]   _zz_Axi4Incr_result;
+  reg        [11:0]   _zz_Axi4Incr_result = 0;
   wire       [10:0]   _zz_Axi4Incr_result_1;
   wire       [0:0]    _zz_Axi4Incr_result_2;
   wire       [9:0]    _zz_Axi4Incr_result_3;
@@ -11901,36 +11901,36 @@ module Axi4SharedOnChipRam (
   wire       [4:0]    _zz_Axi4Incr_result_10;
   wire       [5:0]    _zz_Axi4Incr_result_11;
   wire       [5:0]    _zz_Axi4Incr_result_12;
-  reg                 unburstify_result_valid;
+  reg                 unburstify_result_valid = 0;
   wire                unburstify_result_ready;
-  reg                 unburstify_result_payload_last;
-  reg        [11:0]   unburstify_result_payload_fragment_addr;
-  reg        [3:0]    unburstify_result_payload_fragment_id;
-  reg        [2:0]    unburstify_result_payload_fragment_size;
-  reg        [1:0]    unburstify_result_payload_fragment_burst;
-  reg                 unburstify_result_payload_fragment_write;
+  reg                 unburstify_result_payload_last = 0;
+  reg        [11:0]   unburstify_result_payload_fragment_addr = 0;
+  reg        [3:0]    unburstify_result_payload_fragment_id = 0;
+  reg        [2:0]    unburstify_result_payload_fragment_size = 0;
+  reg        [1:0]    unburstify_result_payload_fragment_burst = 0;
+  reg                 unburstify_result_payload_fragment_write = 0;
   wire                unburstify_doResult;
-  reg                 unburstify_buffer_valid;
-  reg        [7:0]    unburstify_buffer_len;
-  reg        [7:0]    unburstify_buffer_beat;
-  reg        [11:0]   unburstify_buffer_transaction_addr;
-  reg        [3:0]    unburstify_buffer_transaction_id;
-  reg        [2:0]    unburstify_buffer_transaction_size;
-  reg        [1:0]    unburstify_buffer_transaction_burst;
-  reg                 unburstify_buffer_transaction_write;
+  reg                 unburstify_buffer_valid = 0;
+  reg        [7:0]    unburstify_buffer_len = 0;
+  reg        [7:0]    unburstify_buffer_beat = 0;
+  reg        [11:0]   unburstify_buffer_transaction_addr = 0;
+  reg        [3:0]    unburstify_buffer_transaction_id = 0;
+  reg        [2:0]    unburstify_buffer_transaction_size = 0;
+  reg        [1:0]    unburstify_buffer_transaction_burst = 0;
+  reg                 unburstify_buffer_transaction_write = 0;
   wire                unburstify_buffer_last;
   wire       [1:0]    Axi4Incr_validSize;
-  reg        [11:0]   Axi4Incr_result;
+  reg        [11:0]   Axi4Incr_result = 0;
   wire       [2:0]    Axi4Incr_sizeValue;
   wire       [11:0]   Axi4Incr_alignMask;
   wire       [11:0]   Axi4Incr_base;
   wire       [11:0]   Axi4Incr_baseIncr;
-  reg        [1:0]    _zz_Axi4Incr_wrapCase;
+  reg        [1:0]    _zz_Axi4Incr_wrapCase = 0;
   wire       [2:0]    Axi4Incr_wrapCase;
   wire                when_Axi4Channel_l322;
   wire                _zz_unburstify_result_ready;
   wire                stage0_valid;
-  reg                 stage0_ready;
+  reg                 stage0_ready = 0;
   wire                stage0_payload_last;
   wire       [11:0]   stage0_payload_fragment_addr;
   wire       [3:0]    stage0_payload_fragment_id;
@@ -11948,22 +11948,22 @@ module Axi4SharedOnChipRam (
   wire       [2:0]    stage1_payload_fragment_size;
   wire       [1:0]    stage1_payload_fragment_burst;
   wire                stage1_payload_fragment_write;
-  reg                 stage0_rValid;
-  reg                 stage0_rData_last;
-  reg        [11:0]   stage0_rData_fragment_addr;
-  reg        [3:0]    stage0_rData_fragment_id;
-  reg        [2:0]    stage0_rData_fragment_size;
-  reg        [1:0]    stage0_rData_fragment_burst;
-  reg                 stage0_rData_fragment_write;
+  reg                 stage0_rValid = 0;
+  reg                 stage0_rData_last = 0;
+  reg        [11:0]   stage0_rData_fragment_addr = 0;
+  reg        [3:0]    stage0_rData_fragment_id = 0;
+  reg        [2:0]    stage0_rData_fragment_size = 0;
+  reg        [1:0]    stage0_rData_fragment_burst = 0;
+  reg                 stage0_rData_fragment_write = 0;
   wire                when_Stream_l369;
   reg [7:0] ram_symbol0 [0:1023];
   reg [7:0] ram_symbol1 [0:1023];
   reg [7:0] ram_symbol2 [0:1023];
   reg [7:0] ram_symbol3 [0:1023];
-  reg [7:0] _zz_ramsymbol_read;
-  reg [7:0] _zz_ramsymbol_read_1;
-  reg [7:0] _zz_ramsymbol_read_2;
-  reg [7:0] _zz_ramsymbol_read_3;
+  reg [7:0] _zz_ramsymbol_read = 0;
+  reg [7:0] _zz_ramsymbol_read_1 = 0;
+  reg [7:0] _zz_ramsymbol_read_2 = 0;
+  reg [7:0] _zz_ramsymbol_read_3 = 0;
 
   assign _zz_Axi4Incr_alignMask = {(2'b01 < Axi4Incr_validSize),(2'b00 < Axi4Incr_validSize)};
   assign _zz_Axi4Incr_base_1 = unburstify_buffer_transaction_addr[11 : 0];
@@ -12225,8 +12225,8 @@ module BufferCC (
   input               io_axiClk
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk) begin
@@ -12265,9 +12265,9 @@ module StreamArbiter (
   wire       [1:0]    _zz__zz_maskProposal_0_2_1;
   wire       [0:0]    _zz__zz_maskProposal_0_2_2;
   wire       [0:0]    _zz_maskProposal_0_3;
-  reg                 locked;
+  reg                 locked = 0;
   wire                maskProposal_0;
-  reg                 maskLocked_0;
+  reg                 maskLocked_0 = 0;
   wire                maskRouted_0;
   wire       [0:0]    _zz_maskProposal_0;
   wire       [1:0]    _zz_maskProposal_0_1;
@@ -12357,19 +12357,19 @@ module StreamArbiter_1 (
   wire       [5:0]    _zz__zz_maskProposal_0_2;
   wire       [5:0]    _zz__zz_maskProposal_0_2_1;
   wire       [2:0]    _zz__zz_maskProposal_0_2_2;
-  reg        [25:0]   _zz_io_output_payload_addr_1;
-  reg        [1:0]    _zz_io_output_payload_id;
-  reg        [7:0]    _zz_io_output_payload_len;
-  reg        [2:0]    _zz_io_output_payload_size;
-  reg        [1:0]    _zz_io_output_payload_burst;
-  reg                 _zz_io_output_payload_write;
-  reg                 locked;
+  reg        [25:0]   _zz_io_output_payload_addr_1 = 0;
+  reg        [1:0]    _zz_io_output_payload_id = 0;
+  reg        [7:0]    _zz_io_output_payload_len = 0;
+  reg        [2:0]    _zz_io_output_payload_size = 0;
+  reg        [1:0]    _zz_io_output_payload_burst = 0;
+  reg                 _zz_io_output_payload_write = 0;
+  reg                 locked = 0;
   wire                maskProposal_0;
   wire                maskProposal_1;
   wire                maskProposal_2;
-  reg                 maskLocked_0;
-  reg                 maskLocked_1;
-  reg                 maskLocked_2;
+  reg                 maskLocked_0 = 0;
+  reg                 maskLocked_1 = 0;
+  reg                 maskLocked_2 = 0;
   wire                maskRouted_0;
   wire                maskRouted_1;
   wire                maskRouted_2;
@@ -12533,11 +12533,11 @@ module StreamArbiter_2 (
   wire       [3:0]    _zz__zz_maskProposal_0_2;
   wire       [3:0]    _zz__zz_maskProposal_0_2_1;
   wire       [1:0]    _zz__zz_maskProposal_0_2_2;
-  reg                 locked;
+  reg                 locked = 0;
   wire                maskProposal_0;
   wire                maskProposal_1;
-  reg                 maskLocked_0;
-  reg                 maskLocked_1;
+  reg                 maskLocked_0 = 0;
+  reg                 maskLocked_1 = 0;
   wire                maskRouted_0;
   wire                maskRouted_1;
   wire       [1:0]    _zz_maskProposal_0;
@@ -12609,8 +12609,8 @@ module Axi4ReadOnlyErrorSlave (
   input               resetCtrl_axiReset
 );
 
-  reg                 sendRsp;
-  reg        [7:0]    remaining;
+  reg                 sendRsp = 0;
+  reg        [7:0]    remaining = 0;
   wire                remainingZero;
   wire                io_axi_ar_fire;
 
@@ -12676,10 +12676,10 @@ module Axi4SharedErrorSlave (
   input               resetCtrl_axiReset
 );
 
-  reg                 consumeData;
-  reg                 sendReadRsp;
-  reg                 sendWriteRsp;
-  reg        [7:0]    remaining;
+  reg                 consumeData = 0;
+  reg                 sendReadRsp = 0;
+  reg                 sendWriteRsp = 0;
+  reg        [7:0]    remaining = 0;
   wire                remainingZero;
   wire                io_axi_arw_fire;
   wire                io_axi_w_fire;
@@ -12756,8 +12756,8 @@ module Axi4ReadOnlyErrorSlave_1 (
   input               resetCtrl_axiReset
 );
 
-  reg                 sendRsp;
-  reg        [7:0]    remaining;
+  reg                 sendRsp = 0;
+  reg        [7:0]    remaining = 0;
   wire                remainingZero;
   wire                io_axi_ar_fire;
 
@@ -12811,15 +12811,15 @@ module FlowCCByToggle (
 );
 
   wire                inputArea_target_buffercc_io_dataOut;
-  reg                 inputArea_target;
-  reg                 inputArea_data_last;
-  reg        [0:0]    inputArea_data_fragment;
+  reg                 inputArea_target = 0;
+  reg                 inputArea_data_last = 0;
+  reg        [0:0]    inputArea_data_fragment = 0;
   wire                outputArea_target;
-  reg                 outputArea_hit;
+  reg                 outputArea_hit = 0;
   wire                outputArea_flow_valid;
   wire                outputArea_flow_payload_last;
   wire       [0:0]    outputArea_flow_payload_fragment;
-  reg                 outputArea_flow_m2sPipe_valid;
+  reg                 outputArea_flow_m2sPipe_valid = 0;
   (* async_reg = "true" *) reg                 outputArea_flow_m2sPipe_payload_last;
   (* async_reg = "true" *) reg        [0:0]    outputArea_flow_m2sPipe_payload_fragment;
 
@@ -12873,7 +12873,7 @@ endmodule
 module DataCache (
   input               io_cpu_execute_isValid,
   input      [31:0]   io_cpu_execute_address,
-  output reg          io_cpu_execute_haltIt,
+  output reg          io_cpu_execute_haltIt = 0,
   input               io_cpu_execute_args_wr,
   input      [1:0]    io_cpu_execute_args_size,
   input               io_cpu_execute_args_totalyConsistent,
@@ -12895,14 +12895,14 @@ module DataCache (
   input               io_cpu_writeBack_isStuck,
   input               io_cpu_writeBack_isFiring,
   input               io_cpu_writeBack_isUser,
-  output reg          io_cpu_writeBack_haltIt,
+  output reg          io_cpu_writeBack_haltIt = 0,
   output              io_cpu_writeBack_isWrite,
   input      [31:0]   io_cpu_writeBack_storeData,
-  output reg [31:0]   io_cpu_writeBack_data,
+  output reg [31:0]   io_cpu_writeBack_data = 0,
   input      [31:0]   io_cpu_writeBack_address,
   output              io_cpu_writeBack_mmuException,
   output              io_cpu_writeBack_unalignedAccess,
-  output reg          io_cpu_writeBack_accessError,
+  output reg          io_cpu_writeBack_accessError = 0,
   output              io_cpu_writeBack_keepMemRspData,
   input               io_cpu_writeBack_fence_SW,
   input               io_cpu_writeBack_fence_SR,
@@ -12914,20 +12914,20 @@ module DataCache (
   input               io_cpu_writeBack_fence_PI,
   input      [3:0]    io_cpu_writeBack_fence_FM,
   output              io_cpu_writeBack_exclusiveOk,
-  output reg          io_cpu_redo,
+  output reg          io_cpu_redo = 0,
   input               io_cpu_flush_valid,
   output              io_cpu_flush_ready,
   input               io_cpu_flush_payload_singleLine,
   input      [6:0]    io_cpu_flush_payload_lineId,
   output              io_cpu_writesPending,
-  output reg          io_mem_cmd_valid,
+  output reg          io_mem_cmd_valid = 0,
   input               io_mem_cmd_ready,
-  output reg          io_mem_cmd_payload_wr,
+  output reg          io_mem_cmd_payload_wr = 0,
   output              io_mem_cmd_payload_uncached,
-  output reg [31:0]   io_mem_cmd_payload_address,
+  output reg [31:0]   io_mem_cmd_payload_address = 0,
   output     [31:0]   io_mem_cmd_payload_data,
   output     [3:0]    io_mem_cmd_payload_mask,
-  output reg [2:0]    io_mem_cmd_payload_size,
+  output reg [2:0]    io_mem_cmd_payload_size = 0,
   output              io_mem_cmd_payload_last,
   input               io_mem_rsp_valid,
   input               io_mem_rsp_payload_last,
@@ -12937,37 +12937,37 @@ module DataCache (
   input               resetCtrl_axiReset
 );
 
-  reg        [21:0]   _zz_ways_0_tags_port0;
-  reg        [31:0]   _zz_ways_0_data_port0;
+  reg        [21:0]   _zz_ways_0_tags_port0 = 0;
+  reg        [31:0]   _zz_ways_0_data_port0 = 0;
   wire       [21:0]   _zz_ways_0_tags_port;
   wire       [0:0]    _zz_when;
   wire       [2:0]    _zz_loader_counter_valueNext;
   wire       [0:0]    _zz_loader_counter_valueNext_1;
   wire       [1:0]    _zz_loader_waysAllocator;
-  reg                 _zz_1;
-  reg                 _zz_2;
+  reg                 _zz_1 = 0;
+  reg                 _zz_2 = 0;
   wire                haltCpu;
-  reg                 tagsReadCmd_valid;
-  reg        [6:0]    tagsReadCmd_payload;
-  reg                 tagsWriteCmd_valid;
-  reg        [0:0]    tagsWriteCmd_payload_way;
-  reg        [6:0]    tagsWriteCmd_payload_address;
-  reg                 tagsWriteCmd_payload_data_valid;
-  reg                 tagsWriteCmd_payload_data_error;
-  reg        [19:0]   tagsWriteCmd_payload_data_address;
-  reg                 tagsWriteLastCmd_valid;
-  reg        [0:0]    tagsWriteLastCmd_payload_way;
-  reg        [6:0]    tagsWriteLastCmd_payload_address;
-  reg                 tagsWriteLastCmd_payload_data_valid;
-  reg                 tagsWriteLastCmd_payload_data_error;
-  reg        [19:0]   tagsWriteLastCmd_payload_data_address;
-  reg                 dataReadCmd_valid;
-  reg        [9:0]    dataReadCmd_payload;
-  reg                 dataWriteCmd_valid;
-  reg        [0:0]    dataWriteCmd_payload_way;
-  reg        [9:0]    dataWriteCmd_payload_address;
-  reg        [31:0]   dataWriteCmd_payload_data;
-  reg        [3:0]    dataWriteCmd_payload_mask;
+  reg                 tagsReadCmd_valid = 0;
+  reg        [6:0]    tagsReadCmd_payload = 0;
+  reg                 tagsWriteCmd_valid = 0;
+  reg        [0:0]    tagsWriteCmd_payload_way = 0;
+  reg        [6:0]    tagsWriteCmd_payload_address = 0;
+  reg                 tagsWriteCmd_payload_data_valid = 0;
+  reg                 tagsWriteCmd_payload_data_error = 0;
+  reg        [19:0]   tagsWriteCmd_payload_data_address = 0;
+  reg                 tagsWriteLastCmd_valid = 0;
+  reg        [0:0]    tagsWriteLastCmd_payload_way = 0;
+  reg        [6:0]    tagsWriteLastCmd_payload_address = 0;
+  reg                 tagsWriteLastCmd_payload_data_valid = 0;
+  reg                 tagsWriteLastCmd_payload_data_error = 0;
+  reg        [19:0]   tagsWriteLastCmd_payload_data_address = 0;
+  reg                 dataReadCmd_valid = 0;
+  reg        [9:0]    dataReadCmd_payload = 0;
+  reg                 dataWriteCmd_valid = 0;
+  reg        [0:0]    dataWriteCmd_payload_way = 0;
+  reg        [9:0]    dataWriteCmd_payload_address = 0;
+  reg        [31:0]   dataWriteCmd_payload_data = 0;
+  reg        [3:0]    dataWriteCmd_payload_mask = 0;
   wire                _zz_ways_0_tagsReadRsp_valid;
   wire                ways_0_tagsReadRsp_valid;
   wire                ways_0_tagsReadRsp_error;
@@ -12981,69 +12981,69 @@ module DataCache (
   wire                when_DataCache_l667;
   wire                rspSync;
   wire                rspLast;
-  reg                 memCmdSent;
+  reg                 memCmdSent = 0;
   wire                io_mem_cmd_fire;
   wire                when_DataCache_l689;
-  reg        [3:0]    _zz_stage0_mask;
+  reg        [3:0]    _zz_stage0_mask = 0;
   wire       [3:0]    stage0_mask;
   wire       [0:0]    stage0_dataColisions;
   wire       [0:0]    stage0_wayInvalidate;
   wire                stage0_isAmo;
   wire                when_DataCache_l776;
-  reg                 stageA_request_wr;
-  reg        [1:0]    stageA_request_size;
-  reg                 stageA_request_totalyConsistent;
+  reg                 stageA_request_wr = 0;
+  reg        [1:0]    stageA_request_size = 0;
+  reg                 stageA_request_totalyConsistent = 0;
   wire                when_DataCache_l776_1;
-  reg        [3:0]    stageA_mask;
+  reg        [3:0]    stageA_mask = 0;
   wire                stageA_isAmo;
   wire                stageA_isLrsc;
   wire       [0:0]    stageA_wayHits;
   wire                when_DataCache_l776_2;
-  reg        [0:0]    stageA_wayInvalidate;
+  reg        [0:0]    stageA_wayInvalidate = 0;
   wire                when_DataCache_l776_3;
-  reg        [0:0]    stage0_dataColisions_regNextWhen;
+  reg        [0:0]    stage0_dataColisions_regNextWhen = 0;
   wire       [0:0]    _zz_stageA_dataColisions;
   wire       [0:0]    stageA_dataColisions;
   wire                when_DataCache_l827;
-  reg                 stageB_request_wr;
-  reg        [1:0]    stageB_request_size;
-  reg                 stageB_request_totalyConsistent;
-  reg                 stageB_mmuRspFreeze;
+  reg                 stageB_request_wr = 0;
+  reg        [1:0]    stageB_request_size = 0;
+  reg                 stageB_request_totalyConsistent = 0;
+  reg                 stageB_mmuRspFreeze = 0;
   wire                when_DataCache_l829;
-  reg        [31:0]   stageB_mmuRsp_physicalAddress;
-  reg                 stageB_mmuRsp_isIoAccess;
-  reg                 stageB_mmuRsp_isPaging;
-  reg                 stageB_mmuRsp_allowRead;
-  reg                 stageB_mmuRsp_allowWrite;
-  reg                 stageB_mmuRsp_allowExecute;
-  reg                 stageB_mmuRsp_exception;
-  reg                 stageB_mmuRsp_refilling;
-  reg                 stageB_mmuRsp_bypassTranslation;
+  reg        [31:0]   stageB_mmuRsp_physicalAddress = 0;
+  reg                 stageB_mmuRsp_isIoAccess = 0;
+  reg                 stageB_mmuRsp_isPaging = 0;
+  reg                 stageB_mmuRsp_allowRead = 0;
+  reg                 stageB_mmuRsp_allowWrite = 0;
+  reg                 stageB_mmuRsp_allowExecute = 0;
+  reg                 stageB_mmuRsp_exception = 0;
+  reg                 stageB_mmuRsp_refilling = 0;
+  reg                 stageB_mmuRsp_bypassTranslation = 0;
   wire                when_DataCache_l826;
-  reg                 stageB_tagsReadRsp_0_valid;
-  reg                 stageB_tagsReadRsp_0_error;
-  reg        [19:0]   stageB_tagsReadRsp_0_address;
+  reg                 stageB_tagsReadRsp_0_valid = 0;
+  reg                 stageB_tagsReadRsp_0_error = 0;
+  reg        [19:0]   stageB_tagsReadRsp_0_address = 0;
   wire                when_DataCache_l826_1;
-  reg        [31:0]   stageB_dataReadRsp_0;
+  reg        [31:0]   stageB_dataReadRsp_0 = 0;
   wire                when_DataCache_l825;
-  reg        [0:0]    stageB_wayInvalidate;
+  reg        [0:0]    stageB_wayInvalidate = 0;
   wire                stageB_consistancyHazard;
   wire                when_DataCache_l825_1;
-  reg        [0:0]    stageB_dataColisions;
+  reg        [0:0]    stageB_dataColisions = 0;
   wire                when_DataCache_l825_2;
-  reg                 stageB_unaligned;
+  reg                 stageB_unaligned = 0;
   wire                when_DataCache_l825_3;
-  reg        [0:0]    stageB_waysHitsBeforeInvalidate;
+  reg        [0:0]    stageB_waysHitsBeforeInvalidate = 0;
   wire       [0:0]    stageB_waysHits;
   wire                stageB_waysHit;
   wire       [31:0]   stageB_dataMux;
   wire                when_DataCache_l825_4;
-  reg        [3:0]    stageB_mask;
-  reg                 stageB_loaderValid;
+  reg        [3:0]    stageB_mask = 0;
+  reg                 stageB_loaderValid = 0;
   wire       [31:0]   stageB_ioMemRspMuxed;
-  reg                 stageB_flusher_waitDone;
+  reg                 stageB_flusher_waitDone = 0;
   wire                stageB_flusher_hold;
-  reg        [7:0]    stageB_flusher_counter;
+  reg        [7:0]    stageB_flusher_counter = 0;
   wire                when_DataCache_l855;
   wire                when_DataCache_l861;
   wire                when_DataCache_l863;
@@ -13054,7 +13054,7 @@ module DataCache (
   wire                stageB_isExternalLsrc;
   wire                stageB_isExternalAmo;
   wire       [31:0]   stageB_requestDataBypass;
-  reg                 stageB_cpuWriteToCache;
+  reg                 stageB_cpuWriteToCache = 0;
   wire                when_DataCache_l931;
   wire                stageB_badPermissions;
   wire                stageB_loadStoreFault;
@@ -13067,21 +13067,21 @@ module DataCache (
   wire                when_DataCache_l996;
   wire                when_DataCache_l1072;
   wire                when_DataCache_l1081;
-  reg                 loader_valid;
-  reg                 loader_counter_willIncrement;
+  reg                 loader_valid = 0;
+  reg                 loader_counter_willIncrement = 0;
   wire                loader_counter_willClear;
-  reg        [2:0]    loader_counter_valueNext;
-  reg        [2:0]    loader_counter_value;
+  reg        [2:0]    loader_counter_valueNext = 0;
+  reg        [2:0]    loader_counter_value = 0;
   wire                loader_counter_willOverflowIfInc;
   wire                loader_counter_willOverflow;
-  reg        [0:0]    loader_waysAllocator;
-  reg                 loader_error;
+  reg        [0:0]    loader_waysAllocator = 0;
+  reg                 loader_error = 0;
   wire                loader_kill;
-  reg                 loader_killReg;
+  reg                 loader_killReg = 0;
   wire                when_DataCache_l1097;
   wire                loader_done;
   wire                when_DataCache_l1125;
-  reg                 loader_valid_regNext;
+  reg                 loader_valid_regNext = 0;
   wire                when_DataCache_l1129;
   wire                when_DataCache_l1132;
   reg [21:0] ways_0_tags [0:127];
@@ -13089,10 +13089,10 @@ module DataCache (
   reg [7:0] ways_0_data_symbol1 [0:1023];
   reg [7:0] ways_0_data_symbol2 [0:1023];
   reg [7:0] ways_0_data_symbol3 [0:1023];
-  reg [7:0] _zz_ways_0_datasymbol_read;
-  reg [7:0] _zz_ways_0_datasymbol_read_1;
-  reg [7:0] _zz_ways_0_datasymbol_read_2;
-  reg [7:0] _zz_ways_0_datasymbol_read_3;
+  reg [7:0] _zz_ways_0_datasymbol_read = 0;
+  reg [7:0] _zz_ways_0_datasymbol_read_1 = 0;
+  reg [7:0] _zz_ways_0_datasymbol_read_2 = 0;
+  reg [7:0] _zz_ways_0_datasymbol_read_3 = 0;
 
   assign _zz_when = 1'b1;
   assign _zz_loader_counter_valueNext_1 = loader_counter_willIncrement;
@@ -13727,7 +13727,7 @@ endmodule
 module InstructionCache (
   input               io_flush,
   input               io_cpu_prefetch_isValid,
-  output reg          io_cpu_prefetch_haltIt,
+  output reg          io_cpu_prefetch_haltIt = 0,
   input      [31:0]   io_cpu_prefetch_pc,
   input               io_cpu_fetch_isValid,
   input               io_cpu_fetch_isStuck,
@@ -13769,29 +13769,29 @@ module InstructionCache (
   input               resetCtrl_axiReset
 );
 
-  reg        [31:0]   _zz_banks_0_port1;
-  reg        [21:0]   _zz_ways_0_tags_port1;
+  reg        [31:0]   _zz_banks_0_port1 = 0;
+  reg        [21:0]   _zz_ways_0_tags_port1 = 0;
   wire       [21:0]   _zz_ways_0_tags_port;
-  reg                 _zz_1;
-  reg                 _zz_2;
-  reg                 lineLoader_fire;
-  reg                 lineLoader_valid;
-  (* keep , syn_keep *) reg        [31:0]   lineLoader_address /* synthesis syn_keep = 1 */ ;
-  reg                 lineLoader_hadError;
-  reg                 lineLoader_flushPending;
-  reg        [7:0]    lineLoader_flushCounter;
+  reg                 _zz_1 = 0;
+  reg                 _zz_2 = 0;
+  reg                 lineLoader_fire = 0;
+  reg                 lineLoader_valid = 0;
+  (* keep , syn_keep *) reg        [31:0]   lineLoader_address  = 0/* synthesis syn_keep = 1 */ ;
+  reg                 lineLoader_hadError = 0;
+  reg                 lineLoader_flushPending = 0;
+  reg        [7:0]    lineLoader_flushCounter = 0;
   wire                when_InstructionCache_l338;
-  reg                 _zz_when_InstructionCache_l342;
+  reg                 _zz_when_InstructionCache_l342 = 0;
   wire                when_InstructionCache_l342;
   wire                when_InstructionCache_l351;
-  reg                 lineLoader_cmdSent;
+  reg                 lineLoader_cmdSent = 0;
   wire                io_mem_cmd_fire;
   wire                when_Utils_l538;
-  reg                 lineLoader_wayToAllocate_willIncrement;
+  reg                 lineLoader_wayToAllocate_willIncrement = 0;
   wire                lineLoader_wayToAllocate_willClear;
   wire                lineLoader_wayToAllocate_willOverflowIfInc;
   wire                lineLoader_wayToAllocate_willOverflow;
-  (* keep , syn_keep *) reg        [2:0]    lineLoader_wordIndex /* synthesis syn_keep = 1 */ ;
+  (* keep , syn_keep *) reg        [2:0]    lineLoader_wordIndex = 0 /* synthesis syn_keep = 1 */ ;
   wire                lineLoader_write_tag_0_valid;
   wire       [6:0]    lineLoader_write_tag_0_payload_address;
   wire                lineLoader_write_tag_0_payload_data_valid;
@@ -13812,23 +13812,23 @@ module InstructionCache (
   wire       [19:0]   fetchStage_read_waysValues_0_tag_address;
   wire       [21:0]   _zz_fetchStage_read_waysValues_0_tag_valid_2;
   wire                when_InstructionCache_l459;
-  reg        [31:0]   decodeStage_mmuRsp_physicalAddress;
-  reg                 decodeStage_mmuRsp_isIoAccess;
-  reg                 decodeStage_mmuRsp_isPaging;
-  reg                 decodeStage_mmuRsp_allowRead;
-  reg                 decodeStage_mmuRsp_allowWrite;
-  reg                 decodeStage_mmuRsp_allowExecute;
-  reg                 decodeStage_mmuRsp_exception;
-  reg                 decodeStage_mmuRsp_refilling;
-  reg                 decodeStage_mmuRsp_bypassTranslation;
+  reg        [31:0]   decodeStage_mmuRsp_physicalAddress = 0;
+  reg                 decodeStage_mmuRsp_isIoAccess = 0;
+  reg                 decodeStage_mmuRsp_isPaging = 0;
+  reg                 decodeStage_mmuRsp_allowRead = 0;
+  reg                 decodeStage_mmuRsp_allowWrite = 0;
+  reg                 decodeStage_mmuRsp_allowExecute = 0;
+  reg                 decodeStage_mmuRsp_exception = 0;
+  reg                 decodeStage_mmuRsp_refilling = 0;
+  reg                 decodeStage_mmuRsp_bypassTranslation = 0;
   wire                when_InstructionCache_l459_1;
-  reg                 decodeStage_hit_tags_0_valid;
-  reg                 decodeStage_hit_tags_0_error;
-  reg        [19:0]   decodeStage_hit_tags_0_address;
+  reg                 decodeStage_hit_tags_0_valid = 0;
+  reg                 decodeStage_hit_tags_0_error = 0;
+  reg        [19:0]   decodeStage_hit_tags_0_address = 0;
   wire                decodeStage_hit_hits_0;
   wire                decodeStage_hit_valid;
   wire                when_InstructionCache_l459_2;
-  reg        [31:0]   _zz_decodeStage_hit_data;
+  reg        [31:0]   _zz_decodeStage_hit_data = 0;
   wire       [31:0]   decodeStage_hit_data;
   wire                when_Fetcher_l411;
   reg [31:0] banks_0 [0:1023];
@@ -14034,10 +14034,10 @@ module PulseCCByToggle (
   wire                bufferCC_15_io_dataIn;
   wire                bufferCC_15_io_dataOut;
   wire                inArea_target_buffercc_io_dataOut;
-  reg                 inArea_target;
+  reg                 inArea_target = 0;
   wire                pulseCCByToggle_1_axi_vgaCtrl_toplevel_resetCtrl_vgaReset_syncronized;
   wire                outArea_target;
-  reg                 outArea_target_regNext;
+  reg                 outArea_target_regNext = 0;
 
   BufferCC_8 bufferCC_15 (
     .io_dataIn          (bufferCC_15_io_dataIn ), //i
@@ -14106,20 +14106,20 @@ module VgaCtrl (
 );
 
   wire                when_VgaCtrl_l183;
-  reg        [11:0]   h_counter;
+  reg        [11:0]   h_counter = 0;
   wire                h_syncStart;
   wire                h_syncEnd;
   wire                h_colorStart;
   wire                h_colorEnd;
-  reg                 h_sync;
-  reg                 h_colorEn;
-  reg        [11:0]   v_counter;
+  reg                 h_sync = 0;
+  reg                 h_colorEn = 0;
+  reg        [11:0]   v_counter = 0;
   wire                v_syncStart;
   wire                v_syncEnd;
   wire                v_colorStart;
   wire                v_colorEnd;
-  reg                 v_sync;
-  reg                 v_colorEn;
+  reg                 v_sync = 0;
+  reg                 v_colorEn = 0;
   wire                colorEn;
 
   assign when_VgaCtrl_l183 = 1'b1;
@@ -14209,8 +14209,8 @@ module BufferCC_3 (
   input               resetCtrl_vgaReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_vgaClk) begin
@@ -14226,7 +14226,7 @@ module VideoDma (
   output              io_busy,
   input      [26:0]   io_base,
   input      [17:0]   io_size,
-  output reg          io_mem_cmd_valid,
+  output reg          io_mem_cmd_valid = 0,
   input               io_mem_cmd_ready,
   output     [26:0]   io_mem_cmd_payload,
   input               io_mem_rsp_valid,
@@ -14254,27 +14254,27 @@ module VideoDma (
   wire       [26:0]   _zz_io_mem_cmd_payload;
   wire       [2:0]    _zz_rspArea_frameClockArea_popBeatCounter_valueNext;
   wire       [0:0]    _zz_rspArea_frameClockArea_popBeatCounter_valueNext_1;
-  reg        [15:0]   _zz__zz_io_frame_payload_fragment_r_1;
-  reg        [5:0]    _zz_pendingMemRsp;
-  reg        [5:0]    _zz_pendingMemRsp_1;
+  reg        [15:0]   _zz__zz_io_frame_payload_fragment_r_1 = 0;
+  reg        [5:0]    _zz_pendingMemRsp = 0;
+  reg        [5:0]    _zz_pendingMemRsp_1 = 0;
   wire                io_mem_cmd_fire;
   wire                when_Utils_l662;
-  reg                 pendingMemCmd_incrementIt;
-  reg                 pendingMemCmd_decrementIt;
+  reg                 pendingMemCmd_incrementIt = 0;
+  reg                 pendingMemCmd_decrementIt = 0;
   wire       [2:0]    pendingMemCmd_valueNext;
-  reg        [2:0]    pendingMemCmd_value;
+  reg        [2:0]    pendingMemCmd_value = 0;
   wire                pendingMemCmd_willOverflowIfInc;
   wire                pendingMemCmd_willOverflow;
-  reg        [2:0]    pendingMemCmd_finalIncrement;
+  reg        [2:0]    pendingMemCmd_finalIncrement = 0;
   wire                when_Utils_l687;
   wire                when_Utils_l689;
-  reg        [5:0]    pendingMemRsp;
+  reg        [5:0]    pendingMemRsp = 0;
   wire       [5:0]    _zz_pendingMemRsp_2;
   wire                toManyPendingCmd;
   wire                toManyPendingRsp;
-  reg                 isActive;
-  reg                 cmdActive;
-  reg        [17:0]   memCmdCounter;
+  reg                 isActive = 0;
+  reg                 cmdActive = 0;
+  reg        [17:0]   memCmdCounter = 0;
   wire                memCmdLast;
   wire                when_VideoDma_l94;
   wire                when_VideoDma_l102;
@@ -14291,22 +14291,22 @@ module VideoDma (
   wire                memRsp_toStream_ready;
   wire                memRsp_toStream_payload_last;
   wire       [31:0]   memRsp_toStream_payload_fragment;
-  reg                 rspArea_frameClockArea_popBeatCounter_willIncrement;
+  reg                 rspArea_frameClockArea_popBeatCounter_willIncrement = 0;
   wire                rspArea_frameClockArea_popBeatCounter_willClear;
-  reg        [2:0]    rspArea_frameClockArea_popBeatCounter_valueNext;
-  reg        [2:0]    rspArea_frameClockArea_popBeatCounter_value;
+  reg        [2:0]    rspArea_frameClockArea_popBeatCounter_valueNext = 0;
+  reg        [2:0]    rspArea_frameClockArea_popBeatCounter_value = 0;
   wire                rspArea_frameClockArea_popBeatCounter_willOverflowIfInc;
   wire                rspArea_frameClockArea_popBeatCounter_willOverflow;
   wire                dma_rspArea_fifo_io_pop_fire;
-  reg        [6:0]    rspArea_frameClockArea_popCmdGray;
-  reg                 _zz_when_Utils_l412;
+  reg        [6:0]    rspArea_frameClockArea_popCmdGray = 0;
+  reg                 _zz_when_Utils_l412 = 0;
   wire       [6:0]    _zz_when_Utils_l412_1;
-  reg                 _zz_when_Utils_l412_2;
-  reg                 _zz_when_Utils_l412_3;
-  reg                 _zz_when_Utils_l412_4;
-  reg                 _zz_when_Utils_l412_5;
-  reg                 _zz_when_Utils_l412_6;
-  reg                 _zz_when_Utils_l412_7;
+  reg                 _zz_when_Utils_l412_2 = 0;
+  reg                 _zz_when_Utils_l412_3 = 0;
+  reg                 _zz_when_Utils_l412_4 = 0;
+  reg                 _zz_when_Utils_l412_5 = 0;
+  reg                 _zz_when_Utils_l412_6 = 0;
+  reg                 _zz_when_Utils_l412_7 = 0;
   wire                when_Utils_l412;
   wire                when_Utils_l412_1;
   wire                when_Utils_l412_2;
@@ -14315,15 +14315,15 @@ module VideoDma (
   wire                when_Utils_l412_5;
   wire                when_Utils_l412_6;
   wire       [6:0]    rspArea_popCmdGray;
-  reg        [6:0]    rspArea_pushCmdGray;
-  reg                 _zz_when_Utils_l412_8;
+  reg        [6:0]    rspArea_pushCmdGray = 0;
+  reg                 _zz_when_Utils_l412_8 = 0;
   wire       [6:0]    _zz_when_Utils_l412_9;
-  reg                 _zz_when_Utils_l412_10;
-  reg                 _zz_when_Utils_l412_11;
-  reg                 _zz_when_Utils_l412_12;
-  reg                 _zz_when_Utils_l412_13;
-  reg                 _zz_when_Utils_l412_14;
-  reg                 _zz_when_Utils_l412_15;
+  reg                 _zz_when_Utils_l412_10 = 0;
+  reg                 _zz_when_Utils_l412_11 = 0;
+  reg                 _zz_when_Utils_l412_12 = 0;
+  reg                 _zz_when_Utils_l412_13 = 0;
+  reg                 _zz_when_Utils_l412_14 = 0;
+  reg                 _zz_when_Utils_l412_15 = 0;
   wire                when_Utils_l412_7;
   wire                when_Utils_l412_8;
   wire                when_Utils_l412_9;
@@ -14332,10 +14332,10 @@ module VideoDma (
   wire                when_Utils_l412_12;
   wire                when_Utils_l412_13;
   wire                io_frame_fire;
-  reg                 fifoPop_widthAdapter_counter_willIncrement;
+  reg                 fifoPop_widthAdapter_counter_willIncrement = 0;
   wire                fifoPop_widthAdapter_counter_willClear;
-  reg        [0:0]    fifoPop_widthAdapter_counter_valueNext;
-  reg        [0:0]    fifoPop_widthAdapter_counter_value;
+  reg        [0:0]    fifoPop_widthAdapter_counter_valueNext = 0;
+  reg        [0:0]    fifoPop_widthAdapter_counter_value = 0;
   wire                fifoPop_widthAdapter_counter_willOverflowIfInc;
   wire                fifoPop_widthAdapter_counter_willOverflow;
   wire       [31:0]   _zz_io_frame_payload_fragment_r;
@@ -14717,31 +14717,31 @@ module StreamFifo (
   input               resetCtrl_axiReset
 );
 
-  reg        [7:0]    _zz_logic_ram_port1;
-  reg                 _zz_1;
+  reg        [7:0]    _zz_logic_ram_port1 = 0;
+  reg                 _zz_1 = 0;
   wire                logic_ptr_doPush;
   wire                logic_ptr_doPop;
   wire                logic_ptr_full;
   wire                logic_ptr_empty;
-  reg        [4:0]    logic_ptr_push;
-  reg        [4:0]    logic_ptr_pop;
+  reg        [4:0]    logic_ptr_push = 0;
+  reg        [4:0]    logic_ptr_pop = 0;
   wire       [4:0]    logic_ptr_occupancy;
   wire       [4:0]    logic_ptr_popOnIo;
   wire                when_Stream_l1183;
-  reg                 logic_ptr_wentUp;
+  reg                 logic_ptr_wentUp = 0;
   wire                io_push_fire;
   wire                logic_push_onRam_write_valid;
   wire       [3:0]    logic_push_onRam_write_payload_address;
   wire       [7:0]    logic_push_onRam_write_payload_data;
   wire                logic_pop_addressGen_valid;
-  reg                 logic_pop_addressGen_ready;
+  reg                 logic_pop_addressGen_ready = 0;
   wire       [3:0]    logic_pop_addressGen_payload;
   wire                logic_pop_addressGen_fire;
   wire                logic_pop_sync_readArbitation_valid;
   wire                logic_pop_sync_readArbitation_ready;
   wire       [3:0]    logic_pop_sync_readArbitation_payload;
-  reg                 logic_pop_addressGen_rValid;
-  reg        [3:0]    logic_pop_addressGen_rData;
+  reg                 logic_pop_addressGen_rValid = 0;
+  reg        [3:0]    logic_pop_addressGen_rData = 0;
   wire                when_Stream_l369;
   wire                logic_pop_sync_readPort_cmd_valid;
   wire       [3:0]    logic_pop_sync_readPort_cmd_payload;
@@ -14750,7 +14750,7 @@ module StreamFifo (
   wire                logic_pop_sync_readArbitation_translated_ready;
   wire       [7:0]    logic_pop_sync_readArbitation_translated_payload;
   wire                logic_pop_sync_readArbitation_fire;
-  reg        [4:0]    logic_pop_sync_popReg;
+  reg        [4:0]    logic_pop_sync_popReg = 0;
   reg [7:0] logic_ram [0:15];
 
   always @(posedge io_axiClk) begin
@@ -14863,7 +14863,7 @@ module UartCtrl (
   input      [1:0]    io_config_frame_parity,
   input      [19:0]   io_config_clockDivider,
   input               io_write_valid,
-  output reg          io_write_ready,
+  output reg          io_write_ready = 0,
   input      [7:0]    io_write_payload,
   output              io_read_valid,
   input               io_read_ready,
@@ -14889,10 +14889,10 @@ module UartCtrl (
   wire                rx_io_rts;
   wire                rx_io_error;
   wire                rx_io_break;
-  reg        [19:0]   clockDivider_counter;
+  reg        [19:0]   clockDivider_counter = 0;
   wire                clockDivider_tick;
-  reg                 clockDivider_tickReg;
-  reg                 io_write_thrown_valid;
+  reg                 clockDivider_tickReg = 0;
+  reg                 io_write_thrown_valid = 0;
   wire                io_write_thrown_ready;
   wire       [7:0]    io_write_thrown_payload;
   `ifndef SYNTHESIS
@@ -14995,7 +14995,7 @@ module InterruptCtrl (
   input               resetCtrl_axiReset
 );
 
-  reg        [3:0]    pendings;
+  reg        [3:0]    pendings = 0;
 
   assign io_pendings = (pendings & io_masks);
   always @(posedge io_axiClk or posedge resetCtrl_axiReset) begin
@@ -15025,9 +15025,9 @@ module Timer_1 (
 
   wire       [15:0]   _zz_counter;
   wire       [0:0]    _zz_counter_1;
-  reg        [15:0]   counter;
+  reg        [15:0]   counter = 0;
   wire                limitHit;
-  reg                 inhibitFull;
+  reg                 inhibitFull = 0;
 
   assign _zz_counter_1 = (! limitHit);
   assign _zz_counter = {15'd0, _zz_counter_1};
@@ -15071,9 +15071,9 @@ module Timer (
 
   wire       [31:0]   _zz_counter;
   wire       [0:0]    _zz_counter_1;
-  reg        [31:0]   counter;
+  reg        [31:0]   counter = 0;
   wire                limitHit;
-  reg                 inhibitFull;
+  reg                 inhibitFull = 0;
 
   assign _zz_counter_1 = (! limitHit);
   assign _zz_counter = {31'd0, _zz_counter_1};
@@ -15113,7 +15113,7 @@ module Prescaler (
   input               resetCtrl_axiReset
 );
 
-  reg        [15:0]   counter;
+  reg        [15:0]   counter = 0;
   wire                when_Prescaler_l17;
 
   assign when_Prescaler_l17 = (io_clear || io_overflow);
@@ -15137,10 +15137,10 @@ module BufferCC_4 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0_clear;
-  (* async_reg = "true" *) reg                 buffers_0_tick;
-  (* async_reg = "true" *) reg                 buffers_1_clear;
-  (* async_reg = "true" *) reg                 buffers_1_tick;
+  (* async_reg = "true" *) reg                 buffers_0_clear = 0;
+  (* async_reg = "true" *) reg                 buffers_0_tick = 0;
+  (* async_reg = "true" *) reg                 buffers_1_clear = 0;
+  (* async_reg = "true" *) reg                 buffers_1_tick = 0;
 
   assign io_dataOut_clear = buffers_1_clear;
   assign io_dataOut_tick = buffers_1_tick;
@@ -15163,8 +15163,8 @@ module BufferCC_6 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg        [31:0]   buffers_0;
-  (* async_reg = "true" *) reg        [31:0]   buffers_1;
+  (* async_reg = "true" *) reg        [31:0]   buffers_0 = 0;
+  (* async_reg = "true" *) reg        [31:0]   buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk) begin
@@ -15177,7 +15177,7 @@ endmodule
 
 module SdramCtrl (
   input               io_bus_cmd_valid,
-  output reg          io_bus_cmd_ready,
+  output reg          io_bus_cmd_ready = 0,
   input      [24:0]   io_bus_cmd_payload_address,
   input               io_bus_cmd_payload_write,
   input      [15:0]   io_bus_cmd_payload_data,
@@ -15226,48 +15226,48 @@ module SdramCtrl (
   wire       [0:0]    _zz_refresh_counter_valueNext_1;
   wire       [2:0]    _zz_frontend_bootRefreshCounter_valueNext;
   wire       [0:0]    _zz_frontend_bootRefreshCounter_valueNext_1;
-  reg                 _zz__zz_when_SdramCtrl_l224;
-  reg        [12:0]   _zz_when_SdramCtrl_l224_1;
-  reg                 _zz_bubbleInserter_insertBubble;
-  reg                 _zz_bubbleInserter_insertBubble_1;
+  reg                 _zz__zz_when_SdramCtrl_l224 = 0;
+  reg        [12:0]   _zz_when_SdramCtrl_l224_1 = 0;
+  reg                 _zz_bubbleInserter_insertBubble = 0;
+  reg                 _zz_bubbleInserter_insertBubble_1 = 0;
   wire                refresh_counter_willIncrement;
   wire                refresh_counter_willClear;
-  reg        [8:0]    refresh_counter_valueNext;
-  reg        [8:0]    refresh_counter_value;
+  reg        [8:0]    refresh_counter_valueNext = 0;
+  reg        [8:0]    refresh_counter_value = 0;
   wire                refresh_counter_willOverflowIfInc;
   wire                refresh_counter_willOverflow;
-  reg                 refresh_pending;
-  reg        [12:0]   powerup_counter;
-  reg                 powerup_done;
+  reg                 refresh_pending = 0;
+  reg        [12:0]   powerup_counter = 0;
+  reg                 powerup_done = 0;
   wire                when_SdramCtrl_l146;
   wire       [12:0]   _zz_when_SdramCtrl_l148;
   wire                when_SdramCtrl_l148;
-  reg                 frontend_banks_0_active;
-  reg        [12:0]   frontend_banks_0_row;
-  reg                 frontend_banks_1_active;
-  reg        [12:0]   frontend_banks_1_row;
-  reg                 frontend_banks_2_active;
-  reg        [12:0]   frontend_banks_2_row;
-  reg                 frontend_banks_3_active;
-  reg        [12:0]   frontend_banks_3_row;
+  reg                 frontend_banks_0_active = 0;
+  reg        [12:0]   frontend_banks_0_row = 0;
+  reg                 frontend_banks_1_active = 0;
+  reg        [12:0]   frontend_banks_1_row = 0;
+  reg                 frontend_banks_2_active = 0;
+  reg        [12:0]   frontend_banks_2_row = 0;
+  reg                 frontend_banks_3_active = 0;
+  reg        [12:0]   frontend_banks_3_row = 0;
   wire       [9:0]    frontend_address_column;
   wire       [1:0]    frontend_address_bank;
   wire       [12:0]   frontend_address_row;
   wire       [24:0]   _zz_frontend_address_column;
-  reg                 frontend_rsp_valid;
-  reg                 frontend_rsp_ready;
-  reg        [2:0]    frontend_rsp_payload_task;
+  reg                 frontend_rsp_valid = 0;
+  reg                 frontend_rsp_ready = 0;
+  reg        [2:0]    frontend_rsp_payload_task = 0;
   wire       [1:0]    frontend_rsp_payload_bank;
-  reg        [12:0]   frontend_rsp_payload_rowColumn;
+  reg        [12:0]   frontend_rsp_payload_rowColumn = 0;
   wire       [15:0]   frontend_rsp_payload_data;
   wire       [1:0]    frontend_rsp_payload_mask;
   wire       [3:0]    frontend_rsp_payload_context_id;
   wire                frontend_rsp_payload_context_last;
-  reg        [1:0]    frontend_state;
-  reg                 frontend_bootRefreshCounter_willIncrement;
+  reg        [1:0]    frontend_state = 0;
+  reg                 frontend_bootRefreshCounter_willIncrement = 0;
   wire                frontend_bootRefreshCounter_willClear;
-  reg        [2:0]    frontend_bootRefreshCounter_valueNext;
-  reg        [2:0]    frontend_bootRefreshCounter_value;
+  reg        [2:0]    frontend_bootRefreshCounter_valueNext = 0;
+  reg        [2:0]    frontend_bootRefreshCounter_value = 0;
   wire                frontend_bootRefreshCounter_willOverflowIfInc;
   wire                frontend_bootRefreshCounter_willOverflow;
   wire                when_SdramCtrl_l210;
@@ -15289,14 +15289,14 @@ module SdramCtrl (
   wire       [1:0]    bubbleInserter_cmd_payload_mask;
   wire       [3:0]    bubbleInserter_cmd_payload_context_id;
   wire                bubbleInserter_cmd_payload_context_last;
-  reg                 frontend_rsp_rValid;
-  reg        [2:0]    frontend_rsp_rData_task;
-  reg        [1:0]    frontend_rsp_rData_bank;
-  reg        [12:0]   frontend_rsp_rData_rowColumn;
-  reg        [15:0]   frontend_rsp_rData_data;
-  reg        [1:0]    frontend_rsp_rData_mask;
-  reg        [3:0]    frontend_rsp_rData_context_id;
-  reg                 frontend_rsp_rData_context_last;
+  reg                 frontend_rsp_rValid = 0;
+  reg        [2:0]    frontend_rsp_rData_task = 0;
+  reg        [1:0]    frontend_rsp_rData_bank = 0;
+  reg        [12:0]   frontend_rsp_rData_rowColumn = 0;
+  reg        [15:0]   frontend_rsp_rData_data = 0;
+  reg        [1:0]    frontend_rsp_rData_mask = 0;
+  reg        [3:0]    frontend_rsp_rData_context_id = 0;
+  reg                 frontend_rsp_rData_context_last = 0;
   wire                when_Stream_l369;
   wire                bubbleInserter_rsp_valid;
   wire                bubbleInserter_rsp_ready;
@@ -15307,35 +15307,35 @@ module SdramCtrl (
   wire       [1:0]    bubbleInserter_rsp_payload_mask;
   wire       [3:0]    bubbleInserter_rsp_payload_context_id;
   wire                bubbleInserter_rsp_payload_context_last;
-  reg                 bubbleInserter_insertBubble;
+  reg                 bubbleInserter_insertBubble = 0;
   wire                _zz_bubbleInserter_cmd_ready;
   wire       [2:0]    _zz_bubbleInserter_rsp_payload_task;
   wire                bubbleInserter_timings_read_busy;
-  reg        [2:0]    bubbleInserter_timings_write_counter;
+  reg        [2:0]    bubbleInserter_timings_write_counter = 0;
   wire                bubbleInserter_timings_write_busy;
   wire                when_SdramCtrl_l256;
-  reg        [1:0]    bubbleInserter_timings_banks_0_precharge_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_0_precharge_counter = 0;
   wire                bubbleInserter_timings_banks_0_precharge_busy;
   wire                when_SdramCtrl_l256_1;
-  reg        [1:0]    bubbleInserter_timings_banks_0_active_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_0_active_counter = 0;
   wire                bubbleInserter_timings_banks_0_active_busy;
   wire                when_SdramCtrl_l256_2;
-  reg        [1:0]    bubbleInserter_timings_banks_1_precharge_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_1_precharge_counter = 0;
   wire                bubbleInserter_timings_banks_1_precharge_busy;
   wire                when_SdramCtrl_l256_3;
-  reg        [1:0]    bubbleInserter_timings_banks_1_active_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_1_active_counter = 0;
   wire                bubbleInserter_timings_banks_1_active_busy;
   wire                when_SdramCtrl_l256_4;
-  reg        [1:0]    bubbleInserter_timings_banks_2_precharge_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_2_precharge_counter = 0;
   wire                bubbleInserter_timings_banks_2_precharge_busy;
   wire                when_SdramCtrl_l256_5;
-  reg        [1:0]    bubbleInserter_timings_banks_2_active_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_2_active_counter = 0;
   wire                bubbleInserter_timings_banks_2_active_busy;
   wire                when_SdramCtrl_l256_6;
-  reg        [1:0]    bubbleInserter_timings_banks_3_precharge_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_3_precharge_counter = 0;
   wire                bubbleInserter_timings_banks_3_precharge_busy;
   wire                when_SdramCtrl_l256_7;
-  reg        [1:0]    bubbleInserter_timings_banks_3_active_counter;
+  reg        [1:0]    bubbleInserter_timings_banks_3_active_counter = 0;
   wire                bubbleInserter_timings_banks_3_active_busy;
   wire                when_SdramCtrl_l256_8;
   wire                when_SdramCtrl_l265;
@@ -15390,17 +15390,17 @@ module SdramCtrl (
   wire       [1:0]    chip_cmd_payload_mask;
   wire       [3:0]    chip_cmd_payload_context_id;
   wire                chip_cmd_payload_context_last;
-  reg        [12:0]   chip_sdram_ADDR;
-  reg        [1:0]    chip_sdram_BA;
-  reg        [15:0]   chip_sdram_DQ_read;
-  reg        [15:0]   chip_sdram_DQ_write;
-  reg        [15:0]   chip_sdram_DQ_writeEnable;
-  reg        [1:0]    chip_sdram_DQM;
-  reg                 chip_sdram_CASn;
-  reg                 chip_sdram_CKE;
-  reg                 chip_sdram_CSn;
-  reg                 chip_sdram_RASn;
-  reg                 chip_sdram_WEn;
+  reg        [12:0]   chip_sdram_ADDR = 0;
+  reg        [1:0]    chip_sdram_BA = 0;
+  reg        [15:0]   chip_sdram_DQ_read = 0;
+  reg        [15:0]   chip_sdram_DQ_write = 0;
+  reg        [15:0]   chip_sdram_DQ_writeEnable = 0;
+  reg        [1:0]    chip_sdram_DQM = 0;
+  reg                 chip_sdram_CASn = 0;
+  reg                 chip_sdram_CKE = 0;
+  reg                 chip_sdram_CSn = 0;
+  reg                 chip_sdram_RASn = 0;
+  reg                 chip_sdram_WEn = 0;
   wire                chip_remoteCke;
   wire                chip_readHistory_0;
   wire                chip_readHistory_1;
@@ -15409,24 +15409,24 @@ module SdramCtrl (
   wire                chip_readHistory_4;
   wire                chip_readHistory_5;
   wire                _zz_chip_readHistory_0;
-  reg                 _zz_chip_readHistory_1;
-  reg                 _zz_chip_readHistory_2;
-  reg                 _zz_chip_readHistory_3;
-  reg                 _zz_chip_readHistory_4;
-  reg                 _zz_chip_readHistory_5;
-  reg        [3:0]    chip_cmd_payload_context_delay_1_id;
-  reg                 chip_cmd_payload_context_delay_1_last;
-  reg        [3:0]    chip_cmd_payload_context_delay_2_id;
-  reg                 chip_cmd_payload_context_delay_2_last;
-  reg        [3:0]    chip_cmd_payload_context_delay_3_id;
-  reg                 chip_cmd_payload_context_delay_3_last;
-  reg        [3:0]    chip_cmd_payload_context_delay_4_id;
-  reg                 chip_cmd_payload_context_delay_4_last;
-  reg        [3:0]    chip_contextDelayed_id;
-  reg                 chip_contextDelayed_last;
+  reg                 _zz_chip_readHistory_1 = 0;
+  reg                 _zz_chip_readHistory_2 = 0;
+  reg                 _zz_chip_readHistory_3 = 0;
+  reg                 _zz_chip_readHistory_4 = 0;
+  reg                 _zz_chip_readHistory_5 = 0;
+  reg        [3:0]    chip_cmd_payload_context_delay_1_id = 0;
+  reg                 chip_cmd_payload_context_delay_1_last = 0;
+  reg        [3:0]    chip_cmd_payload_context_delay_2_id = 0;
+  reg                 chip_cmd_payload_context_delay_2_last = 0;
+  reg        [3:0]    chip_cmd_payload_context_delay_3_id = 0;
+  reg                 chip_cmd_payload_context_delay_3_last = 0;
+  reg        [3:0]    chip_cmd_payload_context_delay_4_id = 0;
+  reg                 chip_cmd_payload_context_delay_4_last = 0;
+  reg        [3:0]    chip_contextDelayed_id = 0;
+  reg                 chip_contextDelayed_last = 0;
   wire                chip_sdramCkeNext;
-  reg                 chip_sdramCkeInternal;
-  reg                 chip_sdramCkeInternal_regNext;
+  reg                 chip_sdramCkeInternal = 0;
+  reg                 chip_sdramCkeInternal_regNext = 0;
   wire                _zz_chip_sdram_DQM;
   wire                chip_backupIn_valid;
   wire                chip_backupIn_ready;
@@ -16393,7 +16393,7 @@ endmodule
 module StreamFifo_4 (
   input               io_push_valid,
   output              io_push_ready,
-  output reg          io_pop_valid,
+  output reg          io_pop_valid = 0,
   input               io_pop_ready,
   input               io_flush,
   output     [2:0]    io_occupancy,
@@ -16402,16 +16402,16 @@ module StreamFifo_4 (
   input               resetCtrl_axiReset
 );
 
-  reg                 logic_ptr_doPush;
+  reg                 logic_ptr_doPush = 0;
   wire                logic_ptr_doPop;
   wire                logic_ptr_full;
   wire                logic_ptr_empty;
-  reg        [2:0]    logic_ptr_push;
-  reg        [2:0]    logic_ptr_pop;
+  reg        [2:0]    logic_ptr_push = 0;
+  reg        [2:0]    logic_ptr_pop = 0;
   wire       [2:0]    logic_ptr_occupancy;
   wire       [2:0]    logic_ptr_popOnIo;
   wire                when_Stream_l1183;
-  reg                 logic_ptr_wentUp;
+  reg                 logic_ptr_wentUp = 0;
   wire                io_push_fire;
   wire                logic_push_onRam_write_valid;
   wire       [1:0]    logic_push_onRam_write_payload_address;
@@ -16491,8 +16491,8 @@ module BufferCC_7 (
   input               resetCtrl_systemReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   initial begin
   `ifndef SYNTHESIS
@@ -16517,8 +16517,8 @@ module BufferCC_9 (
   input               pulseCCByToggle_1_axi_vgaCtrl_toplevel_resetCtrl_vgaReset_syncronized
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk or posedge pulseCCByToggle_1_axi_vgaCtrl_toplevel_resetCtrl_vgaReset_syncronized) begin
@@ -16541,8 +16541,8 @@ module BufferCC_8 (
   input               resetCtrl_vgaReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk or posedge resetCtrl_vgaReset) begin
@@ -16565,8 +16565,8 @@ module BufferCC_10 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg        [6:0]    buffers_0;
-  (* async_reg = "true" *) reg        [6:0]    buffers_1;
+  (* async_reg = "true" *) reg        [6:0]    buffers_0 = 0;
+  (* async_reg = "true" *) reg        [6:0]    buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk) begin
@@ -16594,7 +16594,7 @@ module StreamFifoCC (
 );
 
   wire                bufferCC_15_io_dataIn;
-  reg        [32:0]   _zz_ram_port1;
+  reg        [32:0]   _zz_ram_port1 = 0;
   wire       [9:0]    popToPushGray_buffercc_io_dataOut;
   wire                bufferCC_15_io_dataOut;
   wire       [9:0]    pushToPopGray_buffercc_io_dataOut;
@@ -16604,13 +16604,13 @@ module StreamFifoCC (
   wire                _zz_io_pushOccupancy_9;
   wire       [9:0]    _zz_popCC_popPtrGray;
   wire                _zz_io_popOccupancy_9;
-  reg                 _zz_1;
+  reg                 _zz_1 = 0;
   wire       [9:0]    popToPushGray;
   wire       [9:0]    pushToPopGray;
-  reg        [9:0]    pushCC_pushPtr;
+  reg        [9:0]    pushCC_pushPtr = 0;
   wire       [9:0]    pushCC_pushPtrPlus;
   wire                io_push_fire;
-  reg        [9:0]    pushCC_pushPtrGray;
+  reg        [9:0]    pushCC_pushPtrGray = 0;
   wire       [9:0]    pushCC_popPtrGray;
   wire                pushCC_full;
   wire                _zz_io_pushOccupancy;
@@ -16623,20 +16623,20 @@ module StreamFifoCC (
   wire                _zz_io_pushOccupancy_7;
   wire                _zz_io_pushOccupancy_8;
   wire                rspArea_fifo_dma_axi_vgaCtrl_toplevel_resetCtrl_axiReset_syncronized;
-  reg        [9:0]    popCC_popPtr;
+  reg        [9:0]    popCC_popPtr = 0;
   (* keep , syn_keep *) wire       [9:0]    popCC_popPtrPlus /* synthesis syn_keep = 1 */ ;
   wire       [9:0]    popCC_popPtrGray;
   wire       [9:0]    popCC_pushPtrGray;
   wire                popCC_addressGen_valid;
-  reg                 popCC_addressGen_ready;
+  reg                 popCC_addressGen_ready = 0;
   wire       [8:0]    popCC_addressGen_payload;
   wire                popCC_empty;
   wire                popCC_addressGen_fire;
   wire                popCC_readArbitation_valid;
   wire                popCC_readArbitation_ready;
   wire       [8:0]    popCC_readArbitation_payload;
-  reg                 popCC_addressGen_rValid;
-  reg        [8:0]    popCC_addressGen_rData;
+  reg                 popCC_addressGen_rValid = 0;
+  reg        [8:0]    popCC_addressGen_rData = 0;
   wire                when_Stream_l369;
   wire                popCC_readPort_cmd_valid;
   wire       [8:0]    popCC_readPort_cmd_payload;
@@ -16648,8 +16648,8 @@ module StreamFifoCC (
   wire                popCC_readArbitation_translated_payload_last;
   wire       [31:0]   popCC_readArbitation_translated_payload_fragment;
   wire                popCC_readArbitation_fire;
-  reg        [9:0]    popCC_ptrToPush;
-  reg        [9:0]    popCC_ptrToOccupancy;
+  reg        [9:0]    popCC_ptrToPush = 0;
+  reg        [9:0]    popCC_ptrToOccupancy = 0;
   wire                _zz_io_popOccupancy;
   wire                _zz_io_popOccupancy_1;
   wire                _zz_io_popOccupancy_2;
@@ -16819,7 +16819,7 @@ module UartCtrlRx (
   output     [7:0]    io_read_payload,
   input               io_rxd,
   output              io_rts,
-  output reg          io_error,
+  output reg          io_error = 0,
   output              io_break,
   input               io_axiClk,
   input               resetCtrl_axiReset
@@ -16845,26 +16845,26 @@ module UartCtrlRx (
   wire                _zz_sampler_value_6;
   wire       [2:0]    _zz_when_UartCtrlRx_l139;
   wire       [0:0]    _zz_when_UartCtrlRx_l139_1;
-  reg                 _zz_io_rts;
+  reg                 _zz_io_rts = 0;
   wire                sampler_synchroniser;
   wire                sampler_samples_0;
-  reg                 sampler_samples_1;
-  reg                 sampler_samples_2;
-  reg                 sampler_samples_3;
-  reg                 sampler_samples_4;
-  reg                 sampler_value;
-  reg                 sampler_tick;
-  reg        [2:0]    bitTimer_counter;
-  reg                 bitTimer_tick;
+  reg                 sampler_samples_1 = 0;
+  reg                 sampler_samples_2 = 0;
+  reg                 sampler_samples_3 = 0;
+  reg                 sampler_samples_4 = 0;
+  reg                 sampler_value = 0;
+  reg                 sampler_tick = 0;
+  reg        [2:0]    bitTimer_counter = 0;
+  reg                 bitTimer_tick = 0;
   wire                when_UartCtrlRx_l43;
-  reg        [2:0]    bitCounter_value;
-  reg        [6:0]    break_counter;
+  reg        [2:0]    bitCounter_value = 0;
+  reg        [6:0]    break_counter = 0;
   wire                break_valid;
   wire                when_UartCtrlRx_l69;
-  reg        [2:0]    stateMachine_state;
-  reg                 stateMachine_parity;
-  reg        [7:0]    stateMachine_shifter;
-  reg                 stateMachine_validReg;
+  reg        [2:0]    stateMachine_state = 0;
+  reg                 stateMachine_parity = 0;
+  reg        [7:0]    stateMachine_shifter = 0;
+  reg                 stateMachine_validReg = 0;
   wire                when_UartCtrlRx_l93;
   wire                when_UartCtrlRx_l103;
   wire                when_UartCtrlRx_l111;
@@ -17109,7 +17109,7 @@ module UartCtrlTx (
   input      [1:0]    io_configFrame_parity,
   input               io_samplingTick,
   input               io_write_valid,
-  output reg          io_write_ready,
+  output reg          io_write_ready = 0,
   input      [7:0]    io_write_payload,
   input               io_cts,
   output              io_txd,
@@ -17132,22 +17132,22 @@ module UartCtrlTx (
   wire       [0:0]    _zz_clockDivider_counter_valueNext_1;
   wire       [2:0]    _zz_when_UartCtrlTx_l93;
   wire       [0:0]    _zz_when_UartCtrlTx_l93_1;
-  reg                 clockDivider_counter_willIncrement;
+  reg                 clockDivider_counter_willIncrement = 0;
   wire                clockDivider_counter_willClear;
-  reg        [2:0]    clockDivider_counter_valueNext;
-  reg        [2:0]    clockDivider_counter_value;
+  reg        [2:0]    clockDivider_counter_valueNext = 0;
+  reg        [2:0]    clockDivider_counter_value = 0;
   wire                clockDivider_counter_willOverflowIfInc;
   wire                clockDivider_counter_willOverflow;
-  reg        [2:0]    tickCounter_value;
-  reg        [2:0]    stateMachine_state;
-  reg                 stateMachine_parity;
-  reg                 stateMachine_txd;
+  reg        [2:0]    tickCounter_value = 0;
+  reg        [2:0]    stateMachine_state = 0;
+  reg                 stateMachine_parity = 0;
+  reg                 stateMachine_txd = 0;
   wire                when_UartCtrlTx_l58;
   wire                when_UartCtrlTx_l73;
   wire                when_UartCtrlTx_l76;
   wire                when_UartCtrlTx_l93;
   wire       [2:0]    _zz_stateMachine_state;
-  reg                 _zz_io_txd;
+  reg                 _zz_io_txd = 0;
   `ifndef SYNTHESIS
   reg [23:0] io_configFrame_stop_string;
   reg [31:0] io_configFrame_parity_string;
@@ -17403,8 +17403,8 @@ module BufferCC_13 (
   input               rspArea_fifo_dma_axi_vgaCtrl_toplevel_resetCtrl_axiReset_syncronized
 );
 
-  (* async_reg = "true" *) reg        [9:0]    buffers_0;
-  (* async_reg = "true" *) reg        [9:0]    buffers_1;
+  (* async_reg = "true" *) reg        [9:0]    buffers_0 = 0;
+  (* async_reg = "true" *) reg        [9:0]    buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_vgaClk or posedge rspArea_fifo_dma_axi_vgaCtrl_toplevel_resetCtrl_axiReset_syncronized) begin
@@ -17427,8 +17427,8 @@ module BufferCC_12 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_vgaClk or posedge resetCtrl_axiReset) begin
@@ -17451,8 +17451,8 @@ module BufferCC_11 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg        [9:0]    buffers_0;
-  (* async_reg = "true" *) reg        [9:0]    buffers_1;
+  (* async_reg = "true" *) reg        [9:0]    buffers_0 = 0;
+  (* async_reg = "true" *) reg        [9:0]    buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk or posedge resetCtrl_axiReset) begin
@@ -17475,8 +17475,8 @@ module BufferCC_14 (
   input               resetCtrl_axiReset
 );
 
-  (* async_reg = "true" *) reg                 buffers_0;
-  (* async_reg = "true" *) reg                 buffers_1;
+  (* async_reg = "true" *) reg                 buffers_0 = 0;
+  (* async_reg = "true" *) reg                 buffers_1 = 0;
 
   assign io_dataOut = buffers_1;
   always @(posedge io_axiClk or posedge resetCtrl_axiReset) begin
@@ -17498,11 +17498,11 @@ module StreamFifo_5 (
   input      [15:0]   io_push_payload_data,
   input      [3:0]    io_push_payload_context_id,
   input               io_push_payload_context_last,
-  output reg          io_pop_valid,
+  output reg          io_pop_valid = 0,
   input               io_pop_ready,
-  output reg [15:0]   io_pop_payload_data,
-  output reg [3:0]    io_pop_payload_context_id,
-  output reg          io_pop_payload_context_last,
+  output reg [15:0]   io_pop_payload_data = 0,
+  output reg [3:0]    io_pop_payload_context_id = 0,
+  output reg          io_pop_payload_context_last = 0,
   input               io_flush,
   output     [1:0]    io_occupancy,
   output     [1:0]    io_availability,
@@ -17512,17 +17512,17 @@ module StreamFifo_5 (
 
   wire       [20:0]   _zz_logic_ram_port1;
   wire       [20:0]   _zz_logic_ram_port;
-  reg                 _zz_1;
-  reg                 logic_ptr_doPush;
+  reg                 _zz_1 = 0;
+  reg                 logic_ptr_doPush = 0;
   wire                logic_ptr_doPop;
   wire                logic_ptr_full;
   wire                logic_ptr_empty;
-  reg        [1:0]    logic_ptr_push;
-  reg        [1:0]    logic_ptr_pop;
+  reg        [1:0]    logic_ptr_push = 0;
+  reg        [1:0]    logic_ptr_pop = 0;
   wire       [1:0]    logic_ptr_occupancy;
   wire       [1:0]    logic_ptr_popOnIo;
   wire                when_Stream_l1183;
-  reg                 logic_ptr_wentUp;
+  reg                 logic_ptr_wentUp = 0;
   wire                io_push_fire;
   wire                logic_push_onRam_write_valid;
   wire       [0:0]    logic_push_onRam_write_payload_address;
