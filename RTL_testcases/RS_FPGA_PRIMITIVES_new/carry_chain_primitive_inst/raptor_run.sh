@@ -10,7 +10,7 @@ ip_name="" #design_level
 tool_name="iverilog" 
 
 #simulation stages
-post_synth_sim=false 
+post_synth_sim=true 
 post_route_sim=true 
 bitstream_sim=false
 
@@ -259,6 +259,10 @@ parse_cga exit 1; }
         else
             echo ""
         fi
+    echo "clear_simulation_files">>raptor_tcl.tcl 
+    echo "setup_lec_sim 10 2">>raptor_tcl.tcl 
+    [ "$tool_name" = "iverilog" ] && echo "simulate gate icarus">>raptor_tcl.tcl || echo "simulate gate verilator">>raptor_tcl.tcl 
+    [ "$tool_name" = "iverilog" ] && echo "simulate pnr icarus">>raptor_tcl.tcl || echo "simulate pnr verilator">>raptor_tcl.tcl 
     echo "sta">>raptor_tcl.tcl  
     echo "power">>raptor_tcl.tcl  
     echo "bitstream $bitstream">>raptor_tcl.tcl  

@@ -205,6 +205,8 @@ parse_cga exit 1; }
     [ -z "$custom_synth_script" ] && echo "" || echo "custom_synth_script $custom_synth_script">>raptor_tcl.tcl
     [ -z "$synth_options" ] && echo "" || echo "synth_options $synth_options">>raptor_tcl.tcl
     [ -z "$strategy" ] && echo "" || echo "synthesize $strategy">>raptor_tcl.tcl  
+    echo "setup_lec_sim">>raptor_tcl.tcl  
+    [ "$tool_name" = "iverilog" ] && echo "simulate gate icarus">>raptor_tcl.tcl || echo "simulate gate verilator">>raptor_tcl.tcl 
     if [ "$post_synth_sim" == true ]; then 
         echo "# Open the input file in read mode">>raptor_tcl.tcl 
         echo "set input_file [open \"$design/run_1/synth_1_1/synthesis/$design\_post_synth.v\" r]">>raptor_tcl.tcl 
@@ -258,6 +260,7 @@ parse_cga exit 1; }
         else
             echo ""
         fi
+    [ "$tool_name" = "iverilog" ] && echo "simulate pnr icarus">>raptor_tcl.tcl || echo "simulate pnr verilator">>raptor_tcl.tcl 
     echo "sta">>raptor_tcl.tcl  
     echo "power">>raptor_tcl.tcl  
     echo "bitstream $bitstream">>raptor_tcl.tcl  
