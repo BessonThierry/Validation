@@ -12,6 +12,7 @@ wire [63:0] dna64bits;
 wire dna_valid;
 
 wire	SR_ena;
+wire 	SR_reg;
 
 wire [9:0] addra;
 wire [15:0] douta;
