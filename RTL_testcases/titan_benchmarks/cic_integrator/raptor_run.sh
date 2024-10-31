@@ -10,8 +10,8 @@ ip_name="" #design_level
 tool_name="iverilog" 
 
 #simulation stages
-post_synth_sim=false 
-post_route_sim=false 
+post_synth_sim=true 
+post_route_sim=true 
 bitstream_sim=false
 
 #raptor options
@@ -182,8 +182,11 @@ parse_cga exit 1; }
     [ -z "$ip_name" ] && echo "" || echo "add_design_file ./rapidsilicon/ip/$ip_name/v1_0/$design/src/$design.v">>raptor_tcl.tcl
 
     [ -z "$ip_name" ] && echo "add_include_path ./rtl">>raptor_tcl.tcl || echo "" 
-    [ -z "$ip_name" ] && echo "add_library_path ./rtl">>raptor_tcl.tcl || echo "" 
-    [ -z "$ip_name" ] && echo "add_library_ext .v .sv">>raptor_tcl.tcl || echo "" 
+    # [ -z "$ip_name" ] && echo "add_library_path ./rtl">>raptor_tcl.tcl || echo "" 
+    # [ -z "$ip_name" ] && echo "add_library_ext .v .sv">>raptor_tcl.tcl || echo "" 
+    [ -z "$ip_name" ] && echo "add_design_file ./rtl/cic_package.sv">>raptor_tcl.tcl || echo "" 
+    [ -z "$ip_name" ] && echo "add_design_file ./rtl/comb.sv">>raptor_tcl.tcl || echo "" 
+    [ -z "$ip_name" ] && echo "add_design_file ./rtl/integrator.sv">>raptor_tcl.tcl || echo "" 
     [ -z "$ip_name" ] && echo "add_design_file ./rtl/$design.sv">>raptor_tcl.tcl || echo "" 
     ##vary design to design
 
@@ -193,7 +196,7 @@ parse_cga exit 1; }
     [ -z "$add_constraint_file" ] && echo "" || echo "add_constraint_file $add_constraint_file">>raptor_tcl.tcl 
     
     if [ "$post_synth_sim" == true ] || [ "$post_route_sim" == true ] || [ "$bitstream_sim" == true ]; then
-        echo "add_simulation_file ./sim/co_sim_tb/co_sim_$design.v ./rtl/$design.v">>raptor_tcl.tcl 
+        echo "add_simulation_file ./sim/co_sim_tb/co_sim_$design.v rtl/comb.sv rtl/integrator.sv rtl/$design.sv">>raptor_tcl.tcl 
         echo "set_top_testbench co_sim_$design">>raptor_tcl.tcl 
     else
         echo ""
@@ -258,6 +261,10 @@ parse_cga exit 1; }
         else
             echo ""
         fi
+    # echo "clear_simulation_files">>raptor_tcl.tcl 
+    # echo "setup_lec_sim">>raptor_tcl.tcl  
+    # [ "$tool_name" = "iverilog" ] && echo "simulate gate icarus">>raptor_tcl.tcl || echo "simulate gate verilator">>raptor_tcl.tcl 
+    # [ "$tool_name" = "iverilog" ] && echo "simulate pnr icarus">>raptor_tcl.tcl || echo "simulate pnr verilator">>raptor_tcl.tcl 
     echo "sta">>raptor_tcl.tcl  
     echo "power">>raptor_tcl.tcl  
     echo "bitstream $bitstream">>raptor_tcl.tcl  
