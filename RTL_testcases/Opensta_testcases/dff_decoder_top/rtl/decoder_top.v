@@ -9,8 +9,8 @@ module decoder_top #(parameter WIDTH=32) (clk,rst,data_in,data_out);
     reg enable;
     wire [WIDTH-1:0] d_out;
     
-    always @ (posedge clk) begin
-        if (rst)
+    always @ (posedge clk or negedge rst) begin
+        if (!rst)
             enable <= 0;
         else
             enable <= 1;
@@ -27,12 +27,12 @@ module decoder #(parameter WIDTH=32)(
     input en,
     input rst,
     input clk,
-    output reg [WIDTH-1:0] data_out
+    output reg [WIDTH-1:0] data_out = 0
     );
-    reg [WIDTH-1:0 ] data_out_w;
+    reg [WIDTH-1:0 ] data_out_w = 0;
     
-    always @ (posedge clk) begin
-        if (rst)
+    always @ (posedge clk or negedge rst) begin
+        if (!rst)
             data_out <= 0;
         else
             if (!en)
@@ -43,7 +43,7 @@ module decoder #(parameter WIDTH=32)(
     
     always @ (data_in) begin
         case(data_in[2:0])
-            3'b000: data_out_w = 32'd11111110;
+            3'b000: data_out_w = 32'd00000000;
             3'b001: data_out_w = 32'd11111101;
             3'b010: data_out_w = 32'd11111011;
             3'b011: data_out_w = 32'd11110111;
@@ -52,7 +52,7 @@ module decoder #(parameter WIDTH=32)(
             3'b110: data_out_w = 32'd10111111;
             3'b111: data_out_w = 32'd01111111;
 
-            default: data_out_w = 32'd11111111;
+            default: data_out_w = 32'h11111111;
          endcase
     end
     
