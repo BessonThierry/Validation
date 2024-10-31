@@ -6,7 +6,7 @@ module downsampler
     input   clk,
     input   reset_n,
     input   [dw-1:0] data_in,
-    output  reg [dw-1:0] data_out,
+    output  reg signed [dw-1:0] data_out,
     output  reg dv
 );
 /*********************************************************************************************/
