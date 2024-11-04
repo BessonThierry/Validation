@@ -76,10 +76,10 @@ module div_uu(clk, ena, z, d, q, s, div0, ovf);
 	output [d_width -1:0] s; // remainder
 	output div0;
 	output ovf;
-	reg [d_width-1:0] q;
-	reg [d_width-1:0] s;
-	reg div0;
-	reg ovf;
+	reg [d_width-1:0] q = 0;
+	reg [d_width-1:0] s = 0;
+	reg div0 = 0;
+	reg ovf = 0;
 
 	//	
 	// functions
@@ -124,7 +124,30 @@ module div_uu(clk, ena, z, d, q, s, div0, ovf);
 	reg [z_width:0] s_pipe  [d_width:0];
 	reg [z_width:0] d_pipe  [d_width:0];
 
-	reg [d_width:0] div0_pipe, ovf_pipe;
+	reg [d_width:0] div0_pipe = 1;
+	reg [d_width:0] ovf_pipe = 0;
+
+	// Initialize q_pipe with zeros
+	integer i;
+	initial begin
+	    for (i = 0; i < d_width; i = i + 1) begin
+	        q_pipe[i] = {d_width{1'b0}}; // Set each element to a zero of d_width bits
+	    end
+	end
+
+	// integer i;
+	initial begin
+	    for (i = 0; i <= d_width; i = i + 1) begin
+	        s_pipe[i] = {d_width{1'b0}}; // Set each element to a zero of d_width bits
+	    end
+	end
+
+	// integer i;
+	initial begin
+	    for (i = 0; i <= d_width; i = i + 1) begin
+	        d_pipe[i] = {d_width{1'b0}}; // Set each element to a zero of d_width bits
+	    end
+	end
 	//
 	// perform parameter checks
 	//
@@ -140,7 +163,7 @@ module div_uu(clk, ena, z, d, q, s, div0, ovf);
 
 	// generate divisor (d) pipe
 	always @(d)
-	  d_pipe[0] <= {1'b0, d, {(z_width-d_width){1'b0}} };
+	  d_pipe[0] <= {(z_width-d_width){1'b0}};
 
 	always @(posedge clk)
 	  if(ena)
@@ -149,7 +172,7 @@ module div_uu(clk, ena, z, d, q, s, div0, ovf);
 
 	// generate internal remainder pipe
 	always @(z)
-	  s_pipe[0] <= z;
+	  s_pipe[0] <= z[0];
 
 	always @(posedge clk)
 	  if(ena)
@@ -170,16 +193,24 @@ module div_uu(clk, ena, z, d, q, s, div0, ovf);
 	always @(z or d)
 	begin
 	  ovf_pipe[0]  <= !(z[z_width-1:d_width] < d);
-	  div0_pipe[0] <= ~|d;
+	  div0_pipe[0] <= ~|d[7];
 	end
 
 	always @(posedge clk)
-	  if(ena)
+	  if(ena) begin
 	    for(n3=1; n3 <= d_width; n3=n3+1)
 	    begin
 	        ovf_pipe[n3] <= #1 ovf_pipe[n3-1];
 	        div0_pipe[n3] <= #1 div0_pipe[n3-1];
 	    end
+	  end
+	  else begin
+	    for(n3=1; n3 <= d_width; n3=n3+1)
+	    begin
+	        ovf_pipe[n3] <= 'b0;
+	        div0_pipe[n3] <= 'b0;
+	    end
+	  end
 
 	// assign outputs
 	always @(posedge clk)

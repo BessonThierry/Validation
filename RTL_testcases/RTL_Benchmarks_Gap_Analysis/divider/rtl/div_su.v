@@ -75,16 +75,17 @@ module div_su(clk, ena, z, d, q, s, div0, ovf);
 	output div0;
 	output ovf;
 
-	reg [d_width:0] q, s;
-	reg div0;
-	reg ovf;
+	reg [d_width:0] q = 0;
+	reg [d_width:0] s = 0;
+	reg div0 = 0;
+	reg ovf = 0;
 
 	//
 	// variables
 	//
-	reg [z_width -1:0] iz;
-	reg [d_width -1:0] id;
-	reg [d_width +1:0] spipe;
+	reg [z_width -1:0] iz = 0;
+	reg [d_width -1:0] id = 1;
+	reg [d_width +1:0] spipe = 0;
 
 	wire [d_width -1:0] iq, is;
 	wire                idiv0, iovf;
@@ -132,7 +133,7 @@ module div_su(clk, ena, z, d, q, s, div0, ovf);
 
 	// correct divider results if 'd' was negative
 	always @(posedge clk)
-	  if(ena)
+	  if(ena) begin
 	    if(spipe[d_width+1])
 	    begin
 	        q <= #1 (~iq) + 1'h1;
@@ -143,6 +144,7 @@ module div_su(clk, ena, z, d, q, s, div0, ovf);
 	        q <= #1 {1'b0, iq};
 	        s <= #1 {1'b0, is};
 	    end
+	end
 
 	// delay flags same as results
 	always @(posedge clk)
