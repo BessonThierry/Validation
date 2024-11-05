@@ -13,7 +13,7 @@ module param_down_counter (clk_counter, q_counter, rst_counter);
     input clk_counter;
     input rst_counter;
     output [`size-1:0] q_counter;
-    reg [`size-1:0] q_counter ='b0;
+    reg [`size-1:0] q_counter =5'h1F;
 
     always @ (posedge clk_counter or posedge rst_counter)
 

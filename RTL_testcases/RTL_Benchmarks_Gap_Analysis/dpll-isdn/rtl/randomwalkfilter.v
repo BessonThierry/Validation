@@ -11,7 +11,7 @@ parameter FilterMaxValue    = FilterResetValue;
 parameter FilterMinValue    = 256 - FilterResetValue;
 
 /* reversive counter */ 
-reg [FilterLength-1 : 0] FilterCounter;
+reg [FilterLength-1 : 0] FilterCounter = {FilterLength{1'b0}};
 
 /* calculation of output pulses synchrinized with MainClock */
 always @(posedge MainClock)
@@ -27,7 +27,8 @@ always @(posedge MainClock)
 
 /* making "Lead" and "Lag" signals when  */
 /* counter reached max or min levels     */
-reg Positive, Negative;
+reg Positive = 0;
+reg Negative = 0;
 always @(posedge MainClock)
  begin
   Positive <= (FilterCounter == FilterMaxValue);
