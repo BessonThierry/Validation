@@ -24,7 +24,7 @@ module dmx_dpram #(
 	input [depth-1:0] a,
 	input we,
 	input [width-1:0] di,
-	output reg [width-1:0] do,
+	output reg [width-1:0] dout,
 
 	input [depth-1:0] a2,
 	input we2,
@@ -37,7 +37,7 @@ reg [width-1:0] ram[0:(1 << depth)-1];
 always @(posedge clk) begin
 	if(we)
 		ram[a] <= di;
-	do <= ram[a];
+	dout <= ram[a];
 	if(we2)
 		ram[a2] <= di2;
 	do2 <= ram[a2];

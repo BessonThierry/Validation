@@ -45,7 +45,7 @@ dmx_dpram channels(
 	.a(csr_a[8:0]),
 	.we(csr_channels_we),
 	.di(csr_di[7:0]),
-	.do(csr_do_channels[7:0]),
+	.dout(csr_do_channels[7:0]),
 
 	.a2(channel_a),
 	.we2(1'b0),
