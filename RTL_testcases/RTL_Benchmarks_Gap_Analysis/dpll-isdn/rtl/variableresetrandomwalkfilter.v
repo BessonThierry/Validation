@@ -20,7 +20,7 @@ parameter ResetterCounterMaxValue = 3;
 parameter ResetterCounterMinValue = 16 - 3;
 
 /* counter "N - RandomWalkFilter" */ 
-reg [N_FilterLength-1 : 0] N_FilterCounter;
+reg [N_FilterLength-1 : 0] N_FilterCounter = {N_FilterLength{1'b0}};
 
 /* connections of "M - RandomWalkFilter" */
 wire Up, Down;
@@ -77,7 +77,8 @@ always @(posedge MainClock)
 
 /* making "Lead" and "Lag" signals when  */
 /* counter reached max or min levels     */
-reg Positive, Negative;
+reg Positive = 0;
+reg Negative = 0;
 always @(posedge MainClock)
  begin
   Positive <= (N_FilterCounter == N_FilterMaxValue);

@@ -17,8 +17,8 @@ parameter DividerLength   = 7;
 
 parameter DividerMaxValue = 48;
 
-reg [DividerLength-1 : 0] DividerCounter;
-reg FrequencyOut;        // registered output
+reg [DividerLength-1 : 0] DividerCounter = {DividerLength{1'b0}};
+reg FrequencyOut = 0;        // registered output
 
 /* Process of freq. division according to  signals from Random  Deviations Filter:  */
 /* if "lag" then counter will incremented by 2                                                                          */
