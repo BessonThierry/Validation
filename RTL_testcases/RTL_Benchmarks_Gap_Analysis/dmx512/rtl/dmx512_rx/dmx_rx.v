@@ -44,7 +44,7 @@ dmx_dpram channels(
 	.a(csr_a[8:0]),
 	.we(1'b0),
 	.di(8'hxx),
-	.do(csr_channel),
+	.dout(csr_channel),
 
 	.a2(channel_a),
 	.we2(channel_we),
@@ -113,11 +113,11 @@ end
 
 parameter break_threshold = clk_freq/11364;
 reg [12:0] break_counter;
-wire break = break_counter == 13'd0;
+wire brk = break_counter == 13'd0;
 always @(posedge sys_clk) begin
 	if(sys_rst|rx_r)
 		break_counter <= break_threshold;
-	else if(~break)
+	else if(~brk)
 		break_counter <= break_counter - 13'd1;
 end
 
@@ -168,7 +168,7 @@ always @(*) begin
 			ce_load = 1'b1;
 			channel_a_reset = 1'b1;
 			next_skip = 1'b1;
-			if(break)
+			if(brk)
 				next_state = WAIT_MAB;
 		end
 		WAIT_MAB: begin
