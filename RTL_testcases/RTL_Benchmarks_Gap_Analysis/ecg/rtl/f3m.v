@@ -160,8 +160,10 @@ module f3m_mult3(clk, reset,
                  done);
     input clk, reset;
     input [`WIDTH:0] a0, b0, a1, b1, a2, b2;
-    output reg [`WIDTH:0] c0, c1, c2;
-    output reg done;
+    output reg [`WIDTH:0] c0 = 0;
+    output reg [`WIDTH:0] c1 = 0;
+    output reg [`WIDTH:0] c2 = 0;
+    output reg done = 0;
     reg [3:0] K;
     reg mult_reset, delay1, delay2;
     wire e1, e2, e3, mult_done, delay3, rst;
