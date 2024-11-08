@@ -36,7 +36,7 @@ module qdiv(
 	reg [N-1:0] dividend_copy;
 	reg [2*(N-1)-1:0] divider_copy;
  
-	reg [5:0] bit; 
+	reg [5:0] bt; 
 	reg done;
  
 	initial done = 1;
@@ -49,7 +49,7 @@ module qdiv(
 		if( done && start ) begin
  
 			done <= 1'b0;
-			bit <= N+Q-2;
+			bt <= N+Q-2;
 			quotient <= 0;
 			dividend_copy <= {1'b0,dividend[N-2:0]};
  
@@ -69,18 +69,18 @@ module qdiv(
 				//subtract
 				dividend_copy <= dividend_copy - divider_copy;
 				//set quotient
-				quotient[bit] <= 1'b1;
+				quotient[bt] <= 1'b1;
 			end
  
 			//reduce divisor
 			divider_copy <= divider_copy >> 1;
   
 			//stop condition
-			if(bit == 0)
+			if(bt == 0)
 				done <= 1'b1;
 				
 			//reduce bit counter
-			bit <= bit - 1;	
+			bt <= bt - 1;	
 		end
 	end
 endmodule
