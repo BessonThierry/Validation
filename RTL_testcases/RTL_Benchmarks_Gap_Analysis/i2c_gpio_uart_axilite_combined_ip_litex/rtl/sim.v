@@ -27,10 +27,10 @@ module sim (
 	input  wire [7:0] serial_sink_data,
 	input  wire sys_clk,
 	output wire i2c0_scl,
-	output reg  i2c0_sda_out,
+	output reg  i2c0_sda_out=1,
 	input  wire i2c0_sda_in,
-	output reg  [31:0] gpio_oe,
-	output reg  [31:0] gpio_o,
+	output reg  [31:0] gpio_oe='d0,
+	output reg  [31:0] gpio_o='d0,
 	input  wire [31:0] gpio_i
 );
 
@@ -1925,7 +1925,7 @@ assign i2c0_scl = main_scl;
 assign main_sda_oe = main_oe;
 assign main_sda_w = main_sda0;
 always @(*) begin
-	i2c0_sda_out <= 1'd0;
+	i2c0_sda_out <= 1'd1;
 	if (main_sda_oe) begin
 		i2c0_sda_out <= main_sda_w;
 	end else begin
@@ -4688,7 +4688,7 @@ end
 // Port 0 | Read: Sync  | Write: ---- | 
 reg [31:0] mem[0:6096];
 initial begin
-	$readmemh("mem.init", mem);
+	$readmemh("MEM_FILE_PATH/mem.init", mem);
 end
 reg [31:0] mem_dat0;
 always @(posedge sys_clk_1) begin
@@ -4703,7 +4703,7 @@ assign main_simsoc_dat_r = mem_dat0;
 // Port 0 | Read: Sync  | Write: Sync | Mode: Write-First | Write-Granularity: 8 
 reg [31:0] mem_1[0:874];
 initial begin
-	$readmemh("mem_1.init", mem_1);
+	$readmemh("MEM_FILE_PATH/mem_1.init", mem_1);
 end
 reg [9:0] mem_1_adr0;
 always @(posedge sys_clk_1) begin
@@ -4726,7 +4726,7 @@ assign main_ram_dat_r = mem_1[mem_1_adr0];
 // Port 0 | Read: Sync  | Write: ---- | 
 reg [7:0] mem_2[0:36];
 initial begin
-	$readmemh("mem_2.init", mem_2);
+	$readmemh("MEM_FILE_PATH/mem_2.init", mem_2);
 end
 reg [5:0] mem_2_adr0;
 always @(posedge sys_clk_1) begin
@@ -4741,8 +4741,8 @@ assign builder_csr_bankarray_dat_r = mem_2[mem_2_adr0];
 // Port 0 | Read: Sync  | Write: Sync | Mode: Read-First  | Write-Granularity: 10 
 // Port 1 | Read: Sync  | Write: ---- | 
 reg [9:0] storage[0:15];
-reg [9:0] storage_dat0;
-reg [9:0] storage_dat1;
+reg [9:0] storage_dat0='d0;
+reg [9:0] storage_dat1='d0;
 always @(posedge sys_clk_1) begin
 	if (main_uart_tx_fifo_wrport_we)
 		storage[main_uart_tx_fifo_wrport_adr] <= main_uart_tx_fifo_wrport_dat_w;
